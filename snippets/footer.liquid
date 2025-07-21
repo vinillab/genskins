@@ -1,0 +1,59 @@
+<footer class="footer1_component">
+      <div class="padding-global">
+        <div class="container-large">
+          <div class="padding-vertical padding-small">
+            <div class="footer_wrapper">
+              <a href="#" class="footer1_logo-link w-nav-brand"><img sizes="(max-width: 479px) 98vw, (max-width: 716px) 99vw, 709px" srcset="{{ 'imgi_93_image-4c633060-ae4d-4f5a-8364-fe4dd08da585.png' | asset_img_url: '500x' }} 500w, {{ 'imgi_93_image-4c633060-ae4d-4f5a-8364-fe4dd08da585.png' | asset_url }} 709w" alt="" src="{{ 'imgi_93_image-4c633060-ae4d-4f5a-8364-fe4dd08da585.png' | asset_url }}" loading="lazy" class="footer1_logo"></a>
+              <div class="w-layout-grid footer1_top-wrapper">
+                <div class="footer1_left-wrapper">
+                  <div class="heading-footer">Cadastre seu email</div>
+                  <div class="spacer-small"></div>
+                  <div class="text-size-tiny text-color-black">Cadastre seu e-mail e seja o primeiro a saber das novidades da GENSKINS! </div>
+                  <div class="spacer-xsmall"></div>
+                  <div class="footer1_form-block w-form">
+                    {%- form "contact",  class: "footer1_form" -%}<input class="form_input w-input" maxlength="256" name="contact[email]" data-name="Email 2" placeholder="Enter your email" type="email" id="email-2" required=""><input type="submit" data-wait="Please wait..." class="button w-button" value="Subscribe">{%- assign form_success = form.posted_successfully? -%}{%- assign form_errors = form.errors -%}{%- render "form-general-script", form_success: form_success, form_errors: form_errors -%}{%- endform -%}
+                    <div class="form_message-success-wrapper w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
+                      <div class="form_message-success">
+                        <div>Thank you! Your submission has been received!</div>
+                      </div>
+                    </div>
+                    {%- unless form_success -%}<div class="form_message-error-wrapper w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
+                      <div class="form_message-error">{%- render "form-errors", form_errors: form_errors -%}</div>
+                    </div>{%- endunless -%}
+                  </div>
+                </div>
+                <div id="w-node-_552ec7e2-ea58-c97e-e078-f4189ec55522-9ec55507" class="w-layout-grid footer1_menu-wrapper">
+                  <div id="w-node-_552ec7e2-ea58-c97e-e078-f4189ec55523-9ec55507" class="footer1_link-column">
+                    <div class="heading-footer text-align-center">PRECISA DE AJUDA?<br></div>
+                    <div class="spacer-xsmall"></div>
+                    <div class="footer1_link-list">
+                      <a href="#" class="footer1_link">Políticas de frete</a>
+                      <a href="#" class="footer1_link">Trocas &amp; Devoluções</a>
+                      <a href="#" class="footer1_link">Termos de uso</a>
+                    </div>
+                  </div>
+                  <div id="w-node-_552ec7e2-ea58-c97e-e078-f4189ec5552f-9ec55507" class="footer1_link-column">
+                    <div class="heading-footer text-align-center">nosso contato</div>
+                    <div class="spacer-xsmall"></div>
+                    <div class="footer1_link-list">
+                      <a href="#" class="footer1_link">mygenskins@gmail.com.br</a>
+                    </div>
+                  </div>
+                  <div id="w-node-_552ec7e2-ea58-c97e-e078-f4189ec55536-9ec55507" class="footer1_link-column">
+                    <div class="heading-footer">Segue a gente</div>
+                    <div class="spacer-xsmall"></div>
+                    <div class="footer1_link-list social">
+                      <a href="https://www.instagram.com/genskinsbr/?hl=en" target="_blank" class="footer1_social-link w-inline-block"><img src="{{ 'image-4093f711-dcfc-4786-9c6b-6c58651e4bb8.webp' | asset_url }}" loading="lazy" alt="" class="footer-social-icon"></a>
+                      <a href="#" class="footer1_social-link w-inline-block"><img src="{{ 'image-44446b7c-c8fd-4021-816f-d66dfbeb8966.webp' | asset_url }}" loading="lazy" alt="" class="footer-social-icon"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="footer1_bottom-wrapper">
+                <div class="footer1_credit-text">GENSKINS COMERCIAL IMPORTADORA LTDADireitos reservados. <br>57728715000182 - R. ALMIRANTE TAMANDARÉ,20, CENTRO - ITAJAÍ, SC.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>

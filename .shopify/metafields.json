@@ -1,0 +1,85 @@
+{
+  "article": [],
+  "blog": [],
+  "collection": [],
+  "company": [],
+  "company_location": [],
+  "location": [],
+  "market": [],
+  "order": [],
+  "page": [],
+  "product": [
+    {
+      "key": "color-pattern",
+      "namespace": "shopify",
+      "name": "Cor",
+      "description": "Define a cor ou padrão principal, como azul ou listrado",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "toy-game-material",
+      "namespace": "shopify",
+      "name": "Material de brinquedo/jogo",
+      "description": "Identifica o principal material utilizado em um brinquedo ou jogo, como plástico ou madeira",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "doll-playset-features",
+      "namespace": "shopify",
+      "name": "Características dos bonecos/brinquedos",
+      "description": "Descreve as características especiais de bonecas ou kits de bonecas, como juntas articuladas ou colecionáveis",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "recommended-age-group",
+      "namespace": "shopify",
+      "name": "Faixa etária recomendada",
+      "description": "Identifica a faixa etária adequada para um produto, normalmente brinquedos e jogos; por exemplo, bebês, adolescentes",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "height",
+      "namespace": "custom",
+      "name": "Altura",
+      "description": "A height field used to make the product.",
+      "type": {
+        "name": "dimension",
+        "category": "MEASUREMENT"
+      }
+    },
+    {
+      "key": "width",
+      "namespace": "custom",
+      "name": "Largura",
+      "description": "A width field used to make the product.",
+      "type": {
+        "name": "dimension",
+        "category": "MEASUREMENT"
+      }
+    },
+    {
+      "key": "length",
+      "namespace": "custom",
+      "name": "Comprimento",
+      "description": "A length field used to make the product.",
+      "type": {
+        "name": "dimension",
+        "category": "MEASUREMENT"
+      }
+    }
+  ],
+  "variant": [],
+  "shop": []
+}

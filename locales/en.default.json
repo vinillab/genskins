@@ -1,0 +1,22 @@
+{
+  "general": {
+    "accessibility": {
+      "unit_price_separator": "per"
+    },
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "search": {
+      "no_results_html": "Your search for \"{{ terms }}\" did not yield any results.",
+      "results_with_count": {
+        "one": "{{ count }} result for \"{{ terms }}\"",
+        "other": "{{ count }} results for \"{{ terms }}\""
+      },
+      "heading": "Search our site",
+      "placeholder": "Search",
+      "submit": "Submit",
+      "close": "Close search"
+    }
+  }
+}

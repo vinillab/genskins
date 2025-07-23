@@ -179,8 +179,8 @@
 							// ScrollTrigger configuration with fallbacks
 							scrollTrigger: {
 								trigger: component,
-								start: component.getAttribute('fc-image-scrubbing-start-point') || 'top top',
-								end: component.getAttribute('fc-image-scrubbing-end-point') || 'bottom bottom',
+								start: component.getAttribute('fc-image-scrubbing-start-point') || 'top bottom',
+								end: component.getAttribute('fc-image-scrubbing-end-point') || 'bottom top',
 								scrub: true,
 							},
 						});
@@ -335,11 +335,21 @@
 											</a>
 											<div class="spacer-medium"></div>
 											<div class="button-group is-center">
-												<a
-													href="{{ product.url }}"
-													class="button is-alternate">
-													<div>SHOP</div>
-												</a>
+												{%- if product.available -%}
+													<button
+														type="button"
+														class="button is-alternate"
+														onclick="addToCartAndOpenSidebar('{{ product.selected_or_first_available_variant.id }}', 1)">
+														<div>SHOP</div>
+													</button>
+												{%- else -%}
+													<button
+														type="button"
+														class="button is-alternate"
+														disabled>
+														<div>Sold out</div>
+													</button>
+												{%- endif -%}
 											</div>
 										</div>
 									{% endfor %}
@@ -363,7 +373,7 @@
 									<div class="spacer-medium"></div>
 									<div class="button-group is-center">
 										<a
-											href="#"
+											href="/pages/sobre"
 											class="button is-alternate"
 											>sobre a Genskins</a
 										>
@@ -411,3 +421,86 @@
 	src="{{ 'animations.js' | asset_url }}"
 	type="text/javascript"
 	defer></script>
+
+<style>
+	.button-group {
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.sidebar-cart-trigger {
+		background-color: #333 !important;
+		color: #fff !important;
+	}
+
+	.sidebar-cart-trigger:hover {
+		background-color: #555 !important;
+	}
+</style>
+
+<script>
+	// Function to add product to cart and open sidebar
+	function addToCartAndOpenSidebar(productId, quantity = 1) {
+		// Show loading state
+		const button = event.target;
+		const originalText = button.textContent;
+		button.textContent = 'Adicionando...';
+		button.disabled = true;
+
+		const formData = new FormData();
+		formData.append('id', productId);
+		formData.append('quantity', quantity);
+
+		fetch('/cart/add.js', {
+			method: 'POST',
+			body: formData,
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data.status) {
+					// Error occurred
+					alert('Error adding product to cart: ' + data.description);
+				} else {
+					// Success - update cart count and open sidebar
+					updateCartCount();
+					if (typeof window.openSidebarCart === 'function') {
+						window.openSidebarCart();
+					}
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				alert('Error adding product to cart');
+			})
+			.finally(() => {
+				// Reset button state
+				button.textContent = originalText;
+				button.disabled = false;
+			});
+	}
+
+	// Function to update cart count and sidebar
+	function updateCartCount() {
+		fetch('/cart.js')
+			.then(response => response.json())
+			.then(cart => {
+				console.log('Cart updated:', cart);
+
+				const cartCountElements = document.querySelectorAll('.cart-quantity-text');
+				cartCountElements.forEach(element => {
+					element.textContent = cart.item_count;
+				});
+
+				// Update sidebar cart if it exists with a small delay to ensure DOM is ready
+				if (typeof window.updateCartDisplay === 'function') {
+					setTimeout(() => {
+						window.updateCartDisplay(cart);
+					}, 100);
+				}
+			})
+			.catch(error => {
+				console.error('Error updating cart count:', error);
+			});
+	}
+</script>

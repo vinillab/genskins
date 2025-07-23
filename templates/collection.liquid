@@ -40,7 +40,7 @@
 												</div>
 											{% endfor %}
 										</div>
-										<div class="slider-arrow is-centre-previous hide-mobile-landscape w-slider-arrow-left">
+										<div class="slider-arrow w-slider-arrow-left">
 											<div class="slider-arrow-icon_default w-embed">
 												<svg
 													width="100%"
@@ -52,7 +52,7 @@
 												</svg>
 											</div>
 										</div>
-										<div class="slider-arrow is-centre-next hide-mobile-landscape w-slider-arrow-right">
+										<div class="slider-arrow w-slider-arrow-right">
 											<div class="slider-arrow-icon_default w-embed">
 												<svg
 													width="100%"
@@ -205,14 +205,18 @@
 		fetch('/cart.js')
 			.then(response => response.json())
 			.then(cart => {
+				console.log('Cart updated:', cart);
+
 				const cartCountElements = document.querySelectorAll('.cart-quantity-text');
 				cartCountElements.forEach(element => {
 					element.textContent = cart.item_count;
 				});
 
-				// Update sidebar cart if it exists
+				// Update sidebar cart if it exists with a small delay to ensure DOM is ready
 				if (typeof window.updateCartDisplay === 'function') {
-					window.updateCartDisplay(cart);
+					setTimeout(() => {
+						window.updateCartDisplay(cart);
+					}, 100);
 				}
 			})
 			.catch(error => {

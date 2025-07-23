@@ -357,6 +357,18 @@
 				sidebarCart.classList.add('active');
 			}, 10);
 			document.body.style.overflow = 'hidden';
+
+			// Refresh cart display when opening
+			fetch('/cart.js')
+				.then(response => response.json())
+				.then(cart => {
+					if (typeof window.updateCartDisplay === 'function') {
+						window.updateCartDisplay(cart);
+					}
+				})
+				.catch(error => {
+					console.error('Error refreshing cart:', error);
+				});
 		};
 
 		// Function to close sidebar cart
@@ -441,6 +453,8 @@
 
 		// Update cart display
 		window.updateCartDisplay = function (cart) {
+			console.log('Updating cart display with:', cart);
+
 			// Update cart count in navbar
 			const cartCountElements = document.querySelectorAll('.cart-quantity-text');
 			cartCountElements.forEach(element => {
@@ -463,22 +477,53 @@
 		// Update cart items without reloading
 		window.updateCartItems = function (cart) {
 			const cartItemsContainer = document.querySelector('.sidebar-cart-items');
+			const sidebarCart = document.getElementById('sidebar-cart');
+			let cartFooter = document.querySelector('.sidebar-cart-footer');
 
 			if (cart.item_count === 0) {
-				cartItemsContainer.innerHTML = '<div class="sidebar-cart-empty"><p>Your cart is empty.</p></div>';
+				cartItemsContainer.innerHTML = '<div class="sidebar-cart-empty"><p>Seu carrinho está vazio.</p></div>';
+				if (cartFooter) {
+					cartFooter.style.display = 'none';
+				}
 				return;
+			}
+
+			// Create footer if it doesn't exist
+			if (!cartFooter) {
+				cartFooter = document.createElement('div');
+				cartFooter.className = 'sidebar-cart-footer';
+				cartFooter.innerHTML = `
+					<div class="sidebar-cart-total">
+						<span>Total estimado</span>
+						<span class="total-amount">${formatMoney(cart.total_price)} BRL</span>
+					</div>
+					<div class="sidebar-cart-note">Tributos e frete calculados no checkout.</div>
+					<a href="/checkout" class="sidebar-cart-checkout-btn">
+						Finalizar a compra
+					</a>
+				`;
+				sidebarCart.appendChild(cartFooter);
+			} else {
+				// Show footer if it was hidden
+				cartFooter.style.display = 'block';
 			}
 
 			let itemsHTML = '';
 			cart.items.forEach(item => {
+				// Use the correct property names from Shopify cart API
+				const itemImage = item.image || item.featured_image || '';
+				const itemTitle = item.product_title || item.title || '';
+				const itemPrice = item.final_price || item.price || 0;
+				const itemLinePrice = item.final_line_price || itemPrice * item.quantity || 0;
+
 				itemsHTML += `
         <div class="sidebar-cart-item" data-item-key="${item.key}">
           <div class="sidebar-cart-item-image">
-            <img src="${item.image}" alt="${item.title}" width="60" height="60">
+            <img src="${itemImage}" alt="${itemTitle}" width="60" height="60">
           </div>
           <div class="sidebar-cart-item-details">
-            <div class="sidebar-cart-item-title">${item.product_title}</div>
-            <div class="sidebar-cart-item-price">${formatMoney(item.final_price)}</div>
+            <div class="sidebar-cart-item-title">${itemTitle}</div>
+            <div class="sidebar-cart-item-price">${formatMoney(itemPrice)}</div>
             <div class="sidebar-cart-item-quantity">
               <button class="quantity-btn quantity-decrease" data-item-key="${item.key}" data-product-id="${item.product_id}">-</button>
               <span class="quantity-display">${item.quantity}</span>
@@ -489,7 +534,7 @@
                 </svg>
               </button>
             </div>
-            <div class="sidebar-cart-item-total">${formatMoney(item.final_line_price)}</div>
+            <div class="sidebar-cart-item-total">${formatMoney(itemLinePrice)}</div>
           </div>
         </div>
       `;
@@ -501,8 +546,19 @@
 		// Update cart total
 		window.updateCartTotal = function (cart) {
 			const totalAmount = document.querySelector('.total-amount');
+			const cartFooter = document.querySelector('.sidebar-cart-footer');
+
 			if (totalAmount) {
 				totalAmount.textContent = `${formatMoney(cart.total_price)} BRL`;
+			}
+
+			// Ensure cart footer is visible when there are items
+			if (cartFooter) {
+				if (cart.item_count > 0) {
+					cartFooter.style.display = 'block';
+				} else {
+					cartFooter.style.display = 'none';
+				}
 			}
 		};
 
@@ -510,6 +566,19 @@
 		window.formatMoney = function (cents) {
 			const amount = (cents / 100).toFixed(2);
 			return `R$ ${amount.replace('.', ',')}`;
+		};
+
+		// Force refresh cart display - useful for debugging
+		window.forceRefreshCart = function () {
+			fetch('/cart.js')
+				.then(response => response.json())
+				.then(cart => {
+					console.log('Force refreshing cart:', cart);
+					updateCartDisplay(cart);
+				})
+				.catch(error => {
+					console.error('Error force refreshing cart:', error);
+				});
 		};
 	});
 </script>

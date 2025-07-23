@@ -295,14 +295,18 @@
 		fetch('/cart.js')
 			.then(response => response.json())
 			.then(cart => {
+				console.log('Cart updated:', cart);
+
 				const cartCountElements = document.querySelectorAll('.cart-quantity-text');
 				cartCountElements.forEach(element => {
 					element.textContent = cart.item_count;
 				});
 
-				// Update sidebar cart if it exists
+				// Update sidebar cart if it exists with a small delay to ensure DOM is ready
 				if (typeof window.updateCartDisplay === 'function') {
-					window.updateCartDisplay(cart);
+					setTimeout(() => {
+						window.updateCartDisplay(cart);
+					}, 100);
 				}
 			})
 			.catch(error => {

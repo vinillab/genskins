@@ -6353,7 +6353,6 @@ figcaption {
 
 .section_header5.text-color-white {
   min-height: 80svh;
-  display: none;
 }
 
 .header5_content {
@@ -7524,10 +7523,6 @@ figcaption {
 
   .navbar1_logo-link {
     padding-left: 0;
-  }
-
-  .section_header5.text-color-white {
-    display: block;
   }
 
   .header5_background-image-wrapper {

@@ -21,35 +21,46 @@
 							<div class="text-size-tiny text-color-black">Cadastre seu e-mail e seja o primeiro a saber das novidades da GENSKINS!</div>
 							<div class="spacer-xsmall"></div>
 							<div class="footer1_form-block w-form">
-								{%- form 'contact', class: 'footer1_form' -%}
+								{%- form 'customer', class: 'footer1_form' -%}
 									<input
 										class="form_input w-input"
 										maxlength="256"
 										name="contact[email]"
-										data-name="Email 2"
-										placeholder="Enter your email"
+										data-name="Email"
+										placeholder="Informe seu email"
 										type="email"
-										id="email-2"
+										id="newsletter-email"
+										autocorrect="off"
+										autocapitalize="off"
+										autocomplete="email"
 										required=""
+										{% if form.errors %}
+											autofocus
+											aria-invalid="true"
+										{% endif %}
 									><input
 										type="submit"
-										data-wait="Please wait..."
+										data-wait="Aguarde..."
 										class="button w-button"
-										value="Subscribe">
-									{%- assign form_success = form.posted_successfully? -%}
-									{%- assign form_errors = form.errors -%}
-									{%- render 'form-general-script', form_success: form_success, form_errors: form_errors -%}
+										value="Inscrever-se">
 								{%- endform -%}
-								<div class="form_message-success-wrapper w-form-done  {% if form_success %}form-posted-successfully{% endif %}">
-									<div class="form_message-success">
-										<div>Thank you! Your submission has been received!</div>
+								{%- if form.posted_successfully? -%}
+									<div class="form_message-success-wrapper w-form-done form-posted-successfully">
+										<div class="form_message-success">
+											<div>Obrigado! Seu e-mail foi cadastrado com sucesso!</div>
+										</div>
 									</div>
-								</div>
-								{%- unless form_success -%}
-									<div class="form_message-error-wrapper w-form-fail  {% if form.errors %}form-has-errors{% endif %}">
-										<div class="form_message-error">{%- render 'form-errors', form_errors: form_errors -%}</div>
+								{%- endif -%}
+								{%- if form.errors -%}
+									<div class="form_message-error-wrapper w-form-fail form-has-errors">
+										<div class="form_message-error">
+											{%- if form.errors.translated_fields.email -%}
+												{{ form.errors.translated_fields.email | capitalize }}
+											{%- endif -%}
+											{{ form.errors.messages.email }}
+										</div>
 									</div>
-								{%- endunless -%}
+								{%- endif -%}
 							</div>
 						</div>
 						<div
@@ -64,7 +75,7 @@
 									<a
 										href="/pages/politica-de-frete-e-entrega"
 										class="footer1_link"
-										>Políticas de frete</a
+										>Políticas de Frete</a
 									>
 									<a
 										href="/pages/politica-de-troca-e-devolucao"

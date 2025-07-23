@@ -1,24 +1,247 @@
-<div data-animation="default" class="navbar2_component w-nav" data-easing2="ease" fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium" data-w-id="c141adcc-f338-7c02-e8e1-c429d7bfbdec" role="banner" data-duration="400">
-      <div class="navbar2_container">
-        <a href="{{ routes.root_url }}" aria-current="page" class="navbar2_logo-link w-nav-brand w--current"><img loading="lazy" src="{{ 'imgi_29_image-09e34139-179e-4f17-98a9-08c2aab39125.png' | asset_url }}" alt="" class="navbar_logo"></a>
-        <nav role="navigation" id="w-node-c141adcc-f338-7c02-e8e1-c429d7bfbdf0-d7bfbdec" class="navbar2_menu is-page-height-tablet w-nav-menu">
-          <a href="{{ routes.root_url }}" aria-current="page" class="navbar2_link w-nav-link w--current">Home</a>
-          <a href="{{ pages["shop"].url }}" class="navbar2_link w-nav-link">Shop</a>
-          <a href="{{ pages["sobre"].url }}" class="navbar2_link w-nav-link">Sobre</a>
-        </nav>
-        <div id="w-node-c141adcc-f338-7c02-e8e1-c429d7bfbdf7-d7bfbdec" class="navbar2_button-wrapper">
-          <a href="#" class="button is-link is-icon w-inline-block">
-            <div class="text-cart">(1)</div><img src="{{ 'imgi_42_rasterizedimage-10dd97b0-3363-406c-aee7-7cfca5cfe3ff.png' | asset_url }}" loading="lazy" alt="" class="icon-shop">
-          </a>
-          <div class="navbar2_menu-button w-nav-button">
-            <div class="menu-icon2">
-              <div class="menu-icon2_line-top"></div>
-              <div class="menu-icon2_line-middle">
-                <div class="menu-icon2_line-middle-inner"></div>
-              </div>
-              <div class="menu-icon2_line-bottom"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div
+	data-animation="default"
+	class="navbar2_component w-nav"
+	data-easing2="ease"
+	fs-scrolldisable-element="smart-nav"
+	data-easing="ease"
+	data-collapse="medium"
+	data-w-id="c141adcc-f338-7c02-e8d1-c429d7bfbdec"
+	role="banner"
+	data-duration="400">
+	<div class="navbar2_container">
+		<a
+			href="{{ routes.root_url }}"
+			aria-current="page"
+			class="navbar2_logo-link w-nav-brand w--current"
+			><img
+				loading="lazy"
+				src="{{ 'imgi_29_image-09e34139-179e-4f17-98a9-08c2aab39125.png' | asset_url }}"
+				alt=""
+				class="navbar_logo"
+		></a>
+		<nav
+			role="navigation"
+			id="w-node-c141adcc-f338-7c02-e8d1-c429d7bfbdf0-d7bfbdec"
+			class="navbar2_menu is-page-height-tablet w-nav-menu">
+			{% if settings.main_menu != blank %}
+				{% for link in linklists[settings.main_menu].links %}
+					<a
+						href="{{ link.url }}"
+						{% if link.active %}
+							aria-current="page"
+						{% endif %}
+						class="navbar2_link w-nav-link{% if link.active %} w--current{% endif %}">
+						{{- link.title -}}
+					</a>
+				{% endfor %}
+			{% else %}
+				<a
+					href="{{ routes.root_url }}"
+					aria-current="page"
+					class="navbar2_link w-nav-link w--current"
+					>Home</a
+				>
+				<a
+					href="{{ pages["shop"].url }}"
+					class="navbar2_link w-nav-link"
+					>Shop</a
+				>
+				<a
+					href="{{ pages["sobre"].url }}"
+					class="navbar2_link w-nav-link"
+					>Sobre</a
+				>
+			{% endif %}
+		</nav>
+		<div
+			id="w-node-c141adcc-f338-7c02-e8d1-c429d7bfbdf7-d7bfbdec"
+			class="navbar2_button-wrapper">
+			<div
+				class="cart-container"
+				style="display: flex; align-items: center; gap: 8px;">
+				<span
+					class="cart-quantity-text"
+					style="font-size: 14px; color: inherit;">
+					{{- cart.item_count -}}
+				</span>
+				<div
+					data-node-type="commerce-cart-wrapper"
+					data-wf-cart-type="modal"
+					data-wf-cart-duration="300ms"
+					data-wf-cart-easing="ease-out-quad"
+					data-open-product=""
+					class="w-commerce-commercecartwrapper">
+					<a
+						href="#"
+						data-node-type="commerce-cart-open-link"
+						class="button is-link is-icon w-inline-block">
+						<img
+							src="{{ 'imgi_42_rasterizedimage-10dd97b0-3363-406c-aee7-7cfca5cfe3ff.png' | asset_url }}"
+							loading="lazy"
+							alt=""
+							class="icon-shop"
+							width="24"
+							height="24">
+					</a>
+					<div
+						data-node-type="commerce-cart-container-wrapper"
+						style="display: none;"
+						class="w-commerce-commercecartcontainerwrapper">
+						<div
+							data-node-type="commerce-cart-container"
+							class="w-commerce-commercecartcontainer">
+							<div
+								data-node-type="commerce-cart-close-link"
+								class="w-commerce-commercecartcloselink w-inline-block">
+								<div class="w-embed">
+									<svg
+										width="16px"
+										height="16px"
+										viewBox="0 0 16 16"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path d="M3.41421 2.58579L2 4L6.58579 8.58579L2 13.1716L3.41421 14.5858L8 10L12.5858 14.5858L14 13.1716L9.41421 8.58579L14 4L12.5858 2.58579L8 7.17157L3.41421 2.58579Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="w-commerce-commercecartheader">
+								<h4 class="w-commerce-commercecartheading">Cart</h4>
+							</div>
+							<div class="w-commerce-commercecartformwrapper">
+								<form
+									data-node-type="commerce-cart-form"
+									class="w-commerce-commercecartform">
+									<div
+										data-node-type="commerce-cart-list"
+										class="w-commerce-commercecartlist">
+										{% for item in cart.items %}
+											<div
+												data-node-type="commerce-cart-item"
+												class="w-commerce-commercecartitem">
+												<img
+													data-node-type="commerce-cart-item-image"
+													class="w-commerce-commercecartitemimage"
+													src="{{ item.image | img_url: '100x' }}"
+													alt="{{ item.title }}"
+													width="100"
+													height="100">
+												<div
+													data-node-type="commerce-cart-iteminfo"
+													class="w-commerce-commercecartiteminfo">
+													<div
+														data-node-type="commerce-cart-product-name"
+														class="w-commerce-commercecartproductname">
+														{{ item.product.title }}
+													</div>
+													<div
+														data-node-type="commerce-cart-product-price"
+														class="w-commerce-commercecartproductprice">
+														{{ item.final_line_price | money }}
+													</div>
+													<input
+														aria-label="Quantity"
+														data-node-type="commerce-cart-quantity"
+														class="w-commerce-commercecartquantityinput"
+														type="number"
+														name="updates[]"
+														value="{{ item.quantity }}"
+														min="0"
+														id="{{ item.key }}"
+														data-product-id="{{ item.product_id }}">
+													<a
+														href="#"
+														data-node-type="commerce-cart-remove-link"
+														class="w-commerce-commercecartremovelink w-inline-block"
+														data-product-id="{{ item.key }}">
+														<div class="w-embed">
+															<svg
+																width="16px"
+																height="16px"
+																viewBox="0 0 16 16"
+																fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5"></path>
+															</svg>
+														</div>
+													</a>
+												</div>
+											</div>
+										{% endfor %}
+									</div>
+									<div class="w-commerce-commercecartfooter">
+										<div class="w-commerce-commercecartlineitem">
+											<div>Subtotal</div>
+											<div
+												data-node-type="commerce-cart-subtotal"
+												class="w-commerce-commercecartordervalue">
+												{{ cart.total_price | money }}
+											</div>
+										</div>
+										<div class="w-commerce-commercecartlineitem">
+											<div>Taxes</div>
+											<div
+												data-node-type="commerce-cart-taxes"
+												class="w-commerce-commercecartordervalue">
+												{{ cart.total_tax | money }}
+											</div>
+										</div>
+										<div class="w-commerce-commercecartlineitem">
+											<div>Total</div>
+											<div
+												data-node-type="commerce-cart-total"
+												class="w-commerce-commercecartordervalue">
+												{{ cart.total_price | money }}
+											</div>
+										</div>
+									</div>
+									<div class="w-commerce-commercecartbuttongroup">
+										<a
+											href="{{ routes.cart_url }}"
+											data-node-type="commerce-cart-checkout-button"
+											class="w-commerce-commercecartcheckoutbutton w-button"
+											>Checkout</a
+										>
+									</div>
+								</form>
+								<div
+									data-node-type="commerce-cart-emptystate"
+									class="w-commerce-commercecartemptystate"
+									style="display: none;">
+									<div>Your cart is empty.</div>
+								</div>
+								<script
+									type="text/x-wf-template"
+									id="wf-template-687e7b1fe546230171c3f850000000000051">
+									<div data-node-type="commerce-cart-item" class="w-commerce-commercecartitem">
+									  <img data-node-type="commerce-cart-item-image" class="w-commerce-commercecartitemimage" src="<%= it.image %>" alt="<%= it.title %>">
+									  <div data-node-type="commerce-cart-iteminfo" class="w-commerce-commercecartiteminfo">
+									    <div data-node-type="commerce-cart-product-name" class="w-commerce-commercecartproductname"><%= it.title %></div>
+									    <div data-node-type="commerce-cart-product-price" class="w-commerce-commercecartproductprice"><%= it.price %></div>
+									    <input aria-label="Quantity" data-node-type="commerce-cart-quantity" class="w-commerce-commercecartquantityinput" type="number" name="updates[]" value="<%= it.quantity %>" min="0" id="<%= it.id %>" data-product-id="<%= it.product_id %>">
+									    <a href="#" data-node-type="commerce-cart-remove-link" class="w-commerce-commercecartremovelink w-inline-block" data-product-id="<%= it.id %>">
+									      <div class="w-embed">
+									        <svg width="16px" height="16px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									          <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5"></path>
+									        </svg>
+									      </div>
+									    </a>
+									  </div>
+									</div>
+								</script>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="navbar2_menu-button w-nav-button">
+				<div class="menu-icon2">
+					<div class="menu-icon2_line-top"></div>
+					<div class="menu-icon2_line-middle">
+						<div class="menu-icon2_line-middle-inner"></div>
+					</div>
+					<div class="menu-icon2_line-bottom"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

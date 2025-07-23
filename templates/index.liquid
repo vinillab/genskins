@@ -178,9 +178,9 @@
 							fps: parseInt(component.getAttribute('fc-image-scrubbing-fps')) || 24,
 							// ScrollTrigger configuration with fallbacks
 							scrollTrigger: {
-								trigger: component,
-								start: component.getAttribute('fc-image-scrubbing-start-point') || 'top bottom',
-								end: component.getAttribute('fc-image-scrubbing-end-point') || 'bottom top',
+								trigger: 'body',
+								start: component.getAttribute('fc-image-scrubbing-start-point') || 'top top',
+								end: component.getAttribute('fc-image-scrubbing-end-point') || 'bottom bottom',
 								scrub: true,
 							},
 						});

@@ -3584,6 +3584,7 @@ figcaption {
 
 .button.is-secondary:hover {
   background-color: var(--color-scheme-1--color);
+  color: var(--_primitives---colors--white);
 }
 
 .button.is-secondary.is-alternate {

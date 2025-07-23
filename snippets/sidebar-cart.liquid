@@ -1,0 +1,515 @@
+<!-- Sidebar Cart Overlay -->
+<div
+	id="sidebar-cart-overlay"
+	class="sidebar-cart-overlay"
+	style="display: none;">
+	<div class="sidebar-cart-backdrop"></div>
+
+	<!-- Sidebar Cart Container -->
+	<div
+		id="sidebar-cart"
+		class="sidebar-cart">
+		<!-- Cart Header -->
+		<div class="sidebar-cart-header">
+			<h3 class="heading-style-h2 sidebar-cart-title">Total de itens: {{ cart.item_count }}</h3>
+			<button
+				id="sidebar-cart-close"
+				class="sidebar-cart-close"
+				aria-label="Close cart">
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 16 16"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path d="M3.41421 2.58579L2 4L6.58579 8.58579L2 13.1716L3.41421 14.5858L8 10L12.5858 14.5858L14 13.1716L9.41421 8.58579L14 4L12.5858 2.58579L8 7.17157L3.41421 2.58579Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+				</svg>
+			</button>
+		</div>
+
+		<!-- Cart Items -->
+		<div class="sidebar-cart-items">
+			{% if cart.item_count > 0 %}
+				{% for item in cart.items %}
+					<div
+						class="sidebar-cart-item"
+						data-item-key="{{ item.key }}">
+						<div class="sidebar-cart-item-image">
+							<img
+								src="{{ item.image | img_url: '100x' }}"
+								alt="{{ item.title }}"
+								width="60"
+								height="60">
+						</div>
+						<div class="sidebar-cart-item-details">
+							<div class="sidebar-cart-item-title">{{ item.product.title }}</div>
+							<div class="sidebar-cart-item-price">{{ item.final_price | money }}</div>
+							<div class="sidebar-cart-item-quantity">
+								<button
+									class="quantity-btn quantity-decrease"
+									data-item-key="{{ item.key }}"
+									data-product-id="{{ item.product_id }}">
+									-
+								</button>
+								<span class="quantity-display">{{ item.quantity }}</span>
+								<button
+									class="quantity-btn quantity-increase"
+									data-item-key="{{ item.key }}"
+									data-product-id="{{ item.product_id }}">
+									+
+								</button>
+								<button
+									class="remove-item-btn"
+									data-item-key="{{ item.key }}"
+									aria-label="Remove item">
+									<svg
+										width="16"
+										height="16"
+										viewBox="0 0 16 16"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5"></path>
+									</svg>
+								</button>
+							</div>
+							<div class="sidebar-cart-item-total">{{ item.final_line_price | money }}</div>
+						</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="sidebar-cart-empty">
+					<p>Seu carrinho está vazio.</p>
+				</div>
+			{% endif %}
+		</div>
+
+		<!-- Cart Footer -->
+		{% if cart.item_count > 0 %}
+			<div class="sidebar-cart-footer">
+				<div class="sidebar-cart-total">
+					<span>Total estimado</span>
+					<span class="total-amount">{{ cart.total_price | money }} BRL</span>
+				</div>
+				<div class="sidebar-cart-note">Tributos e frete calculados no checkout.</div>
+				<a
+					href="/checkout"
+					class="sidebar-cart-checkout-btn">
+					Finalizar a compra
+				</a>
+			</div>
+		{% endif %}
+	</div>
+</div>
+
+<style>
+	.sidebar-cart-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.sidebar-cart-backdrop {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+
+	.sidebar-cart {
+		position: relative;
+		width: 400px;
+		max-width: 90vw;
+		height: 100%;
+		background-color: #f8f8f8;
+		box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+		display: flex;
+		flex-direction: column;
+		transform: translateX(100%);
+		transition: transform 0.3s ease-out;
+		overflow: hidden;
+	}
+
+	.sidebar-cart.active {
+		transform: translateX(0);
+	}
+
+	.sidebar-cart-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px;
+		border-bottom: 1px solid #e0e0e0;
+		background-color: #fff;
+	}
+
+	.sidebar-cart-title {
+		margin: 0;
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-close {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 5px;
+		color: var(--color-scheme-1--color);
+		transition: color 0.2s;
+	}
+
+	.sidebar-cart-close:hover {
+		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-items {
+		flex: 1;
+		overflow-y: auto;
+		padding: 20px;
+		background-color: #f8f8f8;
+	}
+
+	.sidebar-cart-item {
+		display: flex;
+		gap: 15px;
+		padding: 15px 0;
+		border-bottom: 1px solid #e0e0e0;
+		background-color: #fff;
+		margin-bottom: 10px;
+		border-radius: 8px;
+		padding: 15px;
+	}
+
+	.sidebar-cart-item:last-child {
+		border-bottom: none;
+	}
+
+	.sidebar-cart-item-image img {
+		border-radius: 8px;
+		object-fit: cover;
+	}
+
+	.sidebar-cart-item-details {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.sidebar-cart-item-title {
+		font-weight: 600;
+		font-size: 16px;
+		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-item-price {
+		font-size: 14px;
+		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-item-quantity {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.quantity-btn {
+		width: 30px;
+		height: 30px;
+		border: 1px solid var(--color-scheme-1--color);
+		background: #fff;
+		border-radius: 4px;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 16px;
+		font-weight: bold;
+		color: var(--color-scheme-1--color);
+		transition: all 0.2s;
+	}
+
+	.quantity-btn:hover {
+		background: var(--color-scheme-1--color);
+		color: #fff;
+	}
+
+	.quantity-display {
+		min-width: 30px;
+		text-align: center;
+		font-weight: 600;
+		color: var(--color-scheme-1--color);
+	}
+
+	.remove-item-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 5px;
+		color: var(--color-scheme-1--color);
+		transition: color 0.2s;
+	}
+
+	.remove-item-btn:hover {
+		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-item-total {
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-empty {
+		text-align: center;
+		padding: 40px 20px;
+		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-footer {
+		padding: 20px;
+		border-top: 1px solid #e0e0e0;
+		background-color: #fff;
+	}
+
+	.sidebar-cart-discount {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 15px;
+		font-size: 14px;
+	}
+
+	.discount-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: 18px;
+		font-weight: bold;
+		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-total {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 10px;
+		font-weight: 600;
+		font-size: 16px;
+		color: var(--color-scheme-1--color);
+	}
+
+	.total-amount {
+		font-size: 18px;
+		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-note {
+		font-size: 12px;
+		color: var(--color-scheme-1--color);
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	.sidebar-cart-checkout-btn {
+		display: block;
+		width: 100%;
+		padding: 15px;
+		background-color: var(--color-scheme-1--color);
+		color: #fff;
+		text-align: center;
+		text-decoration: none;
+		border-radius: 30px;
+		font-weight: 600;
+		transition: background-color 0.2s;
+	}
+
+	.sidebar-cart-checkout-btn:hover {
+		background-color: var(--color-scheme-1--color);
+		opacity: 0.8;
+	}
+
+	@media (max-width: 768px) {
+		.sidebar-cart {
+			width: 100%;
+			max-width: 100vw;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const sidebarCart = document.getElementById('sidebar-cart');
+		const sidebarCartOverlay = document.getElementById('sidebar-cart-overlay');
+		const closeBtn = document.getElementById('sidebar-cart-close');
+
+		// Function to open sidebar cart
+		window.openSidebarCart = function () {
+			sidebarCartOverlay.style.display = 'flex';
+			setTimeout(() => {
+				sidebarCart.classList.add('active');
+			}, 10);
+			document.body.style.overflow = 'hidden';
+		};
+
+		// Function to close sidebar cart
+		function closeSidebarCart() {
+			sidebarCart.classList.remove('active');
+			setTimeout(() => {
+				sidebarCartOverlay.style.display = 'none';
+				document.body.style.overflow = '';
+			}, 300);
+		}
+
+		// Close button event
+		closeBtn.addEventListener('click', closeSidebarCart);
+
+		// Backdrop click event
+		sidebarCartOverlay.addEventListener('click', function (e) {
+			if (e.target === sidebarCartOverlay) {
+				closeSidebarCart();
+			}
+		});
+
+		// Quantity increase/decrease functionality
+		document.addEventListener('click', function (e) {
+			if (e.target.classList.contains('quantity-increase') || e.target.classList.contains('quantity-decrease')) {
+				const itemKey = e.target.dataset.itemKey;
+				const productId = e.target.dataset.productId;
+				const currentQuantity = parseInt(e.target.parentElement.querySelector('.quantity-display').textContent);
+				const newQuantity = e.target.classList.contains('quantity-increase') ? currentQuantity + 1 : currentQuantity - 1;
+
+				if (newQuantity < 1) return;
+
+				updateCartItem(itemKey, newQuantity);
+			}
+
+			if (e.target.classList.contains('remove-item-btn') || e.target.closest('.remove-item-btn')) {
+				const itemKey = e.target.dataset.itemKey || e.target.closest('.remove-item-btn').dataset.itemKey;
+				removeCartItem(itemKey);
+			}
+		});
+
+		// Update cart item quantity
+		function updateCartItem(itemKey, quantity) {
+			fetch('/cart/change.js', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					id: itemKey,
+					quantity: quantity,
+				}),
+			})
+				.then(response => response.json())
+				.then(cart => {
+					updateCartDisplay(cart);
+				})
+				.catch(error => {
+					console.error('Error updating cart:', error);
+				});
+		}
+
+		// Remove cart item
+		function removeCartItem(itemKey) {
+			fetch('/cart/change.js', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					id: itemKey,
+					quantity: 0,
+				}),
+			})
+				.then(response => response.json())
+				.then(cart => {
+					updateCartDisplay(cart);
+				})
+				.catch(error => {
+					console.error('Error removing item:', error);
+				});
+		}
+
+		// Update cart display
+		window.updateCartDisplay = function (cart) {
+			// Update cart count in navbar
+			const cartCountElements = document.querySelectorAll('.cart-quantity-text');
+			cartCountElements.forEach(element => {
+				element.textContent = cart.item_count;
+			});
+
+			// Update cart title
+			const cartTitle = document.querySelector('.sidebar-cart-title');
+			if (cartTitle) {
+				cartTitle.textContent = `Total de itens: ${cart.item_count}`;
+			}
+
+			// Update cart items dynamically
+			updateCartItems(cart);
+
+			// Update cart total
+			updateCartTotal(cart);
+		};
+
+		// Update cart items without reloading
+		window.updateCartItems = function (cart) {
+			const cartItemsContainer = document.querySelector('.sidebar-cart-items');
+
+			if (cart.item_count === 0) {
+				cartItemsContainer.innerHTML = '<div class="sidebar-cart-empty"><p>Your cart is empty.</p></div>';
+				return;
+			}
+
+			let itemsHTML = '';
+			cart.items.forEach(item => {
+				itemsHTML += `
+        <div class="sidebar-cart-item" data-item-key="${item.key}">
+          <div class="sidebar-cart-item-image">
+            <img src="${item.image}" alt="${item.title}" width="60" height="60">
+          </div>
+          <div class="sidebar-cart-item-details">
+            <div class="sidebar-cart-item-title">${item.product_title}</div>
+            <div class="sidebar-cart-item-price">${formatMoney(item.final_price)}</div>
+            <div class="sidebar-cart-item-quantity">
+              <button class="quantity-btn quantity-decrease" data-item-key="${item.key}" data-product-id="${item.product_id}">-</button>
+              <span class="quantity-display">${item.quantity}</span>
+              <button class="quantity-btn quantity-increase" data-item-key="${item.key}" data-product-id="${item.product_id}">+</button>
+              <button class="remove-item-btn" data-item-key="${item.key}" aria-label="Remove item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="sidebar-cart-item-total">${formatMoney(item.final_line_price)}</div>
+          </div>
+        </div>
+      `;
+			});
+
+			cartItemsContainer.innerHTML = itemsHTML;
+		};
+
+		// Update cart total
+		window.updateCartTotal = function (cart) {
+			const totalAmount = document.querySelector('.total-amount');
+			if (totalAmount) {
+				totalAmount.textContent = `${formatMoney(cart.total_price)} BRL`;
+			}
+		};
+
+		// Format money (simple implementation - you might want to use Shopify's money format)
+		window.formatMoney = function (cents) {
+			const amount = (cents / 100).toFixed(2);
+			return `R$ ${amount.replace('.', ',')}`;
+		};
+	});
+</script>

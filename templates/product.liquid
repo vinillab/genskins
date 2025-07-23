@@ -4,6 +4,7 @@
 <div class="page-wrapper home">
 	{%- render 'global-styles' -%}
 	{%- render 'navbar' -%}
+	{%- render 'sidebar-cart' -%}
 	<main class="main-wrapper">
 		<header class="section_product-header7">
 			<div class="padding-global">
@@ -181,32 +182,33 @@
 										</div>
 
 										<div class="button-group">
-											<button
-												type="submit"
-												name="add"
-												class="button"
-												data-loading-text="Adicionando..."
-												{% unless product.available %}
-													disabled
-												{% endunless %}>
-												{%- if product.available -%}
+											{%- if product.available -%}
+												<button
+													type="button"
+													class="button"
+													onclick="addToCartAndOpenSidebar()">
 													SHOP
-												{%- else -%}
+												</button>
+											{%- else -%}
+												<button
+													type="button"
+													class="button"
+													disabled>
 													Sold out
-												{%- endif -%}
-											</button>
+												</button>
+											{%- endif -%}
 										</div>
 
 										<div
 											class="w-commerce-commerceaddtocartoutofstock"
 											style="display: none;">
-											<div>This product is currently unavailable.</div>
+											<div>Produto indisponível no momento.</div>
 										</div>
 										<div
 											data-node-type="commerce-add-to-cart-error"
 											style="display: none;">
 											<div class="w-form-fail">
-												<div>Please fill in all required fields.</div>
+												<div>Preencha todos os campos obrigatórios.</div>
 											</div>
 										</div>
 									{%- endform -%}
@@ -230,7 +232,81 @@
 	src="{{ 'webflow.js' | asset_url }}"
 	type="text/javascript"
 	defer></script>
-<script
-	src="{{ 'udesly-shopify.min.js' | asset_url }}"
-	type="text/javascript"
-	defer></script>
+
+<style>
+	.button-group {
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.sidebar-cart-trigger {
+		background-color: #333 !important;
+		color: #fff !important;
+	}
+
+	.sidebar-cart-trigger:hover {
+		background-color: #555 !important;
+	}
+</style>
+
+<script>
+	// Function to add product to cart and open sidebar
+	function addToCartAndOpenSidebar() {
+		const form = document.querySelector('.product-header7_default-state');
+		const formData = new FormData(form);
+
+		// Show loading state
+		const button = event.target;
+		const originalText = button.textContent;
+		button.textContent = 'Adicionando...';
+		button.disabled = true;
+
+		fetch('/cart/add.js', {
+			method: 'POST',
+			body: formData,
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data.status) {
+					// Error occurred
+					alert('Error adding product to cart: ' + data.description);
+				} else {
+					// Success - update cart count and open sidebar
+					updateCartCount();
+					if (typeof window.openSidebarCart === 'function') {
+						window.openSidebarCart();
+					}
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				alert('Error adding product to cart');
+			})
+			.finally(() => {
+				// Reset button state
+				button.textContent = originalText;
+				button.disabled = false;
+			});
+	}
+
+	// Function to update cart count and sidebar
+	function updateCartCount() {
+		fetch('/cart.js')
+			.then(response => response.json())
+			.then(cart => {
+				const cartCountElements = document.querySelectorAll('.cart-quantity-text');
+				cartCountElements.forEach(element => {
+					element.textContent = cart.item_count;
+				});
+
+				// Update sidebar cart if it exists
+				if (typeof window.updateCartDisplay === 'function') {
+					window.updateCartDisplay(cart);
+				}
+			})
+			.catch(error => {
+				console.error('Error updating cart count:', error);
+			});
+	}
+</script>

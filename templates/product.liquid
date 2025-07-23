@@ -8,7 +8,7 @@
 		<header class="section_product-header7">
 			<div class="padding-global">
 				<div class="container-large">
-					<div class="padding-section-medium">
+					<div class="padding-section-large">
 						<div class="w-layout-grid product-header7_component">
 							<div class="product-header7_gallery-slider">
 								<div
@@ -180,30 +180,22 @@
 												id="Quantity">
 										</div>
 
-										<button
-											type="submit"
-											name="add"
-											class="button is-add-to-cart-button w-button"
-											data-loading-text="Adicionando..."
-											{% unless product.available %}
-												disabled
-											{% endunless %}>
-											{%- if product.available -%}
-												Adicionar ao carrinho
-											{%- else -%}
-												Sold out
-											{%- endif -%}
-										</button>
-
-										{%- if product.available -%}
+										<div class="button-group">
 											<button
 												type="submit"
-												name="buy_now"
-												class="button is-secondary is-buy-now-button w-button"
-												data-node-type="commerce-buy-now-button">
-												SHOP
+												name="add"
+												class="button"
+												data-loading-text="Adicionando..."
+												{% unless product.available %}
+													disabled
+												{% endunless %}>
+												{%- if product.available -%}
+													SHOP
+												{%- else -%}
+													Sold out
+												{%- endif -%}
 											</button>
-										{%- endif -%}
+										</div>
 
 										<div
 											class="w-commerce-commerceaddtocartoutofstock"

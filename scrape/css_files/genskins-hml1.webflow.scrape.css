@@ -3529,12 +3529,12 @@ figcaption {
 }
 
 .button {
-  border: 1px none var(--_primitives---colors--neutral-darkest);
+  border: 2px solid var(--color-scheme-1--color);
   background-color: var(--color-scheme-1--color);
   color: var(--_primitives---colors--white);
   text-align: center;
   border-radius: 30px;
-  padding: .125rem 3rem;
+  padding: .25rem 3rem;
   text-decoration: none;
   transition: all .2s;
 }
@@ -3573,14 +3573,17 @@ figcaption {
 }
 
 .button.is-secondary {
-  border-width: 2px;
-  border-color: var(--color-scheme-1--color);
+  border: 2px solid var(--color-scheme-1--color);
   background-color: var(--_primitives---opacity--transparent);
   color: var(--color-scheme-1--color);
   padding-top: .25rem;
   padding-bottom: .25rem;
   font-size: 1.1125rem;
   font-weight: 400;
+}
+
+.button.is-secondary:hover {
+  background-color: var(--color-scheme-1--color);
 }
 
 .button.is-secondary.is-alternate {
@@ -5237,8 +5240,8 @@ figcaption {
 }
 
 .footer1_link-list.social {
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
   flex-flow: row;
   justify-content: center;
   align-items: center;
@@ -5961,7 +5964,7 @@ figcaption {
 
 .section_product-header7 {
   background-color: var(--color-scheme-1--background);
-  color: var(--color-scheme-1--text);
+  color: var(--color-scheme-1--color);
   position: relative;
 }
 
@@ -5990,6 +5993,7 @@ figcaption {
 }
 
 .product-header7_slider {
+  background-color: var(--_primitives---colors--white);
   width: 100%;
   height: 80vh;
 }
@@ -6021,7 +6025,7 @@ figcaption {
 }
 
 .product-header7_arrow-left {
-  border: var(--_ui-styles---stroke--border-width) solid var(--color-scheme-1--border);
+  border: var(--_ui-styles---stroke--border-width) none var(--color-scheme-1--border);
   background-color: var(--color-scheme-1--foreground);
   border-radius: 100%;
   justify-content: center;
@@ -6033,7 +6037,7 @@ figcaption {
 }
 
 .product-header7_arrow-icon {
-  color: var(--_primitives---colors--neutral-darkest);
+  color: var(--color-scheme-1--color);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -6043,7 +6047,7 @@ figcaption {
 }
 
 .product-header7_arrow {
-  border: var(--_ui-styles---stroke--border-width) solid var(--color-scheme-1--border);
+  border: var(--_ui-styles---stroke--border-width) none var(--color-scheme-1--border);
   background-color: var(--color-scheme-1--foreground);
   border-radius: 100%;
   justify-content: center;

@@ -172,50 +172,192 @@
 	// GSAP MARQUEE ANIMATIONS
 	// ========================================
 	function initGSAPMarquees() {
+		const marqueeTracks = document.querySelectorAll(".gsap-marquee-track");
+		const isMobile = window.innerWidth <= 768;
+
+		// If no marquees found, return early
+		if (marqueeTracks.length === 0) return;
+
+		// If GSAP isn't loaded yet, try again in a moment
 		if (typeof gsap === "undefined") {
-			// If GSAP isn't loaded yet, try again in a moment
 			setTimeout(initGSAPMarquees, 100);
 			return;
 		}
 
-		const marqueeTracks = document.querySelectorAll(".gsap-marquee-track");
-
-		marqueeTracks.forEach(track => {
+		marqueeTracks.forEach((track, index) => {
 			const speed = parseFloat(track.dataset.speed) || 20;
 			const direction = track.dataset.direction || "left";
 			const items = track.querySelectorAll(".gsap-marquee-item");
+			const images = track.querySelectorAll(".gsap-marquee-image");
 
-			if (items.length === 0) return;
+			if (items.length === 0) {
+				console.warn(`Marquee ${index + 1}: No items found`);
+				return;
+			}
 
-			// Calculate the width of half the items (since we duplicated them)
-			const itemWidth = items[0].offsetWidth;
-			const halfWidth = itemWidth * (items.length / 2);
+			// Safari-compatible function to get element width
+			function getElementWidth(element) {
+				// Force a reflow to ensure Safari calculates the width correctly
+				element.offsetHeight;
+				return element.offsetWidth || element.getBoundingClientRect().width;
+			}
 
-			// Create the infinite animation
-			// Move by half the width to create seamless loop with duplicated items
-			const animation = gsap.to(track, {
-				x: direction === "right" ? halfWidth : -halfWidth,
-				duration: halfWidth / speed,
-				ease: "none",
-				repeat: -1,
-			});
-
-			// Pause animation when not in viewport for performance
-			const observer = new IntersectionObserver(
-				entries => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							animation.play();
-						} else {
-							animation.pause();
-						}
+			// Wait for images to load before calculating dimensions
+			function waitForImages() {
+				return new Promise(resolve => {
+					const imagePromises = Array.from(images).map(img => {
+						return new Promise(imgResolve => {
+							if (img.complete) {
+								imgResolve();
+							} else {
+								img.addEventListener("load", imgResolve, { once: true });
+								img.addEventListener("error", imgResolve, { once: true });
+							}
+						});
 					});
-				},
-				{ threshold: 0.1 }
-			);
 
-			observer.observe(track);
+					Promise.all(imagePromises).then(() => {
+						// Add a small delay to ensure Safari has rendered everything
+						setTimeout(resolve, 50);
+					});
+				});
+			}
+
+			// Initialize the marquee after images are loaded
+			waitForImages()
+				.then(() => {
+					// Force a reflow to ensure Safari has calculated all dimensions
+					track.offsetHeight;
+
+					// Get the width of the first item with Safari compatibility
+					const firstItem = items[0];
+					const itemWidth = getElementWidth(firstItem);
+
+					// If we still can't get a valid width, try alternative methods
+					if (!itemWidth || itemWidth === 0) {
+						// Try getting width from computed styles
+						const computedStyle = window.getComputedStyle(firstItem);
+						const width = parseFloat(computedStyle.width) || 60; // fallback to 60px
+
+						// Calculate half width based on number of items
+						const halfWidth = width * (items.length / 2);
+
+						// Create the animation with fallback values
+						createMarqueeAnimation(track, halfWidth, speed, direction);
+					} else {
+						// Calculate the width of half the items (since we duplicated them)
+						const halfWidth = itemWidth * (items.length / 2);
+
+						// Create the animation
+						createMarqueeAnimation(track, halfWidth, speed, direction);
+					}
+				})
+				.catch(() => {
+					// Fallback: Use CSS animation if JavaScript fails
+					enableCSSFallback(track, speed, direction);
+				});
 		});
+
+		// Separate function to create the animation
+		function createMarqueeAnimation(track, halfWidth, speed, direction) {
+			// Safari optimization: Use transform3d for hardware acceleration
+			let animation;
+
+			if (direction === "right") {
+				// For right direction: start from negative position and move to 0
+				gsap.set(track, { x: -halfWidth });
+				animation = gsap.to(track, {
+					x: 0,
+					duration: halfWidth / speed,
+					ease: "none",
+					repeat: -1,
+					// Safari-specific optimizations
+					force3D: true,
+					transformOrigin: "0 0",
+					onStart: function () {
+						// Add animating class for Safari optimizations
+						track.classList.add("animating");
+					},
+					onComplete: function () {
+						// Remove animating class when animation completes (though it repeats infinitely)
+						track.classList.remove("animating");
+					},
+				});
+			} else {
+				// For left direction: start from 0 and move to negative position
+				animation = gsap.to(track, {
+					x: -halfWidth,
+					duration: halfWidth / speed,
+					ease: "none",
+					repeat: -1,
+					// Safari-specific optimizations
+					force3D: true,
+					transformOrigin: "0 0",
+					onStart: function () {
+						// Add animating class for Safari optimizations
+						track.classList.add("animating");
+					},
+					onComplete: function () {
+						// Remove animating class when animation completes (though it repeats infinitely)
+						track.classList.remove("animating");
+					},
+				});
+			}
+
+			// Mobile-optimized intersection observer
+			const isMobile = window.innerWidth <= 768;
+
+			if (isMobile) {
+				// On mobile, start animation immediately without intersection observer
+				setTimeout(() => {
+					animation.play();
+					track.classList.add("animating");
+				}, 100);
+			} else if ("IntersectionObserver" in window) {
+				const observer = new IntersectionObserver(
+					entries => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								// Mobile-optimized delay
+								const delay = window.innerWidth <= 768 ? 50 : 10;
+								setTimeout(() => {
+									animation.play();
+									track.classList.add("animating");
+								}, delay);
+							} else {
+								animation.pause();
+								track.classList.remove("animating");
+							}
+						});
+					},
+					{
+						threshold: 0.1,
+						rootMargin: window.innerWidth <= 768 ? "100px" : "50px", // Larger margin for mobile
+					}
+				);
+
+				observer.observe(track);
+			} else {
+				// Fallback for browsers without IntersectionObserver
+				animation.play();
+				track.classList.add("animating");
+			}
+
+			// Mobile and Safari-specific performance optimization
+			const isSafari = navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome");
+
+			if (isMobile || isSafari) {
+				// Reduce animation complexity for mobile and Safari
+				animation.timeScale(isMobile ? 0.6 : 0.8);
+			}
+		}
+
+		// CSS fallback for when GSAP fails
+		function enableCSSFallback(track, speed, direction) {
+			const animationName = direction === "right" ? "marquee-right" : "marquee-left";
+			track.style.animation = `${animationName} ${speed}s linear infinite`;
+			track.classList.add("css-fallback");
+		}
 	}
 
 	// ========================================
@@ -261,6 +403,13 @@
 				// Refresh ScrollTrigger on resize
 				if (typeof ScrollTrigger !== "undefined") {
 					ScrollTrigger.refresh();
+				}
+
+				// Reinitialize marquees on orientation change for mobile
+				if (window.innerWidth <= 768) {
+					setTimeout(() => {
+						initGSAPMarquees();
+					}, 100);
 				}
 			}, 250)
 		);

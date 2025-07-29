@@ -307,7 +307,9 @@
 								<div class="w-layout-grid product8_list">
 									{% for product in collections.all.products limit: 3 %}
 										<div class="product8_item">
-											<div class="product8_item-link w-inline-block">
+											<a
+												href="{{ product.url }}"
+												class="product8_item-link w-inline-block">
 												<div class="product8_image-wrapper">
 													{% if product.images.size > 0 %}
 														<img
@@ -342,7 +344,7 @@
 														<div class="text-size-large text-weight-semibold">{{ product.price | money }}</div>
 													</div>
 												</div>
-											</div>
+											</a>
 											<div class="spacer-medium hide-tablet"></div>
 											<div class="button-group is-center">
 												{%- if product.available -%}

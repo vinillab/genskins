@@ -2076,9 +2076,9 @@ textarea.w-input, textarea.w-select {
 :root {
   --color-scheme-1--background: var(--_primitives---colors--white);
   --_typography---font-styles--body: Reservationwide, Arial, sans-serif;
-  --color-scheme-1--color: #001aff;
-  --_typography---font-styles--heading: Popstone, Arial, sans-serif;
   --color-scheme-1--text: var(--_primitives---colors--neutral-darkest);
+  --_typography---font-styles--heading: Popstone, Arial, sans-serif;
+  --color-scheme-1--color: #001aff;
   --_primitives---colors--white: #fff;
   --light-blue: #b2c0dd;
   --blue-bg: #2b52a2;
@@ -2907,7 +2907,7 @@ textarea.w-input, textarea.w-select {
 body {
   background-color: var(--color-scheme-1--background);
   font-family: var(--_typography---font-styles--body);
-  color: var(--color-scheme-1--color);
+  color: var(--color-scheme-1--text);
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -5539,6 +5539,7 @@ figcaption {
 }
 
 .faq6_accordion.last {
+  border-radius: var(--_ui-styles---radius--small);
   border-bottom-style: solid;
 }
 
@@ -5591,7 +5592,7 @@ figcaption {
 }
 
 .cta53_card.text-color-white {
-  min-height: 70svh;
+  min-height: 80svh;
 }
 
 .cta53_card-content {
@@ -5617,6 +5618,7 @@ figcaption {
   object-fit: cover;
   border-radius: 30px;
   width: 100%;
+  height: 100%;
   position: absolute;
   inset: 0%;
 }
@@ -6551,10 +6553,6 @@ figcaption {
   color: var(--_primitives---colors--white);
 }
 
-.text-heading-sobre {
-  text-align: center;
-}
-
 @media screen and (max-width: 991px) {
   h1 {
     font-size: 3.25rem;
@@ -6981,7 +6979,7 @@ figcaption {
 
   .layout192_content {
     grid-column-gap: 3rem;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-auto-flow: row;
     min-height: auto;
   }
@@ -6994,14 +6992,7 @@ figcaption {
     text-align: center;
   }
 
-  .formula_content {
-    grid-column-gap: 3rem;
-    grid-template-columns: 1fr;
-    grid-auto-flow: row;
-    min-height: auto;
-  }
-
-  .faq6_content {
+  .formula_content, .faq6_content {
     grid-column-gap: 3rem;
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: row;
@@ -7010,10 +7001,6 @@ figcaption {
 
   .cta53_card {
     padding: 3rem;
-  }
-
-  .cta53_card.text-color-white {
-    min-height: 40svh;
   }
 
   .layout195_content {
@@ -7227,10 +7214,6 @@ figcaption {
 }
 
 @media screen and (max-width: 767px) {
-  body {
-    color: var(--color-scheme-1--color);
-  }
-
   h1 {
     font-size: 2.5rem;
   }
@@ -7433,11 +7416,6 @@ figcaption {
     width: 100%;
   }
 
-  .button.white {
-    border-color: var(--_primitives---colors--white);
-    background-color: #ffffffb3;
-  }
-
   .heading-style-h4 {
     font-size: 1.5rem;
     line-height: 1.4;
@@ -7445,10 +7423,6 @@ figcaption {
 
   .heading-style-h3 {
     font-size: 2rem;
-  }
-
-  .heading-style-h3.heading-sobre {
-    font-size: 1rem;
   }
 
   .text-style-nowrap {
@@ -7478,7 +7452,7 @@ figcaption {
     padding-bottom: 4rem;
   }
 
-  .padding-section-large.sobre, .padding-section-large.shop {
+  .padding-section-large.shop {
     padding-top: 7rem;
   }
 
@@ -7593,10 +7567,6 @@ figcaption {
     height: 100%;
   }
 
-  .section_shop {
-    color: var(--color-scheme-1--color);
-  }
-
   .product8_heading-wrapper {
     grid-row-gap: 2rem;
     flex-direction: column;
@@ -7649,17 +7619,6 @@ figcaption {
     grid-template-columns: 1fr;
   }
 
-  .layout192_image-wrapper {
-    border-radius: var(--_ui-styles---radius--medium);
-  }
-
-  .layout192_content-right {
-    border-style: none;
-    padding-top: 0;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
   .heading-style-h2-2 {
     font-size: 2.25rem;
   }
@@ -7678,7 +7637,7 @@ figcaption {
   }
 
   .faq6_question {
-    padding: 1rem 0;
+    padding: 1rem 1.25rem;
   }
 
   .faq6_icon-wrapper {
@@ -7686,20 +7645,12 @@ figcaption {
   }
 
   .faq6_answer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .formula_content-left {
-    padding-right: 2rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .cta53_card {
     padding: 2rem;
-  }
-
-  .cta53_card.text-color-white {
-    min-height: 273px;
   }
 
   .layout195_content {
@@ -7746,10 +7697,6 @@ figcaption {
 
   .main-container {
     padding: 4rem 2.5rem;
-  }
-
-  .sobre-hero-image {
-    border-radius: var(--_ui-styles---radius--small);
   }
 
   .product-header7_component {
@@ -7833,12 +7780,6 @@ figcaption {
 
   .button-shop.full {
     width: 100%;
-  }
-
-  .text-heading-sobre {
-    max-width: 20rem;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -7935,14 +7876,6 @@ figcaption {
     line-height: 1;
   }
 
-  .heading-style-h3.heading-sobre {
-    font-size: .85rem;
-  }
-
-  .text-rich-text p {
-    font-size: 1rem;
-  }
-
   .rl-styleguide_component {
     grid-template-columns: 1fr;
   }
@@ -8001,33 +7934,7 @@ figcaption {
     text-align: left;
   }
 
-  .layout192_content {
-    grid-template-columns: 1fr;
-  }
-
-  .formula_content {
-    grid-template-rows: auto auto;
-    grid-template-columns: 1fr;
-  }
-
-  .faq6_content {
-    grid-template-columns: 1fr;
-  }
-
-  .faq6_accordion.last {
-    border-radius: 0;
-  }
-
-  .formula_content-left {
-    padding-right: 2rem;
-  }
-
-  .cta53_card.text-color-white {
-    border-radius: var(--_ui-styles---radius--medium);
-    min-height: 17svh;
-  }
-
-  .layout195_item-list {
+  .layout192_content, .formula_content, .faq6_content, .layout195_item-list {
     grid-template-columns: 1fr;
   }
 
@@ -8125,20 +8032,7 @@ figcaption {
 }
 
 @media screen and (max-width: 767px) {
-  #w-node-_750b5987-b4da-5558-2749-9133c1426925-9fed22c6, #w-node-_750b5987-b4da-5558-2749-9133c1426927-9fed22c6, #w-node-_4d6d8aa7-79a0-f7e4-4e55-fac2c0c5dffd-9fed22c6 {
-    order: -9999;
-  }
-
-  #w-node-_4d6d8aa7-79a0-f7e4-4e55-fac2c0c5dffb-9fed22c6, #w-node-af71544f-d1a8-67c4-dc55-286c8296afc2-9fed22c6 {
-    grid-area: 1 / 1 / 2 / 2;
-  }
-
-  #w-node-af71544f-d1a8-67c4-dc55-286c8296af9b-9fed22c6 {
-    order: -9999;
-    grid-area: span 1 / span 1 / span 1 / span 1;
-  }
-
-  #w-node-d7866cc6-b936-b6e2-2039-8e1921661eca-50830d4d {
+  #w-node-_750b5987-b4da-5558-2749-9133c1426927-9fed22c6, #w-node-_4d6d8aa7-79a0-f7e4-4e55-fac2c0c5dffd-9fed22c6, #w-node-af71544f-d1a8-67c4-dc55-286c8296af9b-9fed22c6, #w-node-d7866cc6-b936-b6e2-2039-8e1921661eca-50830d4d {
     order: -9999;
   }
 
@@ -8150,10 +8044,5 @@ figcaption {
 @media screen and (max-width: 479px) {
   #w-node-_552ec7e2-ea58-c97e-e078-f4189ec55522-9ec55507, #w-node-_552ec7e2-ea58-c97e-e078-f4189ec55523-9ec55507, #w-node-_552ec7e2-ea58-c97e-e078-f4189ec5552f-9ec55507, #w-node-_552ec7e2-ea58-c97e-e078-f4189ec55536-9ec55507 {
     justify-self: start;
-  }
-
-  #w-node-_4d6d8aa7-79a0-f7e4-4e55-fac2c0c5dffb-9fed22c6 {
-    order: -9999;
-    grid-area: 1 / 1 / 2 / 2;
   }
 }

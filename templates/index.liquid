@@ -307,9 +307,7 @@
 								<div class="w-layout-grid product8_list">
 									{% for product in collections.all.products limit: 3 %}
 										<div class="product8_item">
-											<a
-												href="{{ product.url }}"
-												class="product8_item-link w-inline-block">
+											<div class="product8_item-link w-inline-block">
 												<div class="product8_image-wrapper">
 													{% if product.images.size > 0 %}
 														<img
@@ -344,13 +342,13 @@
 														<div class="text-size-large text-weight-semibold">{{ product.price | money }}</div>
 													</div>
 												</div>
-											</a>
-											<div class="spacer-medium"></div>
+											</div>
+											<div class="spacer-medium hide-tablet"></div>
 											<div class="button-group is-center">
 												{%- if product.available -%}
 													<button
 														type="button"
-														class="button is-alternate"
+														class="button is-alternate shop"
 														onclick="addToCartAndOpenSidebar('{{ product.selected_or_first_available_variant.id }}', 1)">
 														<div>SHOP</div>
 													</button>
@@ -373,39 +371,41 @@
 			</div>
 		</section>
 		<section class="section_about">
+			<div class="heading-container">
+				<div class="heading-line"></div>
+				<h2 class="heading-style-h2">CUIDADO COM A PELE, <span class="heading-breakrow">DO SEU JEITO</span></h2>
+				<div class="heading-line"></div>
+			</div>
 			<div class="padding-global">
 				<div class="container-large">
-					<div class="padding-section-small">
-						<div class="layout141_component">
-							<div class="text-align-center">
-								<div class="max-width-small align-center">
-									<h2 class="heading-style-h2">CUIDADO COM A PELE, DO SEU JEITO</h2>
-									<div class="spacer-small"></div>
-									<p class="text-size-small"><strong>Autoestima é poder. Com tecnologia e design, nossos adesivos secativos tratam a acne, devolvem o controle e elevam o seu estilo. GENSKINS transforma cuidado em expressão pessoal.</strong></p>
-									<div class="spacer-medium"></div>
-									<div class="button-group is-center">
-										<a
-											href="/pages/sobre"
-											class="button is-alternate"
-											>sobre a Genskins</a
-										>
-									</div>
+					<div class="layout141_component">
+						<div class="text-align-center">
+							<div class="max-width-small align-center">
+								<div class="spacer-small"></div>
+								<p class="text-size-small"><strong>Autoestima é poder. Com tecnologia e design, nossos adesivos secativos tratam a acne, devolvem o controle e elevam o seu estilo. GENSKINS transforma cuidado em expressão pessoal.</strong></p>
+								<div class="spacer-medium"></div>
+								<div class="button-group is-center">
+									<a
+										href="/pages/sobre"
+										class="button is-alternate"
+										>sobre a Genskins</a
+									>
 								</div>
 							</div>
-							<div class="spacer-medium"></div>
-							<div class="layout141_image-wrapper">
-								<img
-									sizes="(max-width: 3419px) 100vw, 3419px"
-									srcset="{{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '500x' }} 500w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '800x' }} 800w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '1080x' }} 1080w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '1600x' }} 1600w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '2000x' }} 2000w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '2600x' }} 2600w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '3200x' }} 3200w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_url }} 3419w"
-									alt=""
-									src="{{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_url }}"
-									loading="lazy"
-									width="3419"
-									height="3419"
-									class="layout141_image">
-							</div>
-							<div class="spacer-medium"></div>
 						</div>
+						<div class="spacer-medium"></div>
+						<div class="layout141_image-wrapper">
+							<img
+								sizes="(max-width: 3419px) 100vw, 3419px"
+								srcset="{{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '500x' }} 500w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '800x' }} 800w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '1080x' }} 1080w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '1600x' }} 1600w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '2000x' }} 2000w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '2600x' }} 2600w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_img_url: '3200x' }} 3200w, {{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_url }} 3419w"
+								alt=""
+								src="{{ 'imgi_91_image-73ab1c13-4a12-4395-90f4-a1b3c524eb01.jpg' | asset_url }}"
+								loading="lazy"
+								width="3419"
+								height="3419"
+								class="layout141_image">
+						</div>
+						<div class="spacer-medium"></div>
 					</div>
 				</div>
 			</div>
@@ -448,6 +448,41 @@
 
 	.sidebar-cart-trigger:hover {
 		background-color: #555 !important;
+	}
+
+	/* Line container and styling */
+	.heading-line-container {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 20px 0;
+	}
+
+	.line-left {
+		position: absolute;
+		top: 50%;
+		left: -100vw;
+		width: calc(50vw - 50% - 20px);
+		height: 2px;
+		background-color: #007bff;
+		transform: translateY(-50%);
+	}
+
+	.line-right {
+		position: absolute;
+		top: 50%;
+		right: -100vw;
+		width: calc(50vw - 50% - 20px);
+		height: 2px;
+		background-color: #007bff;
+		transform: translateY(-50%);
+	}
+
+	.heading-with-line {
+		padding: 0 20px;
+		position: relative;
+		z-index: 1;
 	}
 </style>
 

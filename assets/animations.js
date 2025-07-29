@@ -169,6 +169,56 @@
 	}
 
 	// ========================================
+	// GSAP MARQUEE ANIMATIONS
+	// ========================================
+	function initGSAPMarquees() {
+		if (typeof gsap === "undefined") {
+			// If GSAP isn't loaded yet, try again in a moment
+			setTimeout(initGSAPMarquees, 100);
+			return;
+		}
+
+		const marqueeTracks = document.querySelectorAll(".gsap-marquee-track");
+
+		marqueeTracks.forEach(track => {
+			const speed = parseFloat(track.dataset.speed) || 20;
+			const direction = track.dataset.direction || "left";
+			const items = track.querySelectorAll(".gsap-marquee-item");
+
+			if (items.length === 0) return;
+
+			// Calculate the width of half the items (since we duplicated them)
+			const itemWidth = items[0].offsetWidth;
+			const halfWidth = itemWidth * (items.length / 2);
+
+			// Create the infinite animation
+			// Move by half the width to create seamless loop with duplicated items
+			const animation = gsap.to(track, {
+				x: direction === "right" ? halfWidth : -halfWidth,
+				duration: halfWidth / speed,
+				ease: "none",
+				repeat: -1,
+			});
+
+			// Pause animation when not in viewport for performance
+			const observer = new IntersectionObserver(
+				entries => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							animation.play();
+						} else {
+							animation.pause();
+						}
+					});
+				},
+				{ threshold: 0.1 }
+			);
+
+			observer.observe(track);
+		});
+	}
+
+	// ========================================
 	// UTILITY FUNCTIONS
 	// ========================================
 
@@ -202,6 +252,7 @@
 		initButtonAnimations();
 		initNavigationAnimations();
 		initLoadingAnimations();
+		initGSAPMarquees();
 
 		// Handle window resize events
 		window.addEventListener(
@@ -230,6 +281,7 @@
 		initButtonAnimations,
 		initNavigationAnimations,
 		initLoadingAnimations,
+		initGSAPMarquees,
 		isInViewport,
 		debounce,
 	};

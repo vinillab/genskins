@@ -1,0 +1,100 @@
+{% comment %}
+	GSAP Marquee Snippet
+	Usage: {% render 'gsap-marquee', image_src: 'image-2061301e-6486-4b3b-ab59-5f88270f16d6.webp', speed: 20 %}
+
+	Parameters:
+	- image_src: The image filename to use for the marquee
+	- speed: Animation speed in pixels per second (default: 20)
+	- direction: 'left' or 'right' (default: 'left')
+	- image_count: Number of images to duplicate (default: 15)
+{% endcomment %}
+
+{% assign speed = speed | default: 40 %}
+{% assign direction = direction | default: 'left' %}
+{% assign image_count = image_count | default: 15 %}
+
+<section class="gsap-marquee-section">
+	<div class="gsap-marquee-component">
+		<div class="gsap-marquee-wrapper">
+			<div
+				class="gsap-marquee-track"
+				data-speed="{{ speed }}"
+				data-direction="{{ direction }}">
+				{% comment %} First set of items {% endcomment %}
+				{% for i in (1..image_count) %}
+					<div class="gsap-marquee-item">
+						<img
+							src="{{ image_src | asset_url }}"
+							alt=""
+							loading="lazy"
+							width="60"
+							height="60"
+							class="gsap-marquee-image">
+					</div>
+				{% endfor %}
+				{% comment %} Duplicate set for seamless loop {% endcomment %}
+				{% for i in (1..image_count) %}
+					<div class="gsap-marquee-item">
+						<img
+							src="{{ image_src | asset_url }}"
+							alt=""
+							loading="lazy"
+							width="60"
+							height="60"
+							class="gsap-marquee-image">
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.gsap-marquee-section {
+		width: 100vw;
+		max-width: 100%;
+		overflow: hidden;
+	}
+
+	.gsap-marquee-component {
+		width: 100%;
+		display: flex;
+	}
+
+	.gsap-marquee-wrapper {
+		border-top: 1px solid var(--color-scheme-1--color);
+		border-bottom: 1px solid var(--color-scheme-1--color);
+		width: 200vw;
+		display: flex;
+	}
+
+	.gsap-marquee-track {
+		justify-content: space-around;
+		align-items: center;
+		width: 100vw;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		display: flex;
+		will-change: transform;
+	}
+
+	.gsap-marquee-item {
+		justify-content: center;
+		align-items: center;
+		padding-left: 0;
+		padding-right: 0;
+		margin-left: 1rem;
+		margin-right: 1rem;
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	.gsap-marquee-image {
+		aspect-ratio: 1;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+		max-height: 4rem;
+		max-width: 4rem;
+	}
+</style>

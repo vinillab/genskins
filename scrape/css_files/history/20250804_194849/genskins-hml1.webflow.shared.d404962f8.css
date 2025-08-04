@@ -5722,7 +5722,6 @@ figcaption {
 }
 
 .gallery15_image-wrapper {
-  border-radius: var(--_ui-styles---radius--medium);
   width: 100%;
   overflow: hidden;
 }
@@ -5949,7 +5948,7 @@ figcaption {
 }
 
 .main-container.cc-gsap-scrub {
-  max-width: none;
+  max-width: 95%;
   height: 100vh;
   padding: 0;
   position: sticky;
@@ -6574,7 +6573,6 @@ figcaption {
 
 .heading-related {
   font-family: var(--_typography---font-styles--body);
-  color: var(--color-scheme-1--color);
 }
 
 @media screen and (max-width: 991px) {

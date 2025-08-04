@@ -3768,6 +3768,10 @@ figcaption {
   line-height: 1.2;
 }
 
+.heading-style-h3.heading-related {
+  color: var(--color-scheme-1--text);
+}
+
 .icon-1x1-large {
   width: 5rem;
   height: 5rem;
@@ -4233,10 +4237,6 @@ figcaption {
 
 .padding-section-large.related-products {
   padding-top: 0;
-}
-
-.padding-section-large.interna-produto {
-  padding-bottom: 2rem;
 }
 
 .spacer-tiny {
@@ -5722,7 +5722,6 @@ figcaption {
 }
 
 .gallery15_image-wrapper {
-  border-radius: var(--_ui-styles---radius--medium);
   width: 100%;
   overflow: hidden;
 }
@@ -5949,7 +5948,7 @@ figcaption {
 }
 
 .main-container.cc-gsap-scrub {
-  max-width: none;
+  max-width: 95%;
   height: 100vh;
   padding: 0;
   position: sticky;
@@ -6570,11 +6569,6 @@ figcaption {
 
 .list-item {
   font-size: 1rem;
-}
-
-.heading-related {
-  font-family: var(--_typography---font-styles--body);
-  color: var(--color-scheme-1--color);
 }
 
 @media screen and (max-width: 991px) {

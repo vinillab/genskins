@@ -307,31 +307,68 @@
 								<div class="w-layout-grid product8_list">
 									{% for product in collections.all.products limit: 3 %}
 										<div class="product8_item">
-											<a
-												href="{{ product.url }}"
+											<div
 												class="product8_item-link w-inline-block">
 												<div class="product8_image-wrapper">
 													{% if product.images.size > 0 %}
-														<img
-															sizes="(max-width: 945px) 100vw, 945px"
-															srcset="{{ product.images[0] | img_url: '500x' }} 500w, {{ product.images[0] | img_url: '800x' }} 800w, {{ product.images[0] | img_url: '945x' }} 945w"
-															alt="{{ product.images[0].alt | escape }}"
-															src="{{ product.images[0] | img_url: '945x' }}"
-															loading="lazy"
-															width="945"
-															height="945"
-															class="product8_image">
-													{% endif %}
-													{% if product.images.size > 1 %}
-														<img
-															sizes="(max-width: 945px) 100vw, 945px"
-															srcset="{{ product.images[1] | img_url: '500x' }} 500w, {{ product.images[1] | img_url: '800x' }} 800w, {{ product.images[1] | img_url: '945x' }} 945w"
-															alt="{{ product.images[1].alt | escape }}"
-															src="{{ product.images[1] | img_url: '945x' }}"
-															loading="lazy"
-															width="945"
-															height="945"
-															class="product8_image hover">
+														<div
+															data-delay="4000"
+															data-animation="cross"
+															class="gallery15_slider w-slider"
+															data-autoplay="false"
+															data-easing="ease"
+															data-hide-arrows="false"
+															data-disable-swipe="false"
+															data-autoplay-limit="0"
+															data-nav-spacing="3"
+															data-duration="500"
+															data-infinite="false"
+															id="w-node-product-slider-{{ forloop.index }}">
+															<div class="gallery15_mask w-slider-mask">
+																{% for image in product.images %}
+																	<div class="gallery15_slide w-slide">
+																		<div class="gallery15_image-wrapper">
+																			<img
+																				sizes="(max-width: 945px) 100vw, 945px"
+																				srcset="{{ image | img_url: '500x' }} 500w, {{ image | img_url: '800x' }} 800w, {{ image | img_url: '945x' }} 945w"
+																				alt="{{ image.alt | escape }}"
+																				src="{{ image | img_url: '945x' }}"
+																				loading="lazy"
+																				width="945"
+																				height="945"
+																				class="product8_image">
+																		</div>
+																	</div>
+																{% endfor %}
+															</div>
+															{% if product.images.size > 1 %}
+																<div class="slider-arrow w-slider-arrow-left">
+																	<div class="slider-arrow-icon_default w-embed">
+																		<svg
+																			width="100%"
+																			height="100%"
+																			viewBox="0 0 16 16"
+																			fill="none"
+																			xmlns="http://www.w3.org/2000/svg">
+																			<path d="M3.31066 8.75001L9.03033 14.4697L7.96967 15.5303L0.439339 8.00001L7.96967 0.469676L9.03033 1.53034L3.31066 7.25001L15.5 7.25L15.5 8.75L3.31066 8.75001Z" fill="currentColor"></path>
+																		</svg>
+																	</div>
+																</div>
+																<div class="slider-arrow w-slider-arrow-right">
+																	<div class="slider-arrow-icon_default w-embed">
+																		<svg
+																			width="100%"
+																			height="100%"
+																			viewBox="0 0 16 16"
+																			fill="none"
+																			xmlns="http://www.w3.org/2000/svg">
+																			<path d="M12.6893 7.25L6.96967 1.53033L8.03033 0.469666L15.5607 8L8.03033 15.5303L6.96967 14.4697L12.6893 8.75H0.5V7.25H12.6893Z" fill="currentColor"></path>
+																		</svg>
+																	</div>
+																</div>
+																<div class="gallery15_slide-nav w-slider-nav w-slider-nav-invert w-round"></div>
+															{% endif %}
+														</div>
 													{% endif %}
 												</div>
 												<div class="spacer-xsmall"></div>
@@ -344,7 +381,7 @@
 														<div class="text-size-large text-weight-semibold">{{ product.price | money }}</div>
 													</div>
 												</div>
-											</a>
+											</div>
 											<div class="spacer-medium hide-tablet"></div>
 											<div class="button-group is-center">
 												{%- if product.available -%}

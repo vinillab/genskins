@@ -5949,7 +5949,7 @@ figcaption {
 }
 
 .main-container.cc-gsap-scrub {
-  max-width: none;
+  max-width: 95%;
   height: 100vh;
   padding: 0;
   position: sticky;

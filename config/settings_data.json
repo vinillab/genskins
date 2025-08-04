@@ -8,15 +8,15 @@
  * ------------------------------------------------------------
  */
 {
-	"current": {
-		"locale": "pt-BR",
-		"content_for_index": [],
-		"blocks": {
-			"12948015482042402483": {
-				"type": "shopify://apps/mercado-pago-antifraud-plus/blocks/embed-block/b19ea721-f94a-4308-bee5-0057c043bac5",
-				"disabled": false,
-				"settings": {}
-			}
-		}
-	}
+  "current": {
+    "locale": "pt-BR",
+    "content_for_index": [],
+    "blocks": {
+      "12948015482042402483": {
+        "type": "shopify://apps/mercado-pago-antifraud-plus/blocks/embed-block/b19ea721-f94a-4308-bee5-0057c043bac5",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  }
 }

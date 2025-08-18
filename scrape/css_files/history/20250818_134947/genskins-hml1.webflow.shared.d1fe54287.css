@@ -7294,10 +7294,6 @@ figcaption {
     background-color: var(--_primitives---colors--white);
     color: var(--color-scheme-1--color);
   }
-
-  .list-2 {
-    max-width: 100%;
-  }
 }
 
 @media screen and (max-width: 767px) {

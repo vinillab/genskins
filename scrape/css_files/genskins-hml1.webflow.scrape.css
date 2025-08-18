@@ -6638,6 +6638,10 @@ figcaption {
     font-size: 1.75rem;
   }
 
+  ul {
+    max-width: 100%;
+  }
+
   .hide-tablet {
     display: none;
   }

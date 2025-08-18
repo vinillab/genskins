@@ -5605,7 +5605,7 @@ figcaption {
   color: var(--_primitives---colors--white);
   flex-flow: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 10%;
   display: flex;
 }

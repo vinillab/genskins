@@ -5,299 +5,192 @@
 	{%- render 'global-styles' -%}
 	{%- render 'navbar' -%}
 	<main class="main-wrapper">
-		<header class="section_hero floating-section">
-			<div class="padding-global">
-				<div class="container-large hero">
-					<div class="header142_component">
-						<div class="text-align-center">
-							<div class="header142_content">
-								<div class="header142_images-canvas">
-									<div class="header142_images-group1">
-										<div class="header142_image-wrapper1">
-											<img
-												loading="eager"
-												src="{{ 'image-0b07e402-b44b-4c86-b893-8f0ad00c827d.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
+		{%- unless settings.desktop_banner -%}
+			<header class="section_hero floating-section">
+				<div class="padding-global">
+					<div class="container-large hero">
+						<div class="header142_component">
+							<div class="text-align-center">
+								<div class="header142_content">
+									<div class="header142_images-canvas">
+										<div class="header142_images-group1">
+											<div class="header142_image-wrapper1">
+												<img
+													loading="eager"
+													src="{{ 'image-0b07e402-b44b-4c86-b893-8f0ad00c827d.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper2">
+												<img
+													loading="eager"
+													src="{{ 'image-4a7407f7-32c2-4ce0-9551-8246374d0048.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper3">
+												<img
+													loading="eager"
+													src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper4">
+												<img
+													loading="eager"
+													src="{{ 'image-fb6eb22b-6295-495d-8dc0-e7cff469ced0.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper5">
+												<img
+													loading="eager"
+													src="{{ 'imgi_7_image-0b07e402-b44b-4c86-b893-8f0ad00c827d.png' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper6">
+												<img
+													alt=""
+													src="{{ 'image-a33cf1d6-b4d2-4d6a-9d79-930ed2cac403.webp' | asset_url }}"
+													loading="eager"
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper7">
+												<img
+													loading="eager"
+													src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper8">
+												<img
+													loading="eager"
+													src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper9">
+												<img
+													loading="eager"
+													src="{{ 'image-0b07e402-b44b-4c86-b893-8f0ad00c827d.webp' | asset_url }}"
+													alt=""
+													class="header142_image">
+											</div>
 										</div>
-										<div class="header142_image-wrapper2">
-											<img
-												loading="eager"
-												src="{{ 'image-4a7407f7-32c2-4ce0-9551-8246374d0048.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper3">
-											<img
-												loading="eager"
-												src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper4">
-											<img
-												loading="eager"
-												src="{{ 'image-fb6eb22b-6295-495d-8dc0-e7cff469ced0.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper5">
-											<img
-												loading="eager"
-												src="{{ 'imgi_7_image-0b07e402-b44b-4c86-b893-8f0ad00c827d.png' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper6">
-											<img
-												alt=""
-												src="{{ 'image-a33cf1d6-b4d2-4d6a-9d79-930ed2cac403.webp' | asset_url }}"
-												loading="eager"
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper7">
-											<img
-												loading="eager"
-												src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper8">
-											<img
-												loading="eager"
-												src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper9">
-											<img
-												loading="eager"
-												src="{{ 'image-0b07e402-b44b-4c86-b893-8f0ad00c827d.webp' | asset_url }}"
-												alt=""
-												class="header142_image">
+										<div class="header142_images-group1">
+											<div class="header142_image-wrapper1-copy">
+												<img
+													loading="eager"
+													src="{{ 'image-4a7407f7-32c2-4ce0-9551-8246374d0048.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper2-copy">
+												<img
+													loading="eager"
+													src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper3-copy">
+												<img
+													loading="eager"
+													src="{{ 'image-4a7407f7-32c2-4ce0-9551-8246374d0048.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper4-copy">
+												<img
+													loading="eager"
+													src="{{ 'image-0b07e402-b44b-4c86-b893-8f0ad00c827d.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper5-copy">
+												<img
+													loading="eager"
+													src="{{ 'image-fb6eb22b-6295-495d-8dc0-e7cff469ced0.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper6-copy">
+												<img
+													alt=""
+													src="{{ 'image-a33cf1d6-b4d2-4d6a-9d79-930ed2cac403.webp' | asset_url }}"
+													loading="eager"
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper7-copy">
+												<img
+													loading="eager"
+													src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
+											<div class="header142_image-wrapper8-copy">
+												<img
+													loading="eager"
+													src="{{ 'image-fb6eb22b-6295-495d-8dc0-e7cff469ced0.webp' | asset_url }}"
+													alt=""
+													class="header142_image float-image">
+											</div>
 										</div>
 									</div>
-									<div class="header142_images-group1">
-										<div class="header142_image-wrapper1-copy">
-											<img
-												loading="eager"
-												src="{{ 'image-4a7407f7-32c2-4ce0-9551-8246374d0048.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper2-copy">
-											<img
-												loading="eager"
-												src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper3-copy">
-											<img
-												loading="eager"
-												src="{{ 'image-4a7407f7-32c2-4ce0-9551-8246374d0048.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper4-copy">
-											<img
-												loading="eager"
-												src="{{ 'image-0b07e402-b44b-4c86-b893-8f0ad00c827d.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper5-copy">
-											<img
-												loading="eager"
-												src="{{ 'image-fb6eb22b-6295-495d-8dc0-e7cff469ced0.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper6-copy">
-											<img
-												alt=""
-												src="{{ 'image-a33cf1d6-b4d2-4d6a-9d79-930ed2cac403.webp' | asset_url }}"
-												loading="eager"
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper7-copy">
-											<img
-												loading="eager"
-												src="{{ 'image-c719fd62-60c8-4670-8641-8407cc97650e.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-										<div class="header142_image-wrapper8-copy">
-											<img
-												loading="eager"
-												src="{{ 'image-fb6eb22b-6295-495d-8dc0-e7cff469ced0.webp' | asset_url }}"
-												alt=""
-												class="header142_image float-image">
-										</div>
-									</div>
+									<img
+										src="{{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_url }}"
+										loading="lazy"
+										sizes="(max-width: 2150px) 100vw, 2150px"
+										srcset="{{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '500x' }} 500w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '800x' }} 800w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '1080x' }} 1080w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '1600x' }} 1600w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '2000x' }} 2000w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_url }} 2150w"
+										alt=""
+										class="logo-hero">
 								</div>
-								<img
-									src="{{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_url }}"
-									loading="lazy"
-									sizes="(max-width: 2150px) 100vw, 2150px"
-									srcset="{{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '500x' }} 500w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '800x' }} 800w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '1080x' }} 1080w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '1600x' }} 1600w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_img_url: '2000x' }} 2000w, {{ 'imgi_10_image-f5ba3ad6-55f2-49da-ac12-2386adce41a1.png' | asset_url }} 2150w"
-									alt=""
-									class="logo-hero">
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</header>
+			</header>
+		{%- endunless -%}
+
+		{%- if settings.desktop_banner -%}
+			<!-- Desktop Banner Section -->
+			<header class="section_desktop_banner">
+				<div class="desktop-banner-wrapper">
+					<img
+						alt="Desktop Banner"
+						src="{{ settings.desktop_banner | img_url: '1920x1080' }}"
+						loading="eager"
+						class="desktop-banner-image">
+				</div>
+			</header>
+		{%- endif -%}
+
+		<!-- Mobile Banner Section (always shows) -->
 		<header class="section_header5 text-color-white">
-			<div class="padding-global">
-				<div class="container-large"><div class="header5_content"></div></div>
-			</div>
 			<div class="header5_background-image-wrapper">
-				<img
-					alt="Genskins"
-					src="{{ 'gengen-mobile.png' | asset_url }}"
-					loading="eager"
-					class="header5_background-image">
+				{% if settings.mobile_banner %}
+					<img
+						alt="Mobile Banner"
+						src="{{ settings.mobile_banner | img_url: '1080x' }}"
+						srcset="{{ settings.mobile_banner | img_url: '540x' }} 540w, {{ settings.mobile_banner | img_url: '720x' }} 720w, {{ settings.mobile_banner | img_url: '1080x' }} 1080w"
+						sizes="(max-width: 540px) 540px, (max-width: 720px) 720px, 1080px"
+						loading="eager"
+						class="header5_background-image">
+				{% else %}
+					<img
+						alt="Mobile Banner"
+						src="{{ 'gengen-mobile.png' | asset_url }}"
+						loading="eager"
+						class="header5_background-image">
+				{% endif %}
+			</div>
+			<div class="padding-global">
+				<div class="container-large">
+					<div class="header5_content"></div>
+				</div>
 			</div>
 		</header>
-		<section
-			fc-image-scrubbing-fit-landscape="contain"
-			fc-image-scrubbing-urls="https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e76f42312b2db8e52b_01000.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e1dc638049f2f7efe_01000.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e782f02df5b1f7008c_01001.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e27d5826dafe6c6cf_01001.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e71972bdd09b699b50_01002.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f9730245890cf41b1_01002.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7030900fc5e9dbc8c_01003.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473ea28dcec31210e034_01003.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e628680ae4f6de537d_01004.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473eeb02a52605933601_01004.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eb74f64b1a22395777_01005.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473edd75547424595090_01005.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e78dc2ddd04c0aa266_01006.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e0912cdad294680fb_01006.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e778ae5cd2c7829fc1_01007.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e0f30cf94b05a725c_01007.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7250ac86ed1c846ef_01008.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473ed75a10b2681316b5_01008.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e783d4012b98c99866_01009.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e36e39616808fe45a_01009.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e72b92a3ce7a657da2_01010.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e7b4b8b9fd7633e9a_01010.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7903d1b6e37e7dd67_01011.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e862894226493ae37_01011.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e71cd9e843e6863516_01012.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473eee61550a41c0ae0f_01012.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e72c28813fc2507794_01013.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e0d4818d4ae822215_01013.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e784e836c1de2cca76_01014.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474219d7895342844e81_01014.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7b7293d731521d5d8_01015.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e59f0016c5a0bc9aa_01015.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7240b5dca2f2b2117_01016.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473edacdbf67e8c9cb1a_01016.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7f85af5a57c83913b_01017.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473eed1a159a5c785947_01017.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e746c69d1e86140ab4_01018.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e0a7770d676c42c8f_01018.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e73c90fec17626cd0b_01019.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473eb6f41be3d7b2434a_01019.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e79e986fdcb5255203_01020.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e1e43d53235d193e0_01020.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7f3f673bf19d67f03_01021.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473ebc9fcf9a78490746_01021.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7030900fc5e9dbcd0_01022.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473ef9983979876f1869_01022.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ef7941c1e7c1a85aaf_01023.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473e6c6a1b4698d9ba6e_01023.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e722a44c4c3e22afc6_01024.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f6e0746bb0ace33c4_01024.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e771f7a7ae893632a8_01025.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f7403ebd61603355b_01025.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7f7563cb8cf0d1ddf_01026.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f2f3f125e63c87b86_01026.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e74be5d3f9a67c0365_01027.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473facf5f48861cc8517_01027.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e74d684083abe5d6b2_01028.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f10bfc02bade08ba7_01028.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e822a44c4c3e22b013_01029.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f0afb78890033df1d_01029.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7030900fc5e9dbd07_01030.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47401e43d53235d19473_01030.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e7903d1b6e37e7ddda_01031.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473fd9b9202cce5d30b4_01031.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e870468069ccf08112_01032.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47404a5274b31f7c28e5_01032.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e8750dfd2a2c2cd09a_01033.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f4f405f142048f383_01033.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e873fd1d7900d88ab5_01034.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f901de82f74c8f979_01034.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e80b72a4ea8abf6fc5_01035.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f9cade5b04dc76700_01035.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e846c69d1e86140af5_01036.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473fa28dcec31210e476_01036.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e89a07ef0e881cd7a7_01037.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47407dc0f6b44f6740c1_01037.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e8ba1d583b90195c5d_01038.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f2d1ccfd1c9480a31_01038.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e8c49036f35848abe3_01039.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f4b602b389b481e7a_01039.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e9182fb377addc234f_01040.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4740dd755474245958af_01040.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e94be5d3f9a67c0660_01041.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473facf5f48861cc8575_01041.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e9240b5dca2f2b2248_01042.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e473f5cb02ee0d08504ab_01042.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e95d7a9fed5d37bc1a_01043.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4740b1e7e3d29b8044c4_01043.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e9766a88c1a6acee20_01044.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4740ffe75ad31334f475_01044.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e946c69d1e86140b41_01045.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4740b47a4ddd5a0b9c12_01045.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e9e400aa2355434ecd_01046.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474062bad56b414e3d9a_01046.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e9c03c6c3b43a7a8b7_01047.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474006f6b6fc442a0d8d_01047.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e9862894226492d87b_01048.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474019a028318e79e151_01048.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45e9ddf52cd7f9d07a24_01049.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474003acbd48dcc40d77_01049.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ea3e17845678c99c1c_01050.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47407dc0f6b44f67410f_01050.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ea7174c4c990e8b1f0_01051.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4741f0379ea35335fe80_01051.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ea64c7a57b30c9e5d2_01052.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4740be4e1c34c9acb2e9_01052.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eadbcfffafa04f912d_01053.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474010bfc02bade08c1a_01053.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4603cf9d8a90793d7a10_01054.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4740ee860f60e874c3ed_01054.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ea5f2a01f48a4df8a1_01055.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47410afb78890033dfab_01055.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ea84e836c1de2cce66_01056.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47419cb571ae3b099df2_01056.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eab3a423a10b4301dd_01057.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4741fd155390972f39ce_01057.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ef7941c1e7c1a85b40_01058.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47414caaa785ca9af277_01058.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ebcec5c1821c8a69a1_01059.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47415cb02ee0d085051f_01059.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eb891960f0d98f14a9_01060.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474115040865f716b2f4_01060.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ebee52ce0aa0a0306d_01061.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4741ed3dccb40453839e_01061.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ebf90a6e34ae1c8cf5_01062.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474148f0b14c4a9ffdb8_01062.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eb624b0e676091f239_01063.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474210bfc02bade08c82_01063.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eb1d5dee40a726c27b_01064.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4741b12a40a4b36ffcdf_01064.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eb903d1b6e37e7df40_01065.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4742ceec01a71575ba6e_01065.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eb4be5d3f9a67c073d_01066.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4742c013505132b8ac62_01066.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ecc710b9c58376d893_01067.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4742e8aa9d61b6c72a0c_01067.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ec64c7a57b30c9e7b2_01068.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4743205820252e62c588_01068.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ec250ac86ed1c848ca_01069.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47428267bbbb5b1602e2_01069.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ec1cd918d4dd3f3d96_01070.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47425e58fc6d4b383879_01070.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ecf46a1d32ea974ac6_01071.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4743717957204d87058e_01071.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed1ab15f2e8678bc6c_01072.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47433c894455242b3a8f_01072.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed2da00121f12332f3_01073.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47435a2add662af1d8c6_01073.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45edf90a6e34ae1c8d9a_01074.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47444caaa785ca9af466_01074.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed46c69d1e8614109c_01075.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47445ecd10991b329845_01075.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed681c391fefb7fd2d_01076.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474464c7a57b30cad9c5_01076.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed3a1eceec6c38702f_01077.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4744f97de5ff29f5ee87_01077.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45edac51ac4d9dc8a117_01078.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47442f3f125e63c880bf_01078.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45edf2efc2bb9f23f248_01079.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4745acf5f48861cc877d_01079.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eda9ea6aae35802c56_01080.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474584dd02efec69e416_01080.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45edac51ac4d9dc8a15a_01081.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4745be4e1c34c9acb4ef_01081.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed7d597e77aa25a807_01082.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4745880cdfa5c2ec9efc_01082.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed023a95cbb821194b_01083.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4745d2d62a7339baf1d3_01083.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed862894226492da89_01084.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4745a37df16ad9041c90_01084.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed47896d62c60bba17_01085.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4745d7bd3e8b03c3c7ee_01085.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed669df96cc99ed0ec_01086.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746b12a40a4b36ffe40_01086.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ed0ffdc742600faebc_01087.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746294b9fbad06bf917_01087.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ee669df96cc99ed147_01088.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47460e1afc09fe38c996_01088.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ee5f2a01f48a4dfa48_01089.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47464caaa785ca9af591_01089.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eee0c25f7cdb86bedd_01090.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474682f02df5b1f7d069_01090.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eedc101e250d6385a7_01091.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474600559dbc9da62932_01091.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ee71f7a7ae89363577_01092.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47463c894455242b3c71_01092.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ee99ec8190b81a796d_01093.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47464f924a0f97f9beed_01093.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ee1cd9e843e6863d41_01094.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47465e58fc6d4b3839b6_01094.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eef382ac6a4766b2f1_01095.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746fd155390972f3b9e_01095.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f000559dbc9da53785_01096.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474aa8f9570f5a5ab8c4_01096.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ef64c7a57b30c9eab6_01097.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47468388cd110b6a46d2_01097.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45eff52e7641bd543451_01098.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474646a7f0b9782d08de_01098.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ef2f6b4a1d05d25984_01099.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746f9983979876f1ac7_01099.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45efc59b409c6b395db7_01100.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746928cfebbbe6fc6c8_01100.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ef8451f90cab6934a2_01101.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746b1e7e3d29b804790_01101.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ef7d597e77aa25a8e6_01102.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746717957204d8707fd_01102.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45ef2a9c45c45edc754f_01103.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746a0f9dd7958eb09e5_01103.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f0d8f5eaaafad8d087_01104.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746dacdbf67e8c9ce61_01104.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f0240b5dca2f2b2c9a_01105.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746856e015a369cc82f_01105.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f0f3f673bf19d6844b_01106.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4746a37df16ad9041cfd_01106.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f00b72a4ea8abf751a_01107.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47473c894455242b3cc9_01107.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f056b9db874a841981_01108.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4747901de82f74c8fd79_01108.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f00b72a4ea8abf7567_01109.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4747ee61550a41c0b668_01109.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f02c28813fc2507de7_01110.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47475fe5dba95d3c99d2_01110.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f05588fdd0b99c65f5_01111.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4747eb02a52605933cc1_01111.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f18d4c8172f0aa8caa_01112.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4747204239e82d4d905f_01112.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f1903d1b6e37e7e248_01113.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47486c6a1b4698d9c37c_01113.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f12f6b4a1d05d25cef_01114.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474819d7895342845727_01114.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f12f6b4a1d05d25ceb_01115.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474845f95eedb3bb737a_01115.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f15d7a9fed5d37c17a_01116.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4748ade622ce150cf21a_01116.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f137c7a8c2d02459a8_01117.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47489cb571ae3b09a0c2_01117.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f197b6826068c5ea70_01118.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4748b7e340291349ab6c_01118.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f1d33e16a4a9d196ca_01119.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e47485aeea0ab7eaed6a8_01119.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f148ce9707b9d69523_01120.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4748672e0b1923a020df_01120.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4605cf9d8a90793d8376_01121.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474964c7a57b30cadb6f_01121.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f1ddb869f9948ff068_01122.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4749340886d0d8e71229_01122.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f2716ec1cb8498f9ee_01123.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474919d78953428457d1_01123.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f1f8362e05b17ed3f0_01124.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e4749cef90151cc24eaf6_01124.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f763461ea1ad8056cf_01125.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474966ec39056dbb5c3f_01125.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e45f30015faf7b057e4ff_01126.png; https://s3.amazonaws.com/webflow-prod-assets/687b9decde4053855982b5b1/687e474949d63b9c831f3f5d_01126.png"
-			fc-image-scrubbing="component"
-			class="section_animation">
-			<div class="scrubbing_script w-embed w-script">
-				<script>
-					var Webflow = Webflow || [];
-					// Wait for Webflow to be ready before running the script
-					Webflow.push(function () {
-						// Get the main wrapper element that holds all configuration attributes
-						const component = document.querySelector('[fc-image-scrubbing = component]');
-						// Extract the image URLs from a semicolon-separated attribute
-						const imageURLs = document.querySelector('[fc-image-scrubbing-urls]').getAttribute('fc-image-scrubbing-urls').split('; ');
-						// Initialize the image scrubbing animation
-						imageSequence({
-							imageURLs,
-							canvas: '[fc-image-scrubbing = component] canvas',
-							clear: true, // enable only if your images have transparency
-							// Optional responsive object-fit values
-							fitMode: {
-								base: component.getAttribute('fc-image-scrubbing-fit'),
-								landscape: component.getAttribute('fc-image-scrubbing-fit-landscape'),
-								portrait: component.getAttribute('fc-image-scrubbing-fit-portrait'),
-							},
-							// Use provided FPS or fallback to 24
-							fps: parseInt(component.getAttribute('fc-image-scrubbing-fps')) || 24,
-							// ScrollTrigger configuration with fallbacks
-							scrollTrigger: {
-								trigger: 'body',
-								start: component.getAttribute('fc-image-scrubbing-start-point') || 'top top',
-								end: component.getAttribute('fc-image-scrubbing-end-point') || 'bottom bottom',
-								scrub: true,
-							},
-						});
-						/**
-						 * Draws an image sequence onto a <canvas> synced with scroll position.
-						 */
-						function imageSequence(config) {
-							let playhead = { frame: 0 };
-							let canvas = gsap.utils.toArray(config.canvas)[0] || console.warn('canvas not defined');
-							let ctx = canvas.getContext('2d');
-							let curFrame = -1;
-							let onUpdate = config.onUpdate;
-							let images;
-							// Resize the canvas according to device pixel ratio
-							const resizeCanvas = () => {
-								const dpr = window.devicePixelRatio || 1;
-								canvas.width = canvas.clientWidth * dpr;
-								canvas.height = canvas.clientHeight * dpr;
-								ctx.setTransform(1, 0, 0, 1, 0, 0);
-								ctx.scale(dpr, dpr);
-							};
-							// Draw the current image frame based on scroll position
-							const updateImage = function () {
-								let frame = Math.round(playhead.frame);
-								// Redraw if the frame changed or the canvas was resized
-								if (frame !== curFrame || !canvas._hasHighResSetup) {
-									if (!canvas._hasHighResSetup) {
-										resizeCanvas();
-										canvas._hasHighResSetup = true;
-									}
-									// Clear the canvas if 'clear' is enabled
-									config.clear && ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-									const img = images[frame];
-									const canvasWidth = canvas.clientWidth;
-									const canvasHeight = canvas.clientHeight;
-									const canvasRatio = canvasWidth / canvasHeight;
-									const imgRatio = img.naturalWidth / img.naturalHeight;
-									let drawWidth, drawHeight;
-									// Determine the appropriate fit mode based on current orientation
-									function getResponsiveFit() {
-										const isPortrait = window.matchMedia('(orientation: portrait)').matches;
-										const isLandscape = window.matchMedia('(orientation: landscape)').matches;
-										if (isPortrait && config.fitMode.portrait) return config.fitMode.portrait;
-										if (isLandscape && config.fitMode.landscape) return config.fitMode.landscape;
-										return config.fitMode.base || 'contain';
-									}
-									const fitMode = getResponsiveFit();
-									// Calculate image size according to 'contain' or 'cover'
-									if (fitMode === 'contain') {
-										if (imgRatio > canvasRatio) {
-											drawWidth = canvasWidth;
-											drawHeight = canvasWidth / imgRatio;
-										} else {
-											drawHeight = canvasHeight;
-											drawWidth = canvasHeight * imgRatio;
-										}
-									} else if (fitMode === 'cover') {
-										if (imgRatio > canvasRatio) {
-											drawHeight = canvasHeight;
-											drawWidth = canvasHeight * imgRatio;
-										} else {
-											drawWidth = canvasWidth;
-											drawHeight = canvasWidth / imgRatio;
-										}
-									}
-									// Center the image within the canvas
-									const offsetX = (canvasWidth - drawWidth) / 2;
-									const offsetY = (canvasHeight - drawHeight) / 2;
-									ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-									curFrame = frame;
-									onUpdate && onUpdate.call(this, frame, img);
-								}
-							};
-							// Preload all images and trigger initial render when the first is ready
-							images = config.imageURLs.map((url, i) => {
-								let img = new Image();
-								img.src = url;
-								i || (img.onload = updateImage);
-								return img;
-							});
-							// Redraw when canvas dimensions change
-							new ResizeObserver(() => {
-								canvas._hasHighResSetup = false;
-								updateImage();
-							}).observe(canvas);
-							// Animate the frame progression using GSAP, linked to scroll
-							return gsap.to(playhead, {
-								frame: images.length - 1,
-								ease: 'none',
-								onUpdate: updateImage,
-								duration: images.length / config.fps, // FPS defines how fast the sequence would play in real time
-								paused: !!config.paused,
-								scrollTrigger: config.scrollTrigger,
-							});
-						}
-					});
-				</script>
-			</div>
-			<div class="w-layout-blockcontainer main-container cc-gsap-scrub w-container">
-				<canvas
-					aria-hidden="true"
-					class="canvas"></canvas>
-				<p class="visually-hidden">Logo animado.</p>
-			</div>
-		</section>
+
 		<section class="section_shop">
 			<div class="padding-global">
 				<div class="container-large">
@@ -522,6 +415,79 @@
 		padding: 0 20px;
 		position: relative;
 		z-index: 1;
+	}
+
+	/* Desktop Banner Styles */
+	.section_desktop_banner {
+		width: 100%;
+		height: 100vh;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.desktop-banner-wrapper {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+
+	.desktop-banner-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	/* Hide desktop banner on mobile */
+	@media (max-width: 768px) {
+		.section_desktop_banner {
+			display: none;
+		}
+	}
+
+	/* Mobile Banner Styles */
+	.section_header5 {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.header5_background-image-wrapper {
+		position: relative;
+		width: 100%;
+		z-index: 1;
+	}
+
+	.header5_background-image {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	.header5_content {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* Hide mobile banner on desktop */
+	@media (min-width: 769px) {
+		.section_header5 {
+			display: none;
+		}
+	}
+
+	/* Custom styles for is-alternate shop button */
+	.button.is-alternate.shop {
+		border-color: white !important;
+		color: white !important;
+	}
+
+	.button.is-alternate.shop:hover {
+		background-color: white !important;
+		color: var(--color-scheme-1--color) !important;
 	}
 </style>
 

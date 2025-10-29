@@ -53,6 +53,23 @@
 		]
 	},
 	{
+		"name": "Homepage Banner Settings",
+		"settings": [
+			{
+				"type": "image_picker",
+				"id": "desktop_banner",
+				"label": "Desktop Banner",
+				"info": "1920x1080 image for desktop banner. When set, shows the hero section with floating images."
+			},
+			{
+				"type": "image_picker",
+				"id": "mobile_banner",
+				"label": "Mobile Banner",
+				"info": "1081x1350 image for mobile banner. Shows on mobile devices."
+			}
+		]
+	},
+	{
 		"name": "Colors Settings",
 		"settings": [
 			{

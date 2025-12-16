@@ -1,4 +1,4 @@
-/* --- BEGIN genskins-hml1.webflow.shared.cd690bb1b.css --- */
+/* --- BEGIN genskins-hml1.webflow.shared.4b01faf75.css --- */
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -7656,6 +7656,14 @@ figcaption {
   height: 60px;
 }
 
+.product-colors-item.cor-2 {
+  background-color: var(--blue-bg);
+}
+
+.product-colors-item.cor-3 {
+  background-color: var(--_primitives---colors--neutral-darkest);
+}
+
 .product-price {
   font-family: var(--_typography---font-styles--headings);
   font-size: var(--_typography---font-styles--text-large);
@@ -9618,7 +9626,6 @@ figcaption {
   }
 
   .heading-testimonials {
-    text-align: center;
     flex: none;
   }
 
@@ -9791,7 +9798,7 @@ figcaption {
   }
 }
 
-/* --- END genskins-hml1.webflow.shared.cd690bb1b.css --- */
+/* --- END genskins-hml1.webflow.shared.4b01faf75.css --- */
 
 /* --- BEGIN swiper-bundle.min.css --- */
 /**

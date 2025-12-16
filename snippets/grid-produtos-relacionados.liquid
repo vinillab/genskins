@@ -1,0 +1,44 @@
+<section class="section_shop">
+	<div class="padding-global">
+		<div class="container-large">
+			<div class="padding-section-small no-padding-bottom">
+				<div class="header_nossos_produtos">
+					<a
+						href="{{ collections.all.url }}"
+						class="heading-produtos-home heading-border"
+						>Nossos produtos</a
+					><a
+						href="{{ collections.all.url }}"
+						class="produtos_arros w-inline-block">
+						<div class="slider-arrow-icon_default w-embed">
+							<svg
+								width="21"
+								height="34"
+								viewBox="0 0 21 34"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path d="M1.42383 1.40442L17.3129 17.5155L1.42382 32.1619" stroke="#001AFF" stroke-width="4"></path>
+							</svg>
+						</div>
+					</a>
+				</div>
+				<div class="spacer-xlarge"></div>
+
+				<div class="product8_component">
+					<div class="product8_list-wrapper">
+						<div class="w-layout-grid product8_list">
+							{% if product.collections.first %}
+								{% assign products_by_title = product.collections.first.products | sort: 'title' %}
+								{% for related_product in products_by_title %}
+									{% unless related_product.id == product.id %}
+										{% render 'product-card', product: related_product %}
+									{% endunless %}
+								{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,96 @@
+<div class="product_card">
+	<div class="product_item-link">
+		{% if product.images.size > 0 %}
+			<div
+				data-delay="4000"
+				data-animation="cross"
+				class="slider-shop-home w-slider"
+				data-autoplay="false"
+				data-easing="ease"
+				data-hide-arrows="false"
+				data-disable-swipe="false"
+				data-autoplay-limit="0"
+				data-nav-spacing="3"
+				data-duration="500"
+				data-infinite="false"
+				id="w-node-product-slider-shop-{{ forloop.index }}">
+				<div class="gallery15_mask w-slider-mask">
+					{% for image in product.images %}
+						<div class="gallery15_slide w-slide">
+							<div class="gallery15_image-wrapper">
+								<img
+									sizes="(max-width: 2000px) 100vw, 2000px"
+									srcset="{{ image | img_url: '500x' }} 500w, {{ image | img_url: '800x' }} 800w, {{ image | img_url: '1080x' }} 1080w, {{ image | img_url: '1600x' }} 1600w, {{ image | img_url: '2000x' }} 2000w"
+									alt="{{ image.alt | escape }}"
+									src="{{ image | img_url: '2000x' }}"
+									loading="lazy"
+									width="2000"
+									height="2000"
+									class="gallery15_image">
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				{% if product.images.size > 1 %}
+					<div class="slider-arrow is-centre-previous hide-mobile-landscape w-slider-arrow-left">
+						<div class="slider-arrow-icon_default w-embed">
+							<svg
+								width="21"
+								height="34"
+								viewbox="0 0 21 34"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M18.7656 1.40442L2.87657 17.5155L18.7656 32.1619"
+									stroke="#001AFF"
+									stroke-width="4"></path>
+							</svg>
+						</div>
+					</div>
+					<div class="slider-arrow is-centre-next w-slider-arrow-right">
+						<div class="slider-arrow-icon_default w-embed">
+							<svg
+								width="21"
+								height="34"
+								viewbox="0 0 21 34"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M1.42383 1.40442L17.3129 17.5155L1.42382 32.1619"
+									stroke="#001AFF"
+									stroke-width="4"></path>
+							</svg>
+						</div>
+					</div>
+					<div class="gallery15_slide-nav w-slider-nav w-slider-nav-invert w-round"></div>
+				{% endif %}
+			</div>
+		{% endif %}
+		<a
+			href="{{ product.url }}"
+			class="title-shop-home">
+			{{- product.title -}}
+		</a>
+		<div class="text-rich-text-shop-home w-richtext">
+			<p>{{ product.metafields.custom.quantity | default: '23 adesivos' }}</p>
+		</div>
+		<div class="price-shop-home">{{ product.price | money }}</div>
+		<div class="button-group is-center">
+			{%- if product.available -%}
+				<button
+					type="button"
+					class="button w-button"
+					onclick="addToCartAndOpenSidebar('{{ product.selected_or_first_available_variant.id }}', 1)">
+					Comprar
+				</button>
+			{%- else -%}
+				<button
+					type="button"
+					class="button w-button"
+					disabled>
+					Esgotado
+				</button>
+			{%- endif -%}
+		</div>
+	</div>
+</div>

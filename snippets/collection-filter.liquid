@@ -1,0 +1,21 @@
+<div class="collections-filter-wrapper">
+	{% for collection_item in collections %}
+		{% unless collection_item.handle == 'all' or collection_item.handle == 'frontpage' %}
+			{% if collection_item.products.size > 0 %}
+				{% assign is_active = false %}
+				{% if request.page_type == 'collection' %}
+					{% if collection.handle == collection_item.handle %}
+						{% assign is_active = true %}
+					{% endif %}
+				{% elsif request.path == collection_item.url or request.path contains collection_item.handle %}
+					{% assign is_active = true %}
+				{% endif %}
+				<a
+					href="{{ collection_item.url }}"
+					class="collections_list-item {% if is_active %}is-active{% endif %}">
+					{{ collection_item.title }}
+				</a>
+			{% endif %}
+		{% endunless %}
+	{% endfor %}
+</div>

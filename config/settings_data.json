@@ -9,8 +9,7 @@
  */
 {
   "current": {
-    "desktop_banner": "shopify://shop_images/Banner_Site_Halloween-01.jpg",
-    "mobile_banner": "shopify://shop_images/banner-mobile-169.png",
+    "mobile_banner": "shopify://shop_images/gengen_1.png",
     "locale": "pt-BR",
     "content_for_index": [],
     "blocks": {

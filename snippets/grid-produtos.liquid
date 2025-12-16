@@ -1,0 +1,51 @@
+<section class="section_shop">
+	<div class="padding-global">
+		<div class="container-large">
+			<div class="padding-section-small no-padding-bottom">
+				{% if request.page_type == 'index' %}
+					<div class="header_nossos_produtos">
+						<a
+							href="{{ collections.all.url }}"
+							class="heading-produtos-home heading-border"
+							>Nossos produtos</a
+						><a
+							href="{{ collections.all.url }}"
+							class="produtos_arros w-inline-block">
+							<div class="slider-arrow-icon_default w-embed">
+								<svg
+									width="21"
+									height="34"
+									viewBox="0 0 21 34"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path d="M1.42383 1.40442L17.3129 17.5155L1.42382 32.1619" stroke="#001AFF" stroke-width="4"></path>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<div class="spacer-xlarge"></div>
+				{% elsif request.page_type == 'collection' %}
+					{% render 'collection-filter' %}
+				{% endif %}
+
+				<div class="product8_component">
+					<div class="product8_list-wrapper">
+						<div class="w-layout-grid product8_list">
+							{% if request.page_type == 'collection' %}
+								{% assign products_by_title = collection.products | sort: 'title' %}
+								{% for product in products_by_title %}
+									{% render 'product-card', product: product %}
+								{% endfor %}
+							{% else %}
+								{% assign products_by_title = collections.frontpage.products | sort: 'title' %}
+								{% for product in products_by_title %}
+									{% render 'product-card', product: product %}
+								{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

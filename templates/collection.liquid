@@ -5,136 +5,10 @@
 	{%- render 'global-styles' -%}
 	{%- render 'navbar' -%}
 	<main class="main-wrapper">
-		<section class="section_layout195">
-			<div class="padding-global">
-				<div class="container-large">
-					<div class="padding-section-large shop">
-						<div class="layout195_component">
-							{% for product in collections.all.products %}
-								<div class="w-layout-grid layout195_content">
-									<div
-										data-delay="4000"
-										data-animation="cross"
-										class="gallery15_slider w-slider"
-										data-autoplay="false"
-										data-easing="ease"
-										data-hide-arrows="false"
-										data-disable-swipe="false"
-										data-autoplay-limit="0"
-										data-nav-spacing="3"
-										data-duration="500"
-										data-infinite="false"
-										id="w-node-f7ea5feb-541b-92a4-52df-4d6bb7c14729-50830d4d-{{ forloop.index }}">
-										<div class="gallery15_mask w-slider-mask">
-											{% for image in product.images %}
-												<div class="gallery15_slide w-slide">
-													<div class="gallery15_image-wrapper">
-														<img
-															sizes="(max-width: 647px) 100vw, 647px"
-															srcset="{{ image | img_url: '500x' }} 500w, {{ image | img_url: '647x' }} 647w"
-															alt="{{ image.alt | escape }}"
-															src="{{ image | img_url: '647x' }}"
-															loading="lazy"
-															class="gallery15_image">
-													</div>
-												</div>
-											{% endfor %}
-										</div>
-										<div class="slider-arrow w-slider-arrow-left">
-											<div class="slider-arrow-icon_default w-embed">
-												<svg
-													width="100%"
-													height="100%"
-													viewBox="0 0 16 16"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<path d="M3.31066 8.75001L9.03033 14.4697L7.96967 15.5303L0.439339 8.00001L7.96967 0.469676L9.03033 1.53034L3.31066 7.25001L15.5 7.25L15.5 8.75L3.31066 8.75001Z" fill="currentColor"></path>
-												</svg>
-											</div>
-										</div>
-										<div class="slider-arrow w-slider-arrow-right">
-											<div class="slider-arrow-icon_default w-embed">
-												<svg
-													width="100%"
-													height="100%"
-													viewBox="0 0 16 16"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg">
-													<path d="M12.6893 7.25L6.96967 1.53033L8.03033 0.469666L15.5607 8L8.03033 15.5303L6.96967 14.4697L12.6893 8.75H0.5V7.25H12.6893Z" fill="currentColor"></path>
-												</svg>
-											</div>
-										</div>
-										<div class="gallery15_slide-nav w-slider-nav w-slider-nav-invert w-round"></div>
-									</div>
-									<div
-										id="w-node-d7866cc6-b936-b6e2-2039-8e1921661eda-50830d4d"
-										class="layout195_content-right">
-										<h2
-											class="heading-shop">
-											{{ product.title }}
-										</h2>
-										<div
-											class="text-rich-text-shop w-richtext">
-											{% if product.description != blank %}
-												{{ product.description }}
-											{% else %}
-												<p>{{ product.title }} - Produto disponível em nossa loja.</p>
-											{% endif %}
-											{% if product.metafields.custom.features %}
-												<ul
-													role="list"
-													class="list">
-													{% assign features = product.metafields.custom.features | split: ',' %}
-													{% for feature in features %}
-														<li>{{ feature | strip }}</li>
-													{% endfor %}
-												</ul>
-											{% endif %}
-										</div>
-										{% if product.metafields.custom.quantity %}
-											<p
-												class="text-quantity-description">
-												{{ product.metafields.custom.quantity }}
-											</p>
-										{% endif %}
-
-										<p class="text-quantity-description">23 adesivos secativos</p>
-
-										<div
-											class="price-wrapper">
-											<div class="text-price-shop">
-												{% if product.compare_at_price > product.price %}
-													<span class="compare-price">{{ product.compare_at_price | money }}</span>
-												{% endif %}
-												{{ product.price | money }}
-											</div>
-										</div>
-										<div
-											class="button-group-shop">
-											{%- if product.available -%}
-												<a
-													href="#"
-													class="button-shop w-button"
-													onclick="addToCartAndOpenSidebar('{{ product.selected_or_first_available_variant.id }}', 1); return false;">
-													SHOP
-												</a>
-											{%- else -%}
-												<a
-													href="#"
-													class="button-shop w-button"
-													style="opacity: 0.5; pointer-events: none;">
-													Sold out
-												</a>
-											{%- endif -%}
-										</div>
-									</div>
-								</div>
-							{% endfor %}
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<div class="spacer-xlarge">
+		{% render 'grid-produtos' %}
+		{% render 'section-formula' %}
+		{% render 'section-quem' %}
 	</main>
 	{%- render 'footer' -%}
 </div>
@@ -148,8 +22,6 @@
 	src="{{ 'webflow.js' | asset_url }}"
 	type="text/javascript"
 	defer></script>
-
-{{ 'udesly-shopify.min.js' | asset_url | script_tag }}
 
 <style>
 	.button-group {

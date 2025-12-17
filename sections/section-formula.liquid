@@ -1,3 +1,15 @@
+{% comment %} Check for collection-specific metafields, otherwise use section settings {% endcomment %}
+{% assign formula_image = section.settings.image %}
+{% assign formula_heading = section.settings.heading %}
+
+{% if collection.metafields.custom.formula_image %}
+	{% assign formula_image = collection.metafields.custom.formula_image %}
+{% endif %}
+
+{% if collection.metafields.custom.formula_heading != blank %}
+	{% assign formula_heading = collection.metafields.custom.formula_heading %}
+{% endif %}
+
 <section class="section_formula">
 	<div class="padding-global">
 		<div class="container-large">
@@ -7,10 +19,10 @@
 						<div
 							id="w-node-df29850c-034c-598b-99e8-48d7ee89c657-50830d4d"
 							class="formula_image-content">
-							{% if section.settings.image != blank %}
+							{% if formula_image != blank %}
 								<img
-									alt="{{ section.settings.image.alt | default: 'Fórmula Genskins' }}"
-									src="{{ section.settings.image | image_url: width: 800 }}"
+									alt="{{ formula_image.alt | default: 'Fórmula Genskins' }}"
+									src="{{ formula_image | image_url: width: 800 }}"
 									loading="lazy"
 									class="formula_image">
 							{% else %}
@@ -25,15 +37,39 @@
 							id="w-node-df29850c-034c-598b-99e8-48d7ee89c62f-50830d4d"
 							class="formula_text-ontent">
 							<h2 class="heading_formula">
-								{% if section.settings.heading != blank %}
-									{{ section.settings.heading }}
+								{% if formula_heading != blank %}
+									{{ formula_heading }}
 								{% else %}
 									Como funcionam os adesivos secativos?<br>
 								{% endif %}
 							</h2>
-							{% if section.blocks.size > 0 %}
-								<div
-									class="w-layout-grid formula_grid">
+							{% comment %} Check for collection-specific blocks in metafield, otherwise use section blocks {% endcomment %}
+							{% assign use_collection_blocks = false %}
+							{% assign collection_blocks = collection.metafields.custom.formula_blocks.value %}
+
+							{% if collection_blocks and collection_blocks.size > 0 %}
+								{% assign use_collection_blocks = true %}
+							{% endif %}
+
+							{% if use_collection_blocks %}
+								{% comment %} Use blocks from collection metafield {% endcomment %}
+								<div class="w-layout-grid formula_grid">
+									{% for block_item in collection_blocks %}
+										<div class="formula_content-wrapper{% if forloop.last %} last{% endif %}">
+											{% if block_item.heading != blank %}
+												<div class="formula-content-heading">{{ block_item.heading }}</div>
+											{% endif %}
+											{% if block_item.text != blank %}
+												<div class="formula_content-text">
+													{{ block_item.text }}
+												</div>
+											{% endif %}
+										</div>
+									{% endfor %}
+								</div>
+							{% elsif section.blocks.size > 0 %}
+								{% comment %} Use blocks from section settings {% endcomment %}
+								<div class="w-layout-grid formula_grid">
 									{% for block in section.blocks %}
 										<div
 											class="formula_content-wrapper{% if forloop.last %} last{% endif %}"
@@ -63,16 +99,21 @@
 	"name": "Section Formula",
 	"settings": [
 		{
+			"type": "paragraph",
+			"content": "Default settings below. To have different content per collection, use Collection Metafields: 'custom.formula_image' (file_reference), 'custom.formula_heading' (single_line_text), and 'custom.formula_blocks' (list of JSON objects with 'heading' and 'text' properties). Collection metafields will override these settings."
+		},
+		{
 			"type": "image_picker",
 			"id": "image",
-			"label": "Image",
-			"info": "Image displayed in the formula_image-content area"
+			"label": "Image (Default)",
+			"info": "Default image. Overridden by collection metafield 'custom.formula_image' if set."
 		},
 		{
 			"type": "text",
 			"id": "heading",
-			"label": "Heading",
-			"default": "Como funcionam os adesivos secativos?"
+			"label": "Heading (Default)",
+			"default": "Como funcionam os adesivos secativos?",
+			"info": "Default heading. Overridden by collection metafield 'custom.formula_heading' if set."
 		}
 	],
 	"blocks": [

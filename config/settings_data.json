@@ -102,22 +102,22 @@
           "formula_item_qTbqK8": {
             "type": "formula_item",
             "settings": {
-              "heading": "Absorção de exsudato",
-              "text": "<p>Item description texQuando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço.t</p>"
+              "heading": "<p>Absorção de exsudato</p>",
+              "text": "<p>Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço.t</p>"
             }
           },
           "formula_item_ULNLJE": {
             "type": "formula_item",
             "settings": {
-              "heading": "Cicatrização",
-              "text": "<p>Item description textA matriz do hidrocoloide cria um ambiente úmido que favorece a cicatrização rápida e eficiente, evitando a formação de crostas e cicatrizes.</p>"
+              "heading": "<p>Cicatrização</p>",
+              "text": "<p>A matriz do hidrocoloide cria um ambiente úmido que favorece a cicatrização rápida e eficiente, evitando a formação de crostas e cicatrizes.</p>"
             }
           },
           "formula_item_g9qhhX": {
             "type": "formula_item",
             "settings": {
-              "heading": "Proteção Física",
-              "text": "<p>O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura.</p>"
+              "heading": "<p>Proteção Física</p>",
+              "text": "<p>O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura...</p>"
             }
           }
         },

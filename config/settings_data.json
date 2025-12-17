@@ -11,6 +11,100 @@
   "current": {
     "mobile_banner": "shopify://shop_images/gengen_1.png",
     "locale": "pt-BR",
+    "sections": {
+      "header-home": {
+        "type": "header-home",
+        "settings": {
+          "desktop_banner": "shopify://shop_images/692a18c907cacdc673a6c3f6_812bc77dc84a2f3b472e47ea2d6995a82cc1481c.png",
+          "mobile_banner": "shopify://shop_images/gengen_1.png",
+          "heading": "Design de cuidado",
+          "sub_heading": "<p>Criamos objetos de pele feitos comhidrocolóide de alta performance.<br/>Essa tecnologiacontrola a umidade, protege da contaminação e puxa a secreção da espinhapara fora. O patch reduz atrito, desinflama, limpa o poro e acelera o reparo natural da pele. O resultado aparece rápido: menos vermelhidão e melhora visível em cerca de8 horas.</p>"
+        }
+      },
+      "sobre-home": {
+        "type": "sobre-home",
+        "settings": {
+          "rich_text": "",
+          "button_text": "Sobre a GENSKINS",
+          "button_link": ""
+        }
+      },
+      "section-quem": {
+        "type": "section-quem",
+        "blocks": {
+          "testimonial_card_UndWUa": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "video",
+              "video_poster": "shopify://shop_images/687b9decde4053855982b5b1_6931ef65600b5848ca32a9d5_IMG_2065_poster.0000000.jpg",
+              "video_mp4": "",
+              "video_webm": "",
+              "name": "Person Name",
+              "social_handle": "username",
+              "social_link": ""
+            }
+          },
+          "testimonial_card_JYCmyT": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "image",
+              "image": "shopify://shop_images/a96371a1f772d458b60d3d2f3c5a18c3763fd153_1.jpg",
+              "video_mp4": "",
+              "video_webm": "",
+              "name": "Giovanna Ferrarezi",
+              "social_handle": "@giovannaferrarezi",
+              "social_link": ""
+            }
+          },
+          "testimonial_card_i4Lema": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "image",
+              "image": "shopify://shop_images/cca57eafcf7b9ea95cf912064ed85c9b63d05a7c_1.png",
+              "video_mp4": "",
+              "video_webm": "",
+              "name": "Júlia Baroni",
+              "social_handle": "@juliabaronic",
+              "social_link": ""
+            }
+          },
+          "testimonial_card_QCFBYN": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "image",
+              "image": "shopify://shop_images/e46f67c6b6c4cd5a5dc21fba50fbed6aa8c94735_1.jpg",
+              "video_mp4": "",
+              "video_webm": "",
+              "name": "Sofia Santino",
+              "social_handle": "@sofiasantino",
+              "social_link": ""
+            }
+          },
+          "testimonial_card_jC9Uew": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "image",
+              "image": "shopify://shop_images/8e1ee62d378930539c593e0c6d5968afacefcb2b_1.png",
+              "video_mp4": "",
+              "video_webm": "",
+              "name": "Jessica Lobo",
+              "social_handle": "@_jessicalobo",
+              "social_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "testimonial_card_UndWUa",
+          "testimonial_card_JYCmyT",
+          "testimonial_card_i4Lema",
+          "testimonial_card_QCFBYN",
+          "testimonial_card_jC9Uew"
+        ],
+        "settings": {
+          "heading": "Quem está usando"
+        }
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "12948015482042402483": {

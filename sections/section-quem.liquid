@@ -38,6 +38,10 @@
 									.testimonial49_client:hover {
 										opacity: 0.8;
 									}
+									/* Fix video z-index to ensure it's visible */
+									.testimonial49_client-image-wrapper .w-background-video > video {
+										z-index: 0 !important;
+									}
 								</style>
 							</div>
 							<div class="team-slider_cms_wrap swiper">
@@ -49,13 +53,40 @@
 											<div class="testimonial49_card">
 												<div class="testimonial49_client-image-wrapper">
 													{% if block.settings.media_type == 'video' %}
-														{% if block.settings.video_mp4 != blank or block.settings.video_webm != blank %}
+														{% comment %} Get MP4 and WebM video URLs from separate video uploads {% endcomment %}
+														{% assign video_mp4 = blank %}
+														{% assign video_webm = blank %}
+														{% assign poster_url = blank %}
+
+														{% if block.settings.video_mp4 %}
+															{% assign first_source = block.settings.video_mp4.sources.first %}
+															{% if first_source %}
+																{% assign video_mp4 = first_source.url %}
+															{% endif %}
+														{% endif %}
+
+														{% if block.settings.video_webm %}
+															{% assign first_source = block.settings.video_webm.sources.first %}
+															{% if first_source %}
+																{% assign video_webm = first_source.url %}
+															{% endif %}
+														{% endif %}
+
+														{% if block.settings.video_poster != blank %}
+															{% assign poster_url = block.settings.video_poster | image_url %}
+														{% elsif block.settings.video_mp4 and block.settings.video_mp4.preview_image %}
+															{% assign poster_url = block.settings.video_mp4.preview_image | image_url %}
+														{% elsif block.settings.video_webm and block.settings.video_webm.preview_image %}
+															{% assign poster_url = block.settings.video_webm.preview_image | image_url %}
+														{% endif %}
+
+														{% if video_mp4 != blank or video_webm != blank %}
 															<div
-																{% if block.settings.video_poster != blank %}
-																	data-poster-url="{{ block.settings.video_poster | image_url }}"
-																	style="background-image: url('{{ block.settings.video_poster | image_url }}')"
+																{% if poster_url != blank %}
+																	data-poster-url="{{ poster_url }}"
+																	style="background-image: url('{{ poster_url }}')"
 																{% endif %}
-																data-video-urls="{% if block.settings.video_mp4 != blank %}{{ block.settings.video_mp4 | asset_url }}{% endif %}{% if block.settings.video_mp4 != blank and block.settings.video_webm != blank %},{% endif %}{% if block.settings.video_webm != blank %}{{ block.settings.video_webm | asset_url }}{% endif %}"
+																data-video-urls="{% if video_mp4 != blank %}{{ video_mp4 }}{% endif %}{% if video_mp4 != blank and video_webm != blank %},{% endif %}{% if video_webm != blank %}{{ video_webm }}{% endif %}"
 																data-autoplay="true"
 																data-loop="true"
 																data-wf-ignore="true"
@@ -64,23 +95,21 @@
 																	id="video-{{ block.id }}"
 																	autoplay=""
 																	loop=""
-																	{% if block.settings.video_poster != blank %}
-																		style="background-image: url('{{ block.settings.video_poster | image_url }}')"
+																	{% if poster_url != blank %}
+																		style="background-image: url('{{ poster_url }}')"
 																	{% endif %}
 																	muted=""
 																	playsinline=""
 																	data-wf-ignore="true"
 																	data-object-fit="cover">
-																	{% if block.settings.video_mp4 != blank %}
+																	{% if video_mp4 != blank %}
 																		<source
-																			src="{{ block.settings.video_mp4 | asset_url }}"
-																			type="video/mp4"
+																			src="{{ video_mp4 }}"
 																			data-wf-ignore="true">
 																	{% endif %}
-																	{% if block.settings.video_webm != blank %}
+																	{% if video_webm != blank %}
 																		<source
-																			src="{{ block.settings.video_webm | asset_url }}"
-																			type="video/webm"
+																			src="{{ video_webm }}"
 																			data-wf-ignore="true">
 																	{% endif %}
 																</video>
@@ -300,22 +329,22 @@
 					"info": "Only used when Media Type is set to Video"
 				},
 				{
+					"type": "video",
+					"id": "video_mp4",
+					"label": "Video MP4",
+					"info": "Upload or select an MP4 video file from your Shopify Files library"
+				},
+				{
+					"type": "video",
+					"id": "video_webm",
+					"label": "Video WebM",
+					"info": "Upload or select a WebM video file from your Shopify Files library"
+				},
+				{
 					"type": "image_picker",
 					"id": "video_poster",
-					"label": "Video Poster Image",
-					"info": "Poster/thumbnail image for the video"
-				},
-				{
-					"type": "text",
-					"id": "video_mp4",
-					"label": "Video MP4 Filename",
-					"info": "Enter the filename of the MP4 video file (e.g., 'video.mp4'). The file should be uploaded to the theme's assets folder."
-				},
-				{
-					"type": "text",
-					"id": "video_webm",
-					"label": "Video WebM Filename",
-					"info": "Enter the filename of the WebM video file (e.g., 'video.webm'). The file should be uploaded to the theme's assets folder."
+					"label": "Video Poster Image (Optional)",
+					"info": "Custom poster/thumbnail image. If not set, the MP4 video's preview image will be used."
 				},
 				{
 					"type": "header",

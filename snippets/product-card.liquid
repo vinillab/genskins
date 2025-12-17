@@ -17,7 +17,9 @@
 				<div class="gallery15_mask w-slider-mask">
 					{% for image in product.images %}
 						<div class="gallery15_slide w-slide">
-							<div class="gallery15_image-wrapper">
+							<a
+								href="{{ product.url }}"
+								class="gallery15_image-wrapper">
 								<img
 									sizes="(max-width: 2000px) 100vw, 2000px"
 									srcset="{{ image | img_url: '500x' }} 500w, {{ image | img_url: '800x' }} 800w, {{ image | img_url: '1080x' }} 1080w, {{ image | img_url: '1600x' }} 1600w, {{ image | img_url: '2000x' }} 2000w"
@@ -27,7 +29,7 @@
 									width="2000"
 									height="2000"
 									class="gallery15_image">
-							</div>
+							</a>
 						</div>
 					{% endfor %}
 				</div>

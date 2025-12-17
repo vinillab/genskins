@@ -1,0 +1,97 @@
+<section class="secton_sobre_home">
+	<div class="padding-global">
+		<div class="container-large">
+			<div class="padding-section-large">
+				<div class="header19_component">
+					<div class="w-layout-grid header19_content">
+						<div class="header19_image-wrapper">
+							{% if section.settings.image != blank %}
+								<img
+									alt="{{ section.settings.image.alt | default: 'Foto ilustrativa sobre a GENSKINS' }}"
+									src="{{ section.settings.image | image_url: width: 1200 }}"
+									loading="eager"
+									class="header19_image">
+							{% else %}
+								<img
+									alt="Foto ilustrativa sobre a GENSKINS"
+									src="{{ 'foto-home-sobre.jpg' | asset_url }}"
+									loading="eager"
+									class="header19_image">
+							{% endif %}
+						</div>
+						<div
+							id="w-node-_1d5ae1a6-4b25-5d93-fb88-8931f1bd0ea2-5982b5ee"
+							class="header19_content-right">
+							<div class="text-rich-text-sobre-home w-richtext">
+								{% if section.settings.rich_text != blank %}
+									{{ section.settings.rich_text }}
+								{% else %}
+									<h2>
+										Cuidado com a <br>
+										pele do seu jeito.
+									</h2>
+									<p><strong>Autoestima é poder.</strong> Genskins une design e tecnologia para criar patches que realmente entregam resultado. Tratamento que também comunica <strong>quem você é.</strong></p>
+									<p>Seu skincare vira acessório e faz parte do seu jeito de aparecer no mundo.</p>
+								{% endif %}
+							</div>
+							<div class="spacer-medium"></div>
+							{% if section.settings.button_text != blank %}
+								<div class="button-group">
+									<a
+										href="{{ section.settings.button_link | default: '#' }}"
+										class="button is-secondary wide w-button">
+										{{- section.settings.button_text -}}
+									</a>
+								</div>
+							{% else %}
+								<div class="button-group">
+									<a
+										href="#"
+										class="button is-secondary wide w-button"
+										>Sobre a GENSKINS</a
+									>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Sobre Home",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Image",
+			"info": "Image displayed in the header19_image-wrapper"
+		},
+		{
+			"type": "richtext",
+			"id": "rich_text",
+			"label": "Rich Text Content",
+			"info": "Rich text content displayed in the text-rich-text-sobre-home div"
+		},
+		{
+			"type": "text",
+			"id": "button_text",
+			"label": "Button Text",
+			"default": "Sobre a GENSKINS"
+		},
+		{
+			"type": "url",
+			"id": "button_link",
+			"label": "Button Link"
+		}
+	],
+	"presets": [
+		{
+			"name": "Sobre Home"
+		}
+	]
+}
+{% endschema %}

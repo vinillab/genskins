@@ -1,0 +1,139 @@
+{%- unless section.settings.desktop_banner -%}
+	<header class="section_hero floating-section">
+		<div class="padding-global">
+			<div class="container-large hero">
+				{% render 'header142-floating-images' %}
+
+				<div class="hero-warpper">
+					<div class="heading-wrapper home">
+						<h1 class="heading-principal">
+							{% if section.settings.heading != blank %}
+								{{ section.settings.heading }}
+							{% else %}
+								Design de cuidado
+							{% endif %}
+						</h1>
+					</div>
+					{% if section.settings.sub_heading != blank %}
+						<div class="spacer-large"></div>
+						<div class="text-sub-heading">
+							{{ section.settings.sub_heading }}
+						</div>
+					{% endif %}
+				</div>
+				<div class="spacer-large"></div>
+			</div>
+		</div>
+	</header>
+{%- endunless -%}
+
+{%- if section.settings.desktop_banner -%}
+	<!-- Desktop Banner Section -->
+	<header class="section_hero_home">
+		<div class="header9_component">
+			<div class="header9_image-wrapper">
+				<div class="header9_background-image-wrapper">
+					<img
+						alt="{{ section.settings.desktop_banner.alt | default: 'Genskins Banner' }}"
+						src="{{ section.settings.desktop_banner | image_url: width: 1920 }}"
+						loading="eager"
+						class="header9_background-image">
+				</div>
+			</div>
+			<div class="padding-global">
+				<div class="container-medium">
+					<div class="padding-vertical padding-xxlarge">
+						<div class="hero-warpper">
+							<div class="heading-wrapper home">
+								<h1 class="heading-principal">
+									{% if section.settings.heading != blank %}
+										{{ section.settings.heading }}
+									{% else %}
+										Design de cuidado
+									{% endif %}
+								</h1>
+							</div>
+							{% if section.settings.sub_heading != blank %}
+								<div class="spacer-large"></div>
+								<div class="text-sub-heading">
+									{{ section.settings.sub_heading }}
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+{%- endif -%}
+
+<!-- Mobile Banner Section (always shows) -->
+<header class="section_header5 text-color-white">
+	<div class="header5_background-image-wrapper">
+		{% if section.settings.mobile_banner %}
+			<img
+				alt="{{ section.settings.mobile_banner.alt | default: 'Mobile Banner' }}"
+				src="{{ section.settings.mobile_banner | image_url: width: 1080 }}"
+				srcset="{{ section.settings.mobile_banner | image_url: width: 540 }} 540w, {{ section.settings.mobile_banner | image_url: width: 720 }} 720w, {{ section.settings.mobile_banner | image_url: width: 1080 }} 1080w"
+				sizes="(max-width: 540px) 540px, (max-width: 720px) 720px, 1080px"
+				loading="eager"
+				class="header5_background-image">
+		{% else %}
+			<img
+				alt="Mobile Banner"
+				src="{{ 'gengen-mobile.png' | asset_url }}"
+				loading="eager"
+				class="header5_background-image">
+		{% endif %}
+	</div>
+	<div class="padding-global">
+		<div class="container-large">
+			<div class="header5_content"></div>
+		</div>
+	</div>
+</header>
+
+{% schema %}
+{
+	"name": "Header Home",
+	"settings": [
+		{
+			"type": "header",
+			"content": "Banner Images"
+		},
+		{
+			"type": "image_picker",
+			"id": "desktop_banner",
+			"label": "Desktop Banner",
+			"info": "1920x1080 image for desktop banner. When set, shows the hero section with background image. When not set, shows the floating images component."
+		},
+		{
+			"type": "image_picker",
+			"id": "mobile_banner",
+			"label": "Mobile Banner",
+			"info": "1081x1350 image for mobile banner. Shows on mobile devices."
+		},
+		{
+			"type": "header",
+			"content": "Content"
+		},
+		{
+			"type": "text",
+			"id": "heading",
+			"label": "Heading",
+			"default": "Design de cuidado"
+		},
+		{
+			"type": "richtext",
+			"id": "sub_heading",
+			"label": "Sub Heading",
+			"info": "Rich text content displayed below the heading. You can use HTML tags like <span class=\"text-weight-normal\"> for styling."
+		}
+	],
+	"presets": [
+		{
+			"name": "Header Home"
+		}
+	]
+}
+{% endschema %}

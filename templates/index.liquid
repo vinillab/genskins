@@ -7,10 +7,10 @@
 	{%- render 'navbar' -%}
 
 	<main class="main-wrapper">
-		{% render 'header-home' %}
+		{% section 'header-home' %}
 		{% render 'grid-produtos' %}
-		{% render 'sobre-home' %}
-		{% render 'section-quem' %}
+		{% section 'sobre-home' %}
+		{% section 'section-quem' %}
 	</main>
 
 	{%- render 'footer' -%}

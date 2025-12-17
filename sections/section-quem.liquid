@@ -1,0 +1,370 @@
+<section class="section_quem">
+	<div class="padding-global">
+		<div class="container-large">
+			<div class="padding-section-large no-padding-top">
+				<div class="testimonial49_component">
+					<div class="max-width-large">
+						<h2 class="heading-testimonials">
+							{% if section.settings.heading != blank %}
+								{{ section.settings.heading }}
+							{% else %}
+								Quem está usando
+							{% endif %}
+						</h2>
+					</div>
+					<div class="spacer-small"></div>
+					{% if section.blocks.size > 0 %}
+						<div class="team-slider_component">
+							<div class="w-embed">
+								<style>
+									@container (width < 40em) {
+										.team-slider_cms_item.swiper-slide {
+											width: calc(100% / 2);
+										}
+									}
+									@container (width < 25em) {
+										.team-slider_cms_item.swiper-slide {
+											width: calc(100% / 1.2);
+										}
+									}
+									.swiper-wrapper {
+										transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); /* smooth easing */
+									}
+									.testimonial49_client {
+										text-decoration: none;
+										color: inherit;
+										display: block;
+									}
+									.testimonial49_client:hover {
+										opacity: 0.8;
+									}
+								</style>
+							</div>
+							<div class="team-slider_cms_wrap swiper">
+								<div class="team-slider_cms_list swiper-wrapper">
+									{% for block in section.blocks %}
+										<div
+											class="team-slider_cms_item swiper-slide"
+											{{ block.shopify_attributes }}>
+											<div class="testimonial49_card">
+												<div class="testimonial49_client-image-wrapper">
+													{% if block.settings.media_type == 'video' %}
+														{% if block.settings.video_mp4 != blank or block.settings.video_webm != blank %}
+															<div
+																{% if block.settings.video_poster != blank %}
+																	data-poster-url="{{ block.settings.video_poster | image_url }}"
+																	style="background-image: url('{{ block.settings.video_poster | image_url }}')"
+																{% endif %}
+																data-video-urls="{% if block.settings.video_mp4 != blank %}{{ block.settings.video_mp4 | asset_url }}{% endif %}{% if block.settings.video_mp4 != blank and block.settings.video_webm != blank %},{% endif %}{% if block.settings.video_webm != blank %}{{ block.settings.video_webm | asset_url }}{% endif %}"
+																data-autoplay="true"
+																data-loop="true"
+																data-wf-ignore="true"
+																class="testimonial49_client-image w-background-video w-background-video-atom">
+																<video
+																	id="video-{{ block.id }}"
+																	autoplay=""
+																	loop=""
+																	{% if block.settings.video_poster != blank %}
+																		style="background-image: url('{{ block.settings.video_poster | image_url }}')"
+																	{% endif %}
+																	muted=""
+																	playsinline=""
+																	data-wf-ignore="true"
+																	data-object-fit="cover">
+																	{% if block.settings.video_mp4 != blank %}
+																		<source
+																			src="{{ block.settings.video_mp4 | asset_url }}"
+																			type="video/mp4"
+																			data-wf-ignore="true">
+																	{% endif %}
+																	{% if block.settings.video_webm != blank %}
+																		<source
+																			src="{{ block.settings.video_webm | asset_url }}"
+																			type="video/webm"
+																			data-wf-ignore="true">
+																	{% endif %}
+																</video>
+															</div>
+														{% endif %}
+													{% else %}
+														{% if block.settings.image != blank %}
+															<img
+																sizes="(max-width: 1898px) 100vw, 1898px"
+																srcset="{{ block.settings.image | image_url: width: 500 }} 500w, {{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1080 }} 1080w, {{ block.settings.image | image_url: width: 1600 }} 1600w, {{ block.settings.image | image_url }} 1898w"
+																alt="{{ block.settings.image.alt | default: block.settings.name }}"
+																src="{{ block.settings.image | image_url: width: 800 }}"
+																loading="lazy"
+																class="testimonial49_client-image">
+														{% endif %}
+													{% endif %}
+												</div>
+												<div class="testimonial49_card-content">
+													{% if block.settings.social_link != blank %}
+														<a
+															href="{{ block.settings.social_link }}"
+															target="_blank"
+															rel="noopener noreferrer"
+															class="testimonial49_client">
+															{% if block.settings.name != blank %}
+																<div class="text-weight-semibold">{{ block.settings.name }}</div>
+															{% endif %}
+															{% if block.settings.social_handle != blank %}
+																<div>@{{ block.settings.social_handle }}</div>
+															{% endif %}
+														</a>
+													{% else %}
+														<div class="testimonial49_client">
+															{% if block.settings.name != blank %}
+																<div class="text-weight-semibold">{{ block.settings.name }}</div>
+															{% endif %}
+															{% if block.settings.social_handle != blank %}
+																<div>@{{ block.settings.social_handle }}</div>
+															{% endif %}
+														</div>
+													{% endif %}
+												</div>
+											</div>
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+							<div class="team-slider_layout">
+								<div class="team-slider_draggable_wrap">
+									<div class="team-slider_draggable_handle"></div>
+								</div>
+								<div class="team-slider_btn_layout">
+									<div class="team-slider_btn_element swiper-button-disabled is-prev">
+										<a
+											href="#"
+											class="slider-arrow w-inline-block">
+											<div class="slider-arrow-icon_default w-embed">
+												<svg
+													width="8"
+													height="12"
+													viewbox="0 0 8 12"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M6.43848 0.702148L1.43848 5.77201L6.43848 10.381"
+														stroke="#001AFF"
+														stroke-width="2"></path>
+												</svg>
+											</div>
+										</a>
+									</div>
+									<div class="team-slider_btn_element is-next">
+										<a
+											href="#"
+											class="slider-arrow w-inline-block">
+											<div class="slider-arrow-icon_default w-embed">
+												<svg
+													width="8"
+													height="12"
+													viewbox="0 0 8 12"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M0.711914 10.4141L5.71191 5.3442L0.711913 0.735238"
+														stroke="#001AFF"
+														stroke-width="2"></path>
+												</svg>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		document.querySelectorAll('.team-slider_component').forEach(component => {
+			const cmsWrap = component.querySelector('.swiper');
+			if (!cmsWrap) return;
+			const swiper = new Swiper(cmsWrap, {
+				// --- MOBILE DEFAULTS (0px and up) ---
+				slidesPerView: 1.2,
+				spaceBetween: 16, // Reduced spacing for mobile looks better
+				speed: 600,
+				// --- OTHER SETTINGS ---
+				followFinger: true,
+				freeMode: false,
+				slideToClickedSlide: false,
+				centeredSlides: false,
+				autoHeight: false,
+				slideActiveClass: 'is-active',
+				slideDuplicateActiveClass: 'is-active',
+				mousewheel: {
+					forceToAxis: true,
+				},
+				keyboard: {
+					enabled: true,
+					onlyInViewport: true,
+				},
+				// --- RESPONSIVE BREAKPOINTS ---
+				breakpoints: {
+					// When window width is >= 480px (Landscape Mobile / Small Tablet)
+					480: {
+						slidesPerView: 2,
+						spaceBetween: 24,
+					},
+					// When window width is >= 768px (Standard Tablet)
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 30,
+					},
+					// When window width is >= 992px (Desktop - Your original settings)
+					992: {
+						slidesPerView: 4,
+						spaceBetween: 45,
+					},
+				},
+				// --- CONTROLS ---
+				navigation: {
+					nextEl: component.querySelector('.team-slider_btn_element.is-next'),
+					prevEl: component.querySelector('.team-slider_btn_element.is-prev'),
+				},
+				pagination: {
+					el: component.querySelector('.team-slider_bullet_wrap'),
+					bulletActiveClass: 'is-active',
+					bulletClass: 'team-slider_bullet_item',
+					bulletElement: 'button',
+					clickable: true,
+				},
+				scrollbar: {
+					el: component.querySelector('.team-slider_draggable_wrap'),
+					draggable: true,
+					dragClass: 'team-slider_draggable_handle',
+					snapOnRelease: true,
+				},
+			});
+		});
+	});
+</script>
+
+{% schema %}
+{
+	"name": "Quem está usando",
+	"settings": [
+		{
+			"type": "text",
+			"id": "heading",
+			"label": "Heading",
+			"default": "Quem está usando"
+		}
+	],
+	"blocks": [
+		{
+			"type": "testimonial_card",
+			"name": "Testimonial Card",
+			"settings": [
+				{
+					"type": "select",
+					"id": "media_type",
+					"label": "Media Type",
+					"options": [
+						{
+							"value": "image",
+							"label": "Image"
+						},
+						{
+							"value": "video",
+							"label": "Video"
+						}
+					],
+					"default": "image"
+				},
+				{
+					"type": "header",
+					"content": "Image Settings",
+					"info": "Only used when Media Type is set to Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image",
+					"info": "Displayed when Media Type is Image"
+				},
+				{
+					"type": "header",
+					"content": "Video Settings",
+					"info": "Only used when Media Type is set to Video"
+				},
+				{
+					"type": "image_picker",
+					"id": "video_poster",
+					"label": "Video Poster Image",
+					"info": "Poster/thumbnail image for the video"
+				},
+				{
+					"type": "text",
+					"id": "video_mp4",
+					"label": "Video MP4 Filename",
+					"info": "Enter the filename of the MP4 video file (e.g., 'video.mp4'). The file should be uploaded to the theme's assets folder."
+				},
+				{
+					"type": "text",
+					"id": "video_webm",
+					"label": "Video WebM Filename",
+					"info": "Enter the filename of the WebM video file (e.g., 'video.webm'). The file should be uploaded to the theme's assets folder."
+				},
+				{
+					"type": "header",
+					"content": "Person Information"
+				},
+				{
+					"type": "text",
+					"id": "name",
+					"label": "Name",
+					"default": "Person Name"
+				},
+				{
+					"type": "text",
+					"id": "social_handle",
+					"label": "Social Media Handle",
+					"info": "Enter the handle without @ (e.g., 'username' will display as '@username')",
+					"default": "username"
+				},
+				{
+					"type": "url",
+					"id": "social_link",
+					"label": "Social Media Link",
+					"info": "Link to the person's social media profile"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Quem está usando",
+			"blocks": [
+				{
+					"type": "testimonial_card",
+					"settings": {
+						"media_type": "video",
+						"name": "Giovanna Ferrarezi",
+						"social_handle": "giovannaferrarezi"
+					}
+				},
+				{
+					"type": "testimonial_card",
+					"settings": {
+						"media_type": "image",
+						"name": "Júlia Baroni",
+						"social_handle": "juliabaronic"
+					}
+				}
+			]
+		}
+	]
+}
+{% endschema %}

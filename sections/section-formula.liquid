@@ -42,44 +42,12 @@
 												<div class="formula-content-heading">{{ block.settings.heading }}</div>
 											{% endif %}
 											{% if block.settings.text != blank %}
-												<p
-													class="formula_content-text">
+												<div class="formula_content-text">
 													{{ block.settings.text }}
-												</p>
+												</div>
 											{% endif %}
 										</div>
 									{% endfor %}
-								</div>
-							{% else %}
-								{% comment %} Default content if no blocks {% endcomment %}
-								<div
-									blocks-name="faq6_list-grid"
-									blocks-slot-children="ST366"
-									class="w-layout-grid formula_grid">
-									<div class="formula_content-wrapper">
-										<div class="formula-content-heading">Absorção de exsudato</div>
-										<p
-											blocks-slot-item-canonical="EL10"
-											class="formula_content-text">
-											Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço.
-										</p>
-									</div>
-									<div class="formula_content-wrapper">
-										<div class="formula-content-heading">Cicatrização</div>
-										<p
-											blocks-slot-item-canonical="EL10"
-											class="formula_content-text">
-											A matriz do hidrocoloide cria um ambiente úmido que favorece a cicatrização rápida e eficiente, evitando a formação de crostas e cicatrizes.
-										</p>
-									</div>
-									<div class="formula_content-wrapper last">
-										<div class="formula-content-heading">Proteção Física</div>
-										<p
-											blocks-slot-item-canonical="EL10"
-											class="formula_content-text">
-											O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura.
-										</p>
-									</div>
 								</div>
 							{% endif %}
 						</div>
@@ -113,10 +81,10 @@
 			"name": "Formula Item",
 			"settings": [
 				{
-					"type": "text",
+					"type": "richtext",
 					"id": "heading",
 					"label": "Heading",
-					"default": "Item Heading"
+					"default": "<p>Item Heading</p>"
 				},
 				{
 					"type": "richtext",
@@ -134,21 +102,21 @@
 				{
 					"type": "formula_item",
 					"settings": {
-						"heading": "Absorção de exsudato",
+						"heading": "<p>Absorção de exsudato</p>",
 						"text": "<p>Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço.</p>"
 					}
 				},
 				{
 					"type": "formula_item",
 					"settings": {
-						"heading": "Cicatrização",
+						"heading": "<p>Cicatrização</p>",
 						"text": "<p>A matriz do hidrocoloide cria um ambiente úmido que favorece a cicatrização rápida e eficiente, evitando a formação de crostas e cicatrizes.</p>"
 					}
 				},
 				{
 					"type": "formula_item",
 					"settings": {
-						"heading": "Proteção Física",
+						"heading": "<p>Proteção Física</p>",
 						"text": "<p>O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura.</p>"
 					}
 				}

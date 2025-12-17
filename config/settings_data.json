@@ -95,6 +95,41 @@
         "settings": {
           "heading": "Quem está usando"
         }
+      },
+      "section-formula": {
+        "type": "section-formula",
+        "blocks": {
+          "formula_item_qTbqK8": {
+            "type": "formula_item",
+            "settings": {
+              "heading": "Absorção de exsudato",
+              "text": "<p>Item description texQuando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço.t</p>"
+            }
+          },
+          "formula_item_ULNLJE": {
+            "type": "formula_item",
+            "settings": {
+              "heading": "Cicatrização",
+              "text": "<p>Item description textA matriz do hidrocoloide cria um ambiente úmido que favorece a cicatrização rápida e eficiente, evitando a formação de crostas e cicatrizes.</p>"
+            }
+          },
+          "formula_item_g9qhhX": {
+            "type": "formula_item",
+            "settings": {
+              "heading": "Proteção Física",
+              "text": "<p>O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura.</p>"
+            }
+          }
+        },
+        "block_order": [
+          "formula_item_qTbqK8",
+          "formula_item_ULNLJE",
+          "formula_item_g9qhhX"
+        ],
+        "settings": {
+          "image": "shopify://shop_images/6941c43e596e37a11a6869ba_f169b2691060d472ec1505e7682f3fb5e3b9c636-otimizada.jpg",
+          "heading": "Como funcionam os adesivos secativos?"
+        }
       }
     },
     "content_for_index": [],

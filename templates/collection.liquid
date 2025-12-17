@@ -6,9 +6,10 @@
 	{%- render 'navbar' -%}
 	<main class="main-wrapper">
 		<div class="spacer-xlarge">
-		{% render 'grid-produtos' %}
-		{% render 'section-formula' %}
-		{% render 'section-quem' %}
+			{% render 'grid-produtos' %}
+			{% section 'section-formula' %}
+			{% section 'section-quem' %}
+		</div>
 	</main>
 	{%- render 'footer' -%}
 </div>

@@ -1,0 +1,159 @@
+<section class="section_formula">
+	<div class="padding-global">
+		<div class="container-large">
+			<div class="padding-section-large">
+				<div class="layout192_component">
+					<div class="w-layout-grid formula_content shop">
+						<div
+							id="w-node-df29850c-034c-598b-99e8-48d7ee89c657-50830d4d"
+							class="formula_image-content">
+							{% if section.settings.image != blank %}
+								<img
+									alt="{{ section.settings.image.alt | default: 'Fórmula Genskins' }}"
+									src="{{ section.settings.image | image_url: width: 800 }}"
+									loading="lazy"
+									class="formula_image">
+							{% else %}
+								<img
+									alt="Fórmula Genskins"
+									src="{{ 'f169b2691060d472ec1505e7682f3fb5e3b9c636-otimizada.jpg' | asset_url }}"
+									loading="lazy"
+									class="formula_image">
+							{% endif %}
+						</div>
+						<div
+							id="w-node-df29850c-034c-598b-99e8-48d7ee89c62f-50830d4d"
+							class="formula_text-ontent">
+							<h2 class="heading_formula">
+								{% if section.settings.heading != blank %}
+									{{ section.settings.heading }}
+								{% else %}
+									Como funcionam os adesivos secativos?<br>
+								{% endif %}
+							</h2>
+							{% if section.blocks.size > 0 %}
+								<div
+									class="w-layout-grid formula_grid">
+									{% for block in section.blocks %}
+										<div
+											class="formula_content-wrapper{% if forloop.last %} last{% endif %}"
+											{{ block.shopify_attributes }}>
+											{% if block.settings.heading != blank %}
+												<div class="formula-content-heading">{{ block.settings.heading }}</div>
+											{% endif %}
+											{% if block.settings.text != blank %}
+												<p
+													class="formula_content-text">
+													{{ block.settings.text }}
+												</p>
+											{% endif %}
+										</div>
+									{% endfor %}
+								</div>
+							{% else %}
+								{% comment %} Default content if no blocks {% endcomment %}
+								<div
+									blocks-name="faq6_list-grid"
+									blocks-slot-children="ST366"
+									class="w-layout-grid formula_grid">
+									<div class="formula_content-wrapper">
+										<div class="formula-content-heading">Absorção de exsudato</div>
+										<p
+											blocks-slot-item-canonical="EL10"
+											class="formula_content-text">
+											Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço.
+										</p>
+									</div>
+									<div class="formula_content-wrapper">
+										<div class="formula-content-heading">Cicatrização</div>
+										<p
+											blocks-slot-item-canonical="EL10"
+											class="formula_content-text">
+											A matriz do hidrocoloide cria um ambiente úmido que favorece a cicatrização rápida e eficiente, evitando a formação de crostas e cicatrizes.
+										</p>
+									</div>
+									<div class="formula_content-wrapper last">
+										<div class="formula-content-heading">Proteção Física</div>
+										<p
+											blocks-slot-item-canonical="EL10"
+											class="formula_content-text">
+											O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura.
+										</p>
+									</div>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Section Formula",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Image",
+			"info": "Image displayed in the formula_image-content area"
+		},
+		{
+			"type": "text",
+			"id": "heading",
+			"label": "Heading",
+			"default": "Como funcionam os adesivos secativos?"
+		}
+	],
+	"blocks": [
+		{
+			"type": "formula_item",
+			"name": "Formula Item",
+			"settings": [
+				{
+					"type": "text",
+					"id": "heading",
+					"label": "Heading",
+					"default": "Item Heading"
+				},
+				{
+					"type": "richtext",
+					"id": "text",
+					"label": "Text",
+					"default": "<p>Item description text</p>"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Section Formula",
+			"blocks": [
+				{
+					"type": "formula_item",
+					"settings": {
+						"heading": "Absorção de exsudato",
+						"text": "<p>Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço.</p>"
+					}
+				},
+				{
+					"type": "formula_item",
+					"settings": {
+						"heading": "Cicatrização",
+						"text": "<p>A matriz do hidrocoloide cria um ambiente úmido que favorece a cicatrização rápida e eficiente, evitando a formação de crostas e cicatrizes.</p>"
+					}
+				},
+				{
+					"type": "formula_item",
+					"settings": {
+						"heading": "Proteção Física",
+						"text": "<p>O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura.</p>"
+					}
+				}
+			]
+		}
+	]
+}
+{% endschema %}

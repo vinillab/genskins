@@ -36,9 +36,9 @@
             "type": "testimonial_card",
             "settings": {
               "media_type": "video",
+              "video_mp4": "shopify://files/videos/IMG_2065_mp4.mp4",
+              "video_webm": "shopify://files/videos/IMG_2065_webm.webm",
               "video_poster": "shopify://shop_images/687b9decde4053855982b5b1_6931ef65600b5848ca32a9d5_IMG_2065_poster.0000000.jpg",
-              "video_mp4": "",
-              "video_webm": "",
               "name": "Person Name",
               "social_handle": "username",
               "social_link": ""
@@ -49,10 +49,8 @@
             "settings": {
               "media_type": "image",
               "image": "shopify://shop_images/a96371a1f772d458b60d3d2f3c5a18c3763fd153_1.jpg",
-              "video_mp4": "",
-              "video_webm": "",
               "name": "Giovanna Ferrarezi",
-              "social_handle": "@giovannaferrarezi",
+              "social_handle": "giovannaferrarezi",
               "social_link": ""
             }
           },
@@ -61,10 +59,8 @@
             "settings": {
               "media_type": "image",
               "image": "shopify://shop_images/cca57eafcf7b9ea95cf912064ed85c9b63d05a7c_1.png",
-              "video_mp4": "",
-              "video_webm": "",
               "name": "Júlia Baroni",
-              "social_handle": "@juliabaronic",
+              "social_handle": "juliabaronic",
               "social_link": ""
             }
           },
@@ -73,10 +69,8 @@
             "settings": {
               "media_type": "image",
               "image": "shopify://shop_images/e46f67c6b6c4cd5a5dc21fba50fbed6aa8c94735_1.jpg",
-              "video_mp4": "",
-              "video_webm": "",
               "name": "Sofia Santino",
-              "social_handle": "@sofiasantino",
+              "social_handle": "sofiasantino",
               "social_link": ""
             }
           },
@@ -85,8 +79,6 @@
             "settings": {
               "media_type": "image",
               "image": "shopify://shop_images/8e1ee62d378930539c593e0c6d5968afacefcb2b_1.png",
-              "video_mp4": "",
-              "video_webm": "",
               "name": "Jessica Lobo",
               "social_handle": "@_jessicalobo",
               "social_link": ""

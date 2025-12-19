@@ -40,58 +40,54 @@
 						class="header9_background-image">
 				</div>
 			</div>
-			<div class="padding-global">
-				<div class="container-medium">
-					<div class="padding-vertical padding-xxlarge">
-						<div class="hero-warpper">
-							<div class="heading-wrapper home">
-								<h1 class="heading-principal">
-									{% if section.settings.heading != blank %}
+			{% if section.settings.heading != blank and section.settings.sub_heading != blank %}
+				<div class="padding-global">
+					<div class="container-medium">
+						<div class="padding-vertical padding-xxlarge">
+							<div class="hero-warpper">
+								<div class="heading-wrapper home">
+									<h1 class="heading-principal">
 										{{ section.settings.heading }}
-									{% else %}
-										Design de cuidado
-									{% endif %}
-								</h1>
-							</div>
-							{% if section.settings.sub_heading != blank %}
+									</h1>
+								</div>
 								<div class="spacer-large"></div>
 								<div class="text-sub-heading">
 									{{ section.settings.sub_heading }}
 								</div>
-							{% endif %}
+							</div>
 						</div>
 					</div>
 				</div>
+			{% endif %}
+		</div>
+	</header>
+
+	<!-- Mobile Banner Section (always shows) -->
+	<header class="section_header5 text-color-white">
+		<div class="header5_background-image-wrapper">
+			{% if section.settings.mobile_banner %}
+				<img
+					alt="{{ section.settings.mobile_banner.alt | default: 'Mobile Banner' }}"
+					src="{{ section.settings.mobile_banner | image_url: width: 1080 }}"
+					srcset="{{ section.settings.mobile_banner | image_url: width: 540 }} 540w, {{ section.settings.mobile_banner | image_url: width: 720 }} 720w, {{ section.settings.mobile_banner | image_url: width: 1080 }} 1080w"
+					sizes="(max-width: 540px) 540px, (max-width: 720px) 720px, 1080px"
+					loading="eager"
+					class="header5_background-image">
+			{% else %}
+				<img
+					alt="Mobile Banner"
+					src="{{ 'gengen-mobile.png' | asset_url }}"
+					loading="eager"
+					class="header5_background-image">
+			{% endif %}
+		</div>
+		<div class="padding-global">
+			<div class="container-large">
+				<div class="header5_content"></div>
 			</div>
 		</div>
 	</header>
 {%- endif -%}
-
-<!-- Mobile Banner Section (always shows) -->
-<header class="section_header5 text-color-white">
-	<div class="header5_background-image-wrapper">
-		{% if section.settings.mobile_banner %}
-			<img
-				alt="{{ section.settings.mobile_banner.alt | default: 'Mobile Banner' }}"
-				src="{{ section.settings.mobile_banner | image_url: width: 1080 }}"
-				srcset="{{ section.settings.mobile_banner | image_url: width: 540 }} 540w, {{ section.settings.mobile_banner | image_url: width: 720 }} 720w, {{ section.settings.mobile_banner | image_url: width: 1080 }} 1080w"
-				sizes="(max-width: 540px) 540px, (max-width: 720px) 720px, 1080px"
-				loading="eager"
-				class="header5_background-image">
-		{% else %}
-			<img
-				alt="Mobile Banner"
-				src="{{ 'gengen-mobile.png' | asset_url }}"
-				loading="eager"
-				class="header5_background-image">
-		{% endif %}
-	</div>
-	<div class="padding-global">
-		<div class="container-large">
-			<div class="header5_content"></div>
-		</div>
-	</div>
-</header>
 
 {% schema %}
 {

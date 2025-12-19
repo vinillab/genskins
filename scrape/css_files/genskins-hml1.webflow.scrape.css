@@ -1,4 +1,4 @@
-/* --- BEGIN genskins-hml1.webflow.shared.49914bcd9.css --- */
+/* --- BEGIN genskins-hml1.webflow.shared.dd2dd75bf.css --- */
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -8528,6 +8528,10 @@ figcaption {
     max-width: 100%;
   }
 
+  .header9_image-wrapper {
+    display: none;
+  }
+
   .header9_background-image {
     object-fit: cover;
   }
@@ -9808,7 +9812,7 @@ figcaption {
   }
 }
 
-/* --- END genskins-hml1.webflow.shared.49914bcd9.css --- */
+/* --- END genskins-hml1.webflow.shared.dd2dd75bf.css --- */
 
 /* --- BEGIN swiper-bundle.min.css --- */
 /**

@@ -109,6 +109,16 @@
         "name": "boolean",
         "category": "TRUE_FALSE"
       }
+    },
+    {
+      "key": "items",
+      "namespace": "accordion",
+      "name": "Accordion Items",
+      "description": "",
+      "type": {
+        "name": "json",
+        "category": "JSON"
+      }
     }
   ],
   "variant": [

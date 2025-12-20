@@ -169,6 +169,79 @@
 	}
 
 	// ========================================
+	// SOBRE HOME SECTION ANIMATIONS
+	// ========================================
+	function initSobreHomeAnimations() {
+		if (typeof gsap !== "undefined") {
+			gsap.registerPlugin(ScrollTrigger);
+			const section = document.querySelector(".secton_sobre_home");
+			const image = document.querySelector(".sobre-home-image");
+			const content = document.querySelector(".sobre-home-content");
+
+			if (!section || !image) return;
+
+			// Set initial state for the image
+			gsap.set(image, { scale: 1 });
+
+			// Initial fade in for image (opacity only, no scale)
+			gsap.fromTo(
+				image,
+				{ opacity: 0 },
+				{
+					opacity: 1,
+					duration: 1.2,
+					ease: "power2.out",
+					scrollTrigger: {
+						trigger: section,
+						start: "top 85%",
+						end: "top 60%",
+						toggleActions: "play none none reverse",
+					},
+				}
+			);
+
+			// Image zoom/parallax effect on scroll (smooth zoom within section bounds)
+			gsap.fromTo(
+				image,
+				{ scale: 1 },
+				{
+					scale: 1.08,
+					ease: "power1.out",
+					scrollTrigger: {
+						trigger: section,
+						start: "top 80%",
+						end: "bottom 20%",
+						scrub: 2,
+						invalidateOnRefresh: true,
+					},
+				}
+			);
+
+			// Fade in content from the right
+			if (content) {
+				gsap.fromTo(
+					content,
+					{ opacity: 0, x: 50 },
+					{
+						opacity: 1,
+						x: 0,
+						duration: 1,
+						ease: "power2.out",
+						scrollTrigger: {
+							trigger: section,
+							start: "top 80%",
+							end: "top 50%",
+							toggleActions: "play none none reverse",
+						},
+					}
+				);
+			}
+		} else {
+			setTimeout(initSobreHomeAnimations, 100);
+		}
+	}
+
+	// ========================================
 	// GSAP MARQUEE ANIMATIONS
 	// ========================================
 	function initGSAPMarquees() {
@@ -395,6 +468,7 @@
 		initNavigationAnimations();
 		initLoadingAnimations();
 		initGSAPMarquees();
+		initSobreHomeAnimations();
 
 		// Handle window resize events
 		window.addEventListener(
@@ -431,6 +505,7 @@
 		initNavigationAnimations,
 		initLoadingAnimations,
 		initGSAPMarquees,
+		initSobreHomeAnimations,
 		isInViewport,
 		debounce,
 	};

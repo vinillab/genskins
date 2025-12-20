@@ -10,18 +10,18 @@
 									alt="{{ section.settings.image.alt | default: 'Foto ilustrativa sobre a GENSKINS' }}"
 									src="{{ section.settings.image | image_url: width: 1200 }}"
 									loading="eager"
-									class="header19_image">
+									class="header19_image sobre-home-image">
 							{% else %}
 								<img
 									alt="Foto ilustrativa sobre a GENSKINS"
 									src="{{ 'foto-home-sobre.jpg' | asset_url }}"
 									loading="eager"
-									class="header19_image">
+									class="header19_image sobre-home-image">
 							{% endif %}
 						</div>
 						<div
 							id="w-node-_1d5ae1a6-4b25-5d93-fb88-8931f1bd0ea2-5982b5ee"
-							class="header19_content-right">
+							class="header19_content-right sobre-home-content">
 							<div class="text-rich-text-sobre-home w-richtext">
 								{% if section.settings.rich_text != blank %}
 									{{ section.settings.rich_text }}

@@ -1,0 +1,5 @@
+{
+  "liquid.lint.rules": {
+    "img-width-height": "off"
+  }
+}

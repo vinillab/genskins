@@ -1,3 +1,18 @@
+{%- comment -%}
+	Metafields used:
+	- product.metafields.custom.feature_image (file_reference - image)
+	- product.metafields.custom.feature_title (single_line_text_field - title)
+	- product.metafields.custom.feature_text_1 (single_line_text_field - first text)
+	- product.metafields.custom.feature_text_2 (single_line_text_field - second text)
+	- product.metafields.custom.feature_text_3 (single_line_text_field - third text)
+{%- endcomment -%}
+
+{%- assign feature_image = product.metafields.custom.feature_image -%}
+{%- assign feature_title = product.metafields.custom.feature_title | default: 'ESPINHA TRATADA EM 8H' -%}
+{%- assign feature_text_1 = product.metafields.custom.feature_text_1 | default: 'Protege' -%}
+{%- assign feature_text_2 = product.metafields.custom.feature_text_2 | default: 'Limpa' -%}
+{%- assign feature_text_3 = product.metafields.custom.feature_text_3 | default: 'Absorve' -%}
+
 <section class="section_layout207">
 	<div class="padding-global">
 		<div class="container-large">
@@ -7,20 +22,40 @@
 						<div
 							id="w-node-_95a46cc3-dfca-3e88-b2bf-462ae0f7db77-7dd3ce54"
 							class="layout207_image-wrapper">
-							<img
-								alt="Genskins"
-								src="{{ 'Shop_pag01-1.png' | asset_url }}"
-								loading="lazy"
-								class="layout207_image">
+							{%- if feature_image != blank -%}
+								<!-- liquid-disable img-width-height -->
+								<img
+									alt="{{ feature_image.alt | default: product.title }}"
+									src="{{ feature_image | img_url: '800x' }}"
+									loading="lazy"
+									class="layout207_image">
+							{%- else -%}
+								<!-- liquid-disable img-width-height -->
+								<img
+									alt="Genskins"
+									src="{{ 'Shop_pag01-1.png' | asset_url }}"
+									loading="lazy"
+									class="layout207_image">
+							{%- endif -%}
 						</div>
 						<div
 							id="w-node-_95a46cc3-dfca-3e88-b2bf-462ae0f7db79-7dd3ce54"
 							class="layout207_content-right">
 							<div class="layout207_item-list">
-								<p class="feature-list-title text-style-italic">ESPINHA TRATADA EM 8H</p>
-								<p class="features-list-text">Protege</p>
-								<p class="features-list-text">Limpa</p>
-								<p class="features-list-text"><span class="circled-text">Absorve</span></p>
+								{%- if feature_title != blank -%}
+									<p class="feature-list-title text-style-italic">{{ feature_title }}</p>
+								{%- endif -%}
+								{%- if feature_text_1 != blank -%}
+									<p class="features-list-text">{{ feature_text_1 }}</p>
+								{%- endif -%}
+								{%- if feature_text_2 != blank -%}
+									<p class="features-list-text">{{ feature_text_2 }}</p>
+								{%- endif -%}
+								{%- if feature_text_3 != blank -%}
+									<p class="features-list-text">
+										<span class="circled-text">{{ feature_text_3 }}</span>
+									</p>
+								{%- endif -%}
 							</div>
 						</div>
 					</div>

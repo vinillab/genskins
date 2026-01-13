@@ -184,6 +184,26 @@
 			.float-image {
 				transform-style: preserve-3d;
 			}
+			.circled-text {
+				position: relative;
+				display: inline-block;
+				line-height: 1;
+				z-index: 1;
+			}
+
+			.circled-text::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				z-index: -1;
+
+				transform: rotate(7.54deg) scale(1.15, 1.6);
+				transform-origin: center;
+
+				border: 3px solid #001aff;
+				border-radius: 50%;
+				pointer-events: none;
+			}
 		</style>
 	</div>
 	<div class="color-schemes w-embed">

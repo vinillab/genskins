@@ -15,7 +15,7 @@
       "header-home": {
         "type": "header-home",
         "settings": {
-          "desktop_banner": "shopify://shop_images/Prancheta_4_copiar.png",
+          "desktop_banner": "shopify://shop_images/692a18c907cacdc673a6c3f6_812bc77dc84a2f3b472e47ea2d6995a82cc1481c.png",
           "mobile_banner": "shopify://shop_images/gengen_1.png",
           "heading": "Design de cuidado",
           "sub_heading": ""
@@ -24,8 +24,8 @@
       "sobre-home": {
         "type": "sobre-home",
         "settings": {
-          "image": "shopify://shop_images/6941c43e596e37a11a6869ba_f169b2691060d472ec1505e7682f3fb5e3b9c636-otimizada.jpg",
-          "rich_text": "<h2>Cuidado com a<br/>pele do seu jeito.</h2><p><strong>Autoestima é poder.</strong> Genskins une design e tecnologia para criar patches que realmente entregam resultado. Tratamento que também comunica <strong>quem você é.</strong></p><p>Seu skincare vira acessório e faz parte do seu jeito de aparecer no mundo.</p>",
+          "image": "shopify://shop_images/foto-home-sobre.jpg",
+          "rich_text": "<h2>Design de cuidado</h2><p>Criamos objetos de pele feitos com <strong>hidrocolóide de alta performance</strong>. Essa tecnologia <br/><strong>controla a umidade, protege da contaminação <br/>e puxa a secreção da espinha</strong> para fora. <br/>O patch reduz atrito, desinflama, limpa o poro <br/>e acelera o reparo natural da pele.</p>",
           "button_text": "Sobre a GENSKINS",
           "button_link": "shopify://pages/sobre"
         }
@@ -33,28 +33,6 @@
       "section-quem": {
         "type": "section-quem",
         "blocks": {
-          "testimonial_card_UndWUa": {
-            "type": "testimonial_card",
-            "settings": {
-              "media_type": "video",
-              "video_mp4": "shopify://files/videos/IMG_2065_mp4.mp4",
-              "video_webm": "shopify://files/videos/IMG_2065_webm.webm",
-              "video_poster": "shopify://shop_images/687b9decde4053855982b5b1_6931ef65600b5848ca32a9d5_IMG_2065_poster.0000000.jpg",
-              "name": "Person Name",
-              "social_handle": "username",
-              "social_link": ""
-            }
-          },
-          "testimonial_card_jC9Uew": {
-            "type": "testimonial_card",
-            "settings": {
-              "media_type": "image",
-              "image": "shopify://shop_images/8e1ee62d378930539c593e0c6d5968afacefcb2b_1.png",
-              "name": "Jessica Lobo",
-              "social_handle": "@_jessicalobo",
-              "social_link": ""
-            }
-          },
           "testimonial_card_JYCmyT": {
             "type": "testimonial_card",
             "settings": {
@@ -68,8 +46,9 @@
           "testimonial_card_i4Lema": {
             "type": "testimonial_card",
             "settings": {
-              "media_type": "image",
+              "media_type": "video",
               "image": "shopify://shop_images/cca57eafcf7b9ea95cf912064ed85c9b63d05a7c_1.png",
+              "video_mp4": "shopify://files/videos/Julia.mov",
               "name": "Júlia Baroni",
               "social_handle": "juliabaronic",
               "social_link": ""
@@ -84,14 +63,36 @@
               "social_handle": "sofiasantino",
               "social_link": ""
             }
+          },
+          "testimonial_card_jC9Uew": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "image",
+              "image": "shopify://shop_images/8e1ee62d378930539c593e0c6d5968afacefcb2b_1.png",
+              "name": "Jessica Lobo",
+              "social_handle": "@_jessicalobo",
+              "social_link": ""
+            }
+          },
+          "testimonial_card_UndWUa": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "video",
+              "video_mp4": "shopify://files/videos/IMG_2065_mp4.mp4",
+              "video_webm": "shopify://files/videos/IMG_2065_webm.webm",
+              "video_poster": "shopify://shop_images/687b9decde4053855982b5b1_6931ef65600b5848ca32a9d5_IMG_2065_poster.0000000.jpg",
+              "name": "Person Name",
+              "social_handle": "username",
+              "social_link": ""
+            }
           }
         },
         "block_order": [
-          "testimonial_card_UndWUa",
-          "testimonial_card_jC9Uew",
           "testimonial_card_JYCmyT",
           "testimonial_card_i4Lema",
-          "testimonial_card_QCFBYN"
+          "testimonial_card_QCFBYN",
+          "testimonial_card_jC9Uew",
+          "testimonial_card_UndWUa"
         ],
         "settings": {
           "heading": "Quem está usando"
@@ -104,7 +105,7 @@
             "type": "formula_item",
             "settings": {
               "heading": "<p>Absorção de exsudato</p>",
-              "text": "<p>Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço.t</p>"
+              "text": "<p>Quando aplicado sobre a acne, o hidrocoloide absorve a secreção (exsudato) da lesão, formando um gel que ajuda a reduzir a inflamação e o inchaço.</p>"
             }
           },
           "formula_item_ULNLJE": {
@@ -118,7 +119,7 @@
             "type": "formula_item",
             "settings": {
               "heading": "<p>Proteção Física</p>",
-              "text": "<p>O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura...</p>"
+              "text": "<p>O adesivo atua como uma barreira física que protege a área tratada de bactérias, poeira e outros contaminantes, prevenindo infecções e permitindo uma cicatrização segura.</p>"
             }
           }
         },

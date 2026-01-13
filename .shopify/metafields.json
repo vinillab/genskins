@@ -119,6 +119,16 @@
         "name": "json",
         "category": "JSON"
       }
+    },
+    {
+      "key": "skin-care-features",
+      "namespace": "shopify",
+      "name": "Recursos de cuidados com a pele",
+      "description": "Identifica os benefícios dos produtos de cuidados com a pele, como durabilidade ou proteção UVA/UVB",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [

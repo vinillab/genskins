@@ -1,268 +1,328 @@
 {
-  "article": [],
-  "blog": [],
-  "collection": [
-    {
-      "key": "custom_formula_image",
-      "namespace": "custom",
-      "name": "custom.formula_image",
-      "description": "",
-      "type": {
-        "name": "file_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "custom_formula_heading",
-      "namespace": "custom",
-      "name": "custom.formula_heading",
-      "description": "",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    }
-  ],
-  "company": [],
-  "company_location": [],
-  "location": [],
-  "market": [],
-  "order": [],
-  "page": [],
-  "product": [
-    {
-      "key": "color-pattern",
-      "namespace": "shopify",
-      "name": "Cor",
-      "description": "Define a cor ou padrão principal, como azul ou listrado",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "toy-game-material",
-      "namespace": "shopify",
-      "name": "Material de brinquedo/jogo",
-      "description": "Identifica o principal material utilizado em um brinquedo ou jogo, como plástico ou madeira",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "doll-playset-features",
-      "namespace": "shopify",
-      "name": "Características dos bonecos/brinquedos",
-      "description": "Descreve as características especiais de bonecas ou kits de bonecas, como juntas articuladas ou colecionáveis",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "recommended-age-group",
-      "namespace": "shopify",
-      "name": "Faixa etária recomendada",
-      "description": "Identifica a faixa etária adequada para um produto, normalmente brinquedos e jogos; por exemplo, bebês, adolescentes",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    },
-    {
-      "key": "height",
-      "namespace": "custom",
-      "name": "Altura",
-      "description": "A height field used to make the product.",
-      "type": {
-        "name": "dimension",
-        "category": "MEASUREMENT"
-      }
-    },
-    {
-      "key": "width",
-      "namespace": "custom",
-      "name": "Largura",
-      "description": "A width field used to make the product.",
-      "type": {
-        "name": "dimension",
-        "category": "MEASUREMENT"
-      }
-    },
-    {
-      "key": "length",
-      "namespace": "custom",
-      "name": "Comprimento",
-      "description": "A length field used to make the product.",
-      "type": {
-        "name": "dimension",
-        "category": "MEASUREMENT"
-      }
-    },
-    {
-      "key": "custom_product",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Product",
-      "description": "Use to indicate whether or not the unique product identifiers (UPIs) GTIN, MPN, and brand are available for your product.",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    },
-    {
-      "key": "items",
-      "namespace": "accordion",
-      "name": "Accordion Items",
-      "description": "",
-      "type": {
-        "name": "json",
-        "category": "JSON"
-      }
-    },
-    {
-      "key": "skin-care-features",
-      "namespace": "shopify",
-      "name": "Recursos de cuidados com a pele",
-      "description": "Identifica os benefícios dos produtos de cuidados com a pele, como durabilidade ou proteção UVA/UVB",
-      "type": {
-        "name": "list.metaobject_reference",
-        "category": "REFERENCE"
-      }
-    }
-  ],
-  "variant": [
-    {
-      "key": "custom_label_4",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 4",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "custom_label_3",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 3",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "custom_label_2",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 2",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "custom_label_1",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 1",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "custom_label_0",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Custom Label 0",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "size_system",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Size System",
-      "description": "The country of the size system used by your product.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "size_type",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Size Type",
-      "description": "Your apparel product’s cut.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "mpn",
-      "namespace": "mm-google-shopping",
-      "name": "Google: MPN",
-      "description": "Your product’s Manufacturer Part Number (MPN).",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "gender",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Gender",
-      "description": "The gender for which your product is intended.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "condition",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Condition",
-      "description": "The condition of your product at time of sale.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "age_group",
-      "namespace": "mm-google-shopping",
-      "name": "Google: Age Group",
-      "description": "The demographic for which your product is intended.",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    }
-  ],
-  "shop": [
-    {
-      "key": "merchant_id",
-      "namespace": "mm_google_shopping_extension",
-      "name": "Google: Merchant ID",
-      "description": "Currently Linked Merchant Center ID",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "show_store_widget_app_embed_block",
-      "namespace": "mm_google_shopping_extension",
-      "name": "Google: Show Store Widget App Embed Block",
-      "description": "Indicates if the store widget app embed block should be shown.",
-      "type": {
-        "name": "boolean",
-        "category": "TRUE_FALSE"
-      }
-    }
-  ]
+	"article": [],
+	"blog": [],
+	"collection": [
+		{
+			"key": "custom_formula_image",
+			"namespace": "custom",
+			"name": "custom.formula_image",
+			"description": "",
+			"type": {
+				"name": "file_reference",
+				"category": "REFERENCE"
+			}
+		},
+		{
+			"key": "custom_formula_heading",
+			"namespace": "custom",
+			"name": "custom.formula_heading",
+			"description": "",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		}
+	],
+	"company": [],
+	"company_location": [],
+	"location": [],
+	"market": [],
+	"order": [],
+	"page": [],
+	"product": [
+		{
+			"key": "toy-game-material",
+			"namespace": "shopify",
+			"name": "Material de brinquedo/jogo",
+			"description": "Identifica o principal material utilizado em um brinquedo ou jogo, como plástico ou madeira",
+			"type": {
+				"name": "list.metaobject_reference",
+				"category": "REFERENCE"
+			}
+		},
+		{
+			"key": "doll-playset-features",
+			"namespace": "shopify",
+			"name": "Características dos bonecos/brinquedos",
+			"description": "Descreve as características especiais de bonecas ou kits de bonecas, como juntas articuladas ou colecionáveis",
+			"type": {
+				"name": "list.metaobject_reference",
+				"category": "REFERENCE"
+			}
+		},
+		{
+			"key": "recommended-age-group",
+			"namespace": "shopify",
+			"name": "Faixa etária recomendada",
+			"description": "Identifica a faixa etária adequada para um produto, normalmente brinquedos e jogos; por exemplo, bebês, adolescentes",
+			"type": {
+				"name": "list.metaobject_reference",
+				"category": "REFERENCE"
+			}
+		},
+		{
+			"key": "height",
+			"namespace": "custom",
+			"name": "Altura",
+			"description": "A height field used to make the product.",
+			"type": {
+				"name": "dimension",
+				"category": "MEASUREMENT"
+			}
+		},
+		{
+			"key": "width",
+			"namespace": "custom",
+			"name": "Largura",
+			"description": "A width field used to make the product.",
+			"type": {
+				"name": "dimension",
+				"category": "MEASUREMENT"
+			}
+		},
+		{
+			"key": "length",
+			"namespace": "custom",
+			"name": "Comprimento",
+			"description": "A length field used to make the product.",
+			"type": {
+				"name": "dimension",
+				"category": "MEASUREMENT"
+			}
+		},
+		{
+			"key": "custom_product",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Custom Product",
+			"description": "Use to indicate whether or not the unique product identifiers (UPIs) GTIN, MPN, and brand are available for your product.",
+			"type": {
+				"name": "boolean",
+				"category": "TRUE_FALSE"
+			}
+		},
+		{
+			"key": "items",
+			"namespace": "accordion",
+			"name": "Accordion Items",
+			"description": "",
+			"type": {
+				"name": "json",
+				"category": "JSON"
+			}
+		},
+		{
+			"key": "skin-care-features",
+			"namespace": "shopify",
+			"name": "Recursos de cuidados com a pele",
+			"description": "Identifica os benefícios dos produtos de cuidados com a pele, como durabilidade ou proteção UVA/UVB",
+			"type": {
+				"name": "list.metaobject_reference",
+				"category": "REFERENCE"
+			}
+		},
+		{
+			"key": "feature_image",
+			"namespace": "custom",
+			"name": "Imagem de Destaque",
+			"description": "",
+			"type": {
+				"name": "file_reference",
+				"category": "REFERENCE"
+			}
+		},
+		{
+			"key": "feature_title",
+			"namespace": "custom",
+			"name": "Título do destaque",
+			"description": "",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "feature_text_1",
+			"namespace": "custom",
+			"name": "Texto Item 1",
+			"description": "",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "feature_text_2",
+			"namespace": "custom",
+			"name": "Texto Item 2",
+			"description": "",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "feature_text_3",
+			"namespace": "custom",
+			"name": "Texto Item 3",
+			"description": "",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "cartela",
+			"namespace": "custom",
+			"name": "Cartela",
+			"description": "",
+			"type": {
+				"name": "list.metaobject_reference",
+				"category": "REFERENCE"
+			}
+		},
+		{
+			"key": "cores_disponiveis",
+			"namespace": "custom",
+			"name": "Cores Disponíveis",
+			"description": "Lista de cores disponíveis para a cartela do produto",
+			"type": {
+				"name": "list.color",
+				"category": "COLOR"
+			}
+		}
+	],
+	"variant": [
+		{
+			"key": "custom_label_4",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Custom Label 4",
+			"description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "custom_label_3",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Custom Label 3",
+			"description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "custom_label_2",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Custom Label 2",
+			"description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "custom_label_1",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Custom Label 1",
+			"description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "custom_label_0",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Custom Label 0",
+			"description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "size_system",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Size System",
+			"description": "The country of the size system used by your product.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "size_type",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Size Type",
+			"description": "Your apparel product’s cut.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "mpn",
+			"namespace": "mm-google-shopping",
+			"name": "Google: MPN",
+			"description": "Your product’s Manufacturer Part Number (MPN).",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "gender",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Gender",
+			"description": "The gender for which your product is intended.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "condition",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Condition",
+			"description": "The condition of your product at time of sale.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "age_group",
+			"namespace": "mm-google-shopping",
+			"name": "Google: Age Group",
+			"description": "The demographic for which your product is intended.",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		}
+	],
+	"shop": [
+		{
+			"key": "merchant_id",
+			"namespace": "mm_google_shopping_extension",
+			"name": "Google: Merchant ID",
+			"description": "Currently Linked Merchant Center ID",
+			"type": {
+				"name": "single_line_text_field",
+				"category": "TEXT"
+			}
+		},
+		{
+			"key": "show_store_widget_app_embed_block",
+			"namespace": "mm_google_shopping_extension",
+			"name": "Google: Show Store Widget App Embed Block",
+			"description": "Indicates if the store widget app embed block should be shown.",
+			"type": {
+				"name": "boolean",
+				"category": "TRUE_FALSE"
+			}
+		}
+	]
 }

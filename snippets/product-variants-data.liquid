@@ -1,14 +1,39 @@
-<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
-<script type="application/json" data-type="product-variations-data">
-[{%- for variant in product.variants -%}
-{%- capture unit_price -%}
-{%- render "unit-price", variant: variant -%}
-{%- endcapture -%}
-{%- if variant.featured_image -%}
-{%- assign featured_image = variant.featured_image -%}
-{%- else -%}
-{%- assign featured_image = product.featured_image -%}
-    {% endif -%}
-{"id":"{{variant.id}}","weight": {{ variant.weight | weight_with_unit: variant.weight_unit | json }}, "unit_price": {{- unit_price | escape | trim | json -}},"length": "{{ variant.metafields.udesly.length }}","height": "{{ variant.metafields.udesly.height }}","width": "{{ variant.metafields.udesly.width }}", "available": {{variant.available}}, "sku": "{{variant.sku}}", "barcode": "{{variant.barcode}}",{% if variant.compare_at_price > variant.price %}"compare_at_price": {{variant.compare_at_price | money | json}},{% endif %}"price": {{variant.price | money | json}},"option1": "{{ variant.option1 | handle }}", "option2": "{{ variant.option2 | handle }}", "option3": "{{ variant.option3 | handle }}", "featured_image": "{{featured_image | img_url: "master" }}", "more_images": {{ variant.metafields.udesly.more-images | json }} }{% unless forloop.last %},{% endunless %}
-    {%- endfor -%}]
+<input
+	type="hidden"
+	name="id"
+	value="{{ product.selected_or_first_available_variant.id }}">
+<script
+	type="application/json"
+	data-type="product-variations-data">
+	[{%- for variant in product.variants -%}
+	{%- capture unit_price -%}
+	{%- render "unit-price", variant: variant -%}
+	{%- endcapture -%}
+	{%- if variant.featured_image -%}
+		{%- assign featured_image = variant.featured_image -%}
+	{%- else -%}
+		{%- assign featured_image = product.featured_image -%}
+	{%- endif -%}
+	{
+		"id": "{{variant.id}}",
+		"weight": {{ variant.weight | weight_with_unit: variant.weight_unit | json }},
+		"unit_price": {{ unit_price | strip | json }},
+		"length": {{ variant.metafields.udesly.length | json }},
+		"height": {{ variant.metafields.udesly.height | json }},
+		"width": {{ variant.metafields.udesly.width | json }},
+		"available": {{variant.available}},
+		"sku": {{ variant.sku | json }},
+		"barcode": {{ variant.barcode | json }},{% if variant.compare_at_price > variant.price %}
+		"compare_at_price": {{variant.compare_at_price | money | json}},{% endif %}
+		"price": {{variant.price | money | json}},
+		"option1": {{ variant.option1 | handle | json }},
+		"option2": {{ variant.option2 | handle | json }},
+		"option3": {{ variant.option3 | handle | json }},
+		"option1_value": {{ variant.option1 | json }},
+		"option2_value": {{ variant.option2 | json }},
+		"option3_value": {{ variant.option3 | json }},
+		"featured_image": {{featured_image | img_url: "master" | json }},
+		"more_images": {{ variant.metafields.udesly.more-images | json }}
+	}{% unless forloop.last %},{% endunless %}
+	{%- endfor -%}]
 </script>

@@ -1,0 +1,203 @@
+{% comment %}
+	Renders product variant-picker
+
+	Accepts:
+	- product: {Object} product object.
+	- block: {Object} passing the block information.
+	- product_form_id: {String} Id of the product form to which the variant picker is associated.
+	Usage:
+	{% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+{% endcomment %}
+<style>
+	/* Variant Picker Styles */
+	.product-form__input--pill {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		border: none;
+		padding: 0;
+		margin: 0 0 20px 0;
+	}
+
+	.product-form__input--pill .form__label {
+		display: block;
+		width: 100%;
+		font-size: 14px;
+		font-weight: 500;
+		color: #666;
+		margin-bottom: 10px;
+	}
+
+	/* Hide the actual radio button */
+	.product-form__input--pill input[type='radio'] {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		pointer-events: none;
+	}
+
+	/* Style the label as a pill button */
+	.product-form__input--pill label {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 24px;
+		border: 1px solid #d0d0d0;
+		border-radius: 50px;
+		background-color: #fff;
+		color: #333;
+		font-size: 14px;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		min-width: 80px;
+		text-align: center;
+	}
+
+	/* Hover state */
+	.product-form__input--pill label:hover {
+		border-color: var(--color-scheme-1--color);
+	}
+
+	/* Selected state - when radio is checked */
+	.product-form__input--pill input[type='radio']:checked + label {
+		background-color: var(--color-scheme-1--color);
+		border-color: var(--color-scheme-1--color);
+		color: #fff;
+	}
+
+	/* Disabled/unavailable state */
+	.product-form__input--pill input[type='radio'].disabled + label {
+		opacity: 0.5;
+		cursor: not-allowed;
+		text-decoration: line-through;
+	}
+
+	/* Focus state for accessibility */
+	.product-form__input--pill input[type='radio']:focus + label {
+		outline: 2px solid var(--color-scheme-1--color);
+		outline-offset: 2px;
+	}
+
+	/* Hide visually hidden elements */
+	.product-form__input--pill .visually-hidden,
+	.product-form__input--pill .label-unavailable {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+</style>
+
+{%- unless product.has_only_default_variant -%}
+	<variant-selects
+		id="variant-selects-{{ section.id }}"
+		data-section="{{ section.id }}"
+		{{ block.shopify_attributes }}>
+		{%- for option in product.options_with_values -%}
+			{%- liquid
+				assign picker_type = 'button'
+			-%}
+			<fieldset class="js product-form__input product-form__input--pill">
+				<legend class="form_field-label">{{ option.name }}</legend>
+				{% render 'product-variant-options', product: product, option: option, block: block, picker_type: picker_type %}
+			</fieldset>
+		{%- endfor -%}
+
+		<script
+			type="application/json"
+			data-selected-variant>
+			{{ product.selected_or_first_available_variant | json }}
+		</script>
+
+		<!-- All variants data for JavaScript -->
+		<script
+			type="application/json"
+			data-all-variants>
+			{{ product.variants | json }}
+		</script>
+
+		<!-- Hidden input for variant ID - required for cart -->
+		<input
+			type="hidden"
+			name="id"
+			value="{{ product.selected_or_first_available_variant.id }}"
+			data-variant-id>
+	</variant-selects>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const variantSelects = document.querySelector('variant-selects');
+			if (!variantSelects) return;
+
+			const variantInput = variantSelects.querySelector('[data-variant-id]');
+			const allVariantsData = JSON.parse(variantSelects.querySelector('[data-all-variants]').textContent);
+			const optionInputs = variantSelects.querySelectorAll('input[type="radio"], select');
+
+			// Listen for changes on all option inputs
+			optionInputs.forEach(input => {
+				input.addEventListener('change', updateVariant);
+			});
+
+			function updateVariant() {
+				// Get all selected options
+				const selectedOptions = [];
+
+				// Get unique option names/positions
+				const optionGroups = {};
+				optionInputs.forEach(input => {
+					const name = input.name;
+					if (!optionGroups[name]) {
+						optionGroups[name] = [];
+					}
+					optionGroups[name].push(input);
+				});
+
+				// Get selected value for each option group
+				Object.keys(optionGroups).forEach((name, index) => {
+					const inputs = optionGroups[name];
+					let selectedValue = null;
+
+					inputs.forEach(input => {
+						if (input.type === 'radio' && input.checked) {
+							selectedValue = input.value;
+						} else if (input.tagName === 'SELECT') {
+							selectedValue = input.value;
+						}
+					});
+
+					if (selectedValue) {
+						selectedOptions.push(selectedValue);
+					}
+				});
+
+				// Find matching variant
+				const matchingVariant = allVariantsData.find(variant => {
+					return selectedOptions.every((option, index) => {
+						const variantOption = variant[`option${index + 1}`];
+						return variantOption === option;
+					});
+				});
+
+				if (matchingVariant && variantInput) {
+					variantInput.value = matchingVariant.id;
+					console.log('Variant updated:', matchingVariant.id, matchingVariant.title);
+				}
+			}
+		});
+	</script>
+{%- endunless -%}
+
+{%- if product.has_only_default_variant -%}
+	<!-- Single variant product - hidden input for cart -->
+	<input
+		type="hidden"
+		name="id"
+		value="{{ product.selected_or_first_available_variant.id }}">
+{%- endif -%}

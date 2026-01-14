@@ -43,6 +43,9 @@
 						</div>
 						<div class="sidebar-cart-item-details">
 							<div class="sidebar-cart-item-title">{{ item.product.title }}</div>
+							{%- if item.variant.title != 'Default Title' -%}
+								<div class="sidebar-cart-item-variant">{{ item.variant.title }}</div>
+							{%- endif -%}
 							<div class="sidebar-cart-item-price">{{ item.final_price | money }}</div>
 							<div class="sidebar-cart-item-quantity">
 								<button
@@ -207,6 +210,12 @@
 		font-weight: 600;
 		font-size: 16px;
 		color: var(--color-scheme-1--color);
+	}
+
+	.sidebar-cart-item-variant {
+		font-size: 13px;
+		color: #666;
+		font-weight: 400;
 	}
 
 	.sidebar-cart-item-price {
@@ -513,8 +522,12 @@
 				// Use the correct property names from Shopify cart API
 				const itemImage = item.image || item.featured_image || '';
 				const itemTitle = item.product_title || item.title || '';
+				const variantTitle = item.variant_title || '';
 				const itemPrice = item.final_price || item.price || 0;
 				const itemLinePrice = item.final_line_price || itemPrice * item.quantity || 0;
+
+				// Build variant HTML only if it's not "Default Title"
+				const variantHTML = variantTitle && variantTitle !== 'Default Title' ? `<div class="sidebar-cart-item-variant">${variantTitle}</div>` : '';
 
 				itemsHTML += `
         <div class="sidebar-cart-item" data-item-key="${item.key}">
@@ -523,6 +536,7 @@
           </div>
           <div class="sidebar-cart-item-details">
             <div class="sidebar-cart-item-title">${itemTitle}</div>
+            ${variantHTML}
             <div class="sidebar-cart-item-price">${formatMoney(itemPrice)}</div>
             <div class="sidebar-cart-item-quantity">
               <button class="quantity-btn quantity-decrease" data-item-key="${item.key}" data-product-id="${item.product_id}">-</button>

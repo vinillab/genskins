@@ -25,7 +25,7 @@
         "type": "sobre-home",
         "settings": {
           "image": "shopify://shop_images/foto-home-sobre.jpg",
-          "rich_text": "<h2>Design de cuidado</h2><p>Criamos objetos de pele feitos com <strong>hidrocolóide de alta performance</strong>. Essa tecnologia <br/><strong>controla a umidade, protege da contaminação <br/>e puxa a secreção da espinha</strong> para fora. <br/>O patch reduz atrito, desinflama, limpa o poro <br/>e acelera o reparo natural da pele.</p>",
+          "rich_text": "<h2>Design de cuidado</h2><p>Criamos objetos de pele feitos com <strong>hidrocolóide de alta performance</strong>. <br/>Essa tecnologia <strong>controla a umidade, protege da contaminação e puxa a secreção da espinha</strong> para fora. O patch reduz atrito, desinflama, limpa o poro e acelera o reparo natural da pele.</p>",
           "button_text": "Sobre a GENSKINS",
           "button_link": "shopify://pages/sobre"
         }
@@ -33,11 +33,32 @@
       "section-quem": {
         "type": "section-quem",
         "blocks": {
+          "testimonial_card_aUCCCE": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "video",
+              "video_mp4": "shopify://files/videos/Duda.mp4",
+              "name": "Duda Haas",
+              "social_handle": "dudahaas",
+              "social_link": ""
+            }
+          },
+          "testimonial_card_AxfzyD": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "video",
+              "video_mp4": "shopify://files/videos/liv.MOV",
+              "name": "liv",
+              "social_handle": "livresenhas",
+              "social_link": ""
+            }
+          },
           "testimonial_card_JYCmyT": {
             "type": "testimonial_card",
             "settings": {
               "media_type": "image",
               "image": "shopify://shop_images/a96371a1f772d458b60d3d2f3c5a18c3763fd153_1.jpg",
+              "video_mp4": "shopify://files/videos/Video Project.mp4",
               "name": "Giovanna Ferrarezi",
               "social_handle": "giovannaferrarezi",
               "social_link": ""
@@ -64,11 +85,21 @@
               "social_link": ""
             }
           },
+          "testimonial_card_wnHgeX": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "video",
+              "video_mp4": "shopify://files/videos/Video Project 1.mp4",
+              "name": "Person Name",
+              "social_handle": "gabezanqui",
+              "social_link": ""
+            }
+          },
           "testimonial_card_jC9Uew": {
             "type": "testimonial_card",
             "settings": {
               "media_type": "image",
-              "image": "shopify://shop_images/8e1ee62d378930539c593e0c6d5968afacefcb2b_1.png",
+              "image": "shopify://shop_images/jessicalobo.jpg",
               "name": "Jessica Lobo",
               "social_handle": "@_jessicalobo",
               "social_link": ""
@@ -81,18 +112,43 @@
               "video_mp4": "shopify://files/videos/IMG_2065_mp4.mp4",
               "video_webm": "shopify://files/videos/IMG_2065_webm.webm",
               "video_poster": "shopify://shop_images/687b9decde4053855982b5b1_6931ef65600b5848ca32a9d5_IMG_2065_poster.0000000.jpg",
-              "name": "Person Name",
-              "social_handle": "username",
+              "name": "Larissa Fortunati",
+              "social_handle": "larissafortunati",
+              "social_link": ""
+            }
+          },
+          "testimonial_card_tta7t9": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "video",
+              "video_mp4": "shopify://files/videos/isacadore.MOV",
+              "name": "Isadora Cadore",
+              "social_handle": "isacadore",
+              "social_link": ""
+            }
+          },
+          "testimonial_card_KxHf8C": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "video",
+              "video_mp4": "shopify://files/videos/thais.mp4",
+              "name": "Bruna Cohenes",
+              "social_handle": "brunacohenes",
               "social_link": ""
             }
           }
         },
         "block_order": [
+          "testimonial_card_aUCCCE",
+          "testimonial_card_AxfzyD",
           "testimonial_card_JYCmyT",
           "testimonial_card_i4Lema",
           "testimonial_card_QCFBYN",
+          "testimonial_card_wnHgeX",
           "testimonial_card_jC9Uew",
-          "testimonial_card_UndWUa"
+          "testimonial_card_UndWUa",
+          "testimonial_card_tta7t9",
+          "testimonial_card_KxHf8C"
         ],
         "settings": {
           "heading": "Quem está usando"

@@ -79,11 +79,12 @@
 						</div>
 					</div>
 				{% endfor %}
-			{% else %}
-				<div class="sidebar-cart-empty">
-					<p>Seu carrinho está vazio.</p>
-				</div>
-			{% endif %}
+		{% else %}
+			<div class="sidebar-cart-empty">
+				<p>Seu carrinho está vazio.</p>
+				<a href="/collections/all" class="sidebar-cart-checkout-btn">SHOP</a>
+			</div>
+		{% endif %}
 		</div>
 
 		<!-- Cart Footer -->
@@ -487,7 +488,7 @@
 			let cartFooter = document.querySelector('.sidebar-cart-footer');
 
 			if (cart.item_count === 0) {
-				cartItemsContainer.innerHTML = '<div class="sidebar-cart-empty"><p>Seu carrinho está vazio.</p></div>';
+				cartItemsContainer.innerHTML = '<div class="sidebar-cart-empty"><p>Seu carrinho está vazio.</p><a href="/collections/all" class="sidebar-cart-checkout-btn">SHOP</a></div>';
 				if (cartFooter) {
 					cartFooter.style.display = 'none';
 				}

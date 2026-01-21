@@ -357,6 +357,7 @@
 	document.addEventListener('DOMContentLoaded', function () {
 		const sidebarCart = document.getElementById('sidebar-cart');
 		const sidebarCartOverlay = document.getElementById('sidebar-cart-overlay');
+		const sidebarCartBackdrop = document.querySelector('.sidebar-cart-backdrop');
 		const closeBtn = document.getElementById('sidebar-cart-close');
 
 		// Function to open sidebar cart
@@ -392,12 +393,8 @@
 		// Close button event
 		closeBtn.addEventListener('click', closeSidebarCart);
 
-		// Backdrop click event
-		sidebarCartOverlay.addEventListener('click', function (e) {
-			if (e.target === sidebarCartOverlay) {
-				closeSidebarCart();
-			}
-		});
+		// Backdrop click event - close when clicking on the dark overlay area
+		sidebarCartBackdrop.addEventListener('click', closeSidebarCart);
 
 		// Quantity increase/decrease functionality
 		document.addEventListener('click', function (e) {

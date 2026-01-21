@@ -84,7 +84,9 @@
 								class="product-header7_product-details">
 								<h1 class="product-title">{{ product.title }}</h1>
 								<div class="spacer-xxsmall"></div>
-								<p class="produt-sub-title">23 adesivos secativos para acne</p>
+	{%- if product.metafields.custom.subtitle != blank -%}
+								<p class="produt-sub-title">{{ product.metafields.custom.subtitle }}</p>
+							{%- endif -%}
 								<div class="spacer-small"></div>
 								<div class="product-header7_price-wrapper">
 									{%- if product.compare_at_price > product.price -%}

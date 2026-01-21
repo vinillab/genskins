@@ -33,13 +33,13 @@
       "section-quem": {
         "type": "section-quem",
         "blocks": {
-          "testimonial_card_aUCCCE": {
+          "testimonial_card_pVxk6A": {
             "type": "testimonial_card",
             "settings": {
-              "media_type": "video",
-              "video_mp4": "shopify://files/videos/Duda.mp4",
-              "name": "Duda Haas",
-              "social_handle": "dudahaas",
+              "media_type": "image",
+              "image": "shopify://shop_images/IMG_7779.png",
+              "name": "Lucas Pegoraro",
+              "social_handle": "sugarrluck",
               "social_link": ""
             }
           },
@@ -47,7 +47,7 @@
             "type": "testimonial_card",
             "settings": {
               "media_type": "video",
-              "video_mp4": "shopify://files/videos/liv.MOV",
+              "video_mp4": "shopify://files/videos/Video Project 3 (1).mp4",
               "name": "liv",
               "social_handle": "livresenhas",
               "social_link": ""
@@ -89,14 +89,15 @@
             "type": "testimonial_card",
             "settings": {
               "media_type": "video",
-              "video_mp4": "shopify://files/videos/Video Project 1.mp4",
-              "name": "Person Name",
+              "video_mp4": "shopify://files/videos/gabe.mp4",
+              "name": "Gabe Zanqui",
               "social_handle": "gabezanqui",
               "social_link": ""
             }
           },
           "testimonial_card_jC9Uew": {
             "type": "testimonial_card",
+            "disabled": true,
             "settings": {
               "media_type": "image",
               "image": "shopify://shop_images/jessicalobo.jpg",
@@ -109,9 +110,7 @@
             "type": "testimonial_card",
             "settings": {
               "media_type": "video",
-              "video_mp4": "shopify://files/videos/IMG_2065_mp4.mp4",
-              "video_webm": "shopify://files/videos/IMG_2065_webm.webm",
-              "video_poster": "shopify://shop_images/687b9decde4053855982b5b1_6931ef65600b5848ca32a9d5_IMG_2065_poster.0000000.jpg",
+              "video_mp4": "shopify://files/videos/larissa.mp4",
               "name": "Larissa Fortunati",
               "social_handle": "larissafortunati",
               "social_link": ""
@@ -136,10 +135,20 @@
               "social_handle": "brunacohenes",
               "social_link": ""
             }
+          },
+          "testimonial_card_aUCCCE": {
+            "type": "testimonial_card",
+            "settings": {
+              "media_type": "video",
+              "video_mp4": "shopify://files/videos/Duda.mp4",
+              "name": "Duda Haas",
+              "social_handle": "dudahaas",
+              "social_link": ""
+            }
           }
         },
         "block_order": [
-          "testimonial_card_aUCCCE",
+          "testimonial_card_pVxk6A",
           "testimonial_card_AxfzyD",
           "testimonial_card_JYCmyT",
           "testimonial_card_i4Lema",
@@ -148,7 +157,8 @@
           "testimonial_card_jC9Uew",
           "testimonial_card_UndWUa",
           "testimonial_card_tta7t9",
-          "testimonial_card_KxHf8C"
+          "testimonial_card_KxHf8C",
+          "testimonial_card_aUCCCE"
         ],
         "settings": {
           "heading": "Quem está usando"

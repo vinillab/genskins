@@ -16,7 +16,7 @@
         "type": "header-home",
         "settings": {
           "desktop_banner": "shopify://shop_images/692a18c907cacdc673a6c3f6_812bc77dc84a2f3b472e47ea2d6995a82cc1481c.png",
-          "mobile_banner": "shopify://shop_images/gengen_1.png",
+          "mobile_banner": "shopify://shop_images/capamobile.png",
           "heading": "Design de cuidado",
           "sub_heading": ""
         }
@@ -208,5 +208,8 @@
         "settings": {}
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": []
   }
 }

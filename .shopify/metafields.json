@@ -189,6 +189,16 @@
         "name": "list.color",
         "category": "COLOR"
       }
+    },
+    {
+      "key": "subtitle",
+      "namespace": "custom",
+      "name": "Subtitle",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
     }
   ],
   "variant": [
